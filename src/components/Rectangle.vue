@@ -1,12 +1,14 @@
 <template>
-  <div class="w-120 h-120 bg-yellow-400 flex items-center justify-center">
-    <p>{{ text }}</p>
+  <div class="w-32 h-32 bg-yellow-400 flex items-center justify-center">
+    
+      {{ text }}
+
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Rectangle120',
+  name: 'Rectangle',
   props: {
     text: {
       type: String,
