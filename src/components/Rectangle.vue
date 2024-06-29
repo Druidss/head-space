@@ -1,8 +1,8 @@
 <template>
   <div class="w-32 h-32 bg-yellow-400 flex items-center justify-center">
-    
-      {{ text }}
-
+     <div>
+      {{ text }}<br>
+      {{ number }}</div>
   </div>
 </template>
 
@@ -11,6 +11,10 @@ export default {
   name: 'Rectangle',
   props: {
     text: {
+      type: String,
+      required: true,
+    },
+    number: {
       type: String,
       required: true,
     },
