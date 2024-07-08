@@ -12,6 +12,7 @@
       current: 'currentColor',
       vi: '#1450EA',
       bgGray: '#424B59',
+      viWhite: '#FEFEFE',
     }
   },
   plugins: [

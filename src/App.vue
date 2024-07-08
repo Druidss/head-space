@@ -1,12 +1,15 @@
 <script>
 import NavigationColumn from './components/NavigationColumn.vue'
 import Rectangle from './components/Rectangle.vue'
-// import Slider from "vue3-slider"
+import Effect from './components/Effect.vue'
+import { Slider } from 'ant-design-vue';
 
 export default {
   components: {
     NavigationColumn,
     Rectangle,
+    Effect,
+    Slider  
   },
   data() {
     return {
@@ -14,6 +17,11 @@ export default {
     }
   }
 }
+  import { ref } from 'vue';
+  const valueVolume = ref(0);
+  const valueReverb = ref(0);
+  const valueDelay = ref(0);
+  const valueFliter = ref(0);
 </script>
 
 <template>
@@ -22,57 +30,63 @@ export default {
     <NavigationColumn />
     
     <div class="w-9/10 w-screen border-l-2 border-gray-500">
-
       <h1 class="text-8xl text-center my-10">The Head Space</h1>
       <button class="absolute bottom-8 right-4 rounded-full m-4 p-2  text-white border border-vi ">Download Stems</button>
 
       <div class="flex items-center justify-center border border-vi m-4">
-        <div class="w-30 bg-gray-600">
-          <h1 class=" text-3xl text-white bg-bgGray text-center p-2">"Ginger"</h1>
-          <div>
+        <div class="w-30">
+          <h1 class=" text-3xl text-viWhite bg-bgGray text-center p-6">"Ginger"</h1>
+          <div class="grid justify-center">
             <Rectangle class="p-4 bg-vi" text="Pause" />
             <Rectangle class='border border-vi'text="Key" number="Emin" />
-            <Rectangle class='border border-vi' text="Tempo" number="90Bpm" />
+            <Rectangle class='border border-vi' text="Tempo"  number="90Bpm" />
           </div>
         </div>
 
-        <div class="w-70 flex">
-          <div class="flex flex-row">
-          <!-- <h1 class="text-3xl">Effect Board</h1> -->
-          <div class="h-1/2 bg-gray-800 m-4">
-              <Rectangle text="Volume" />
-              <div class="m-4w-120 h-120 bg-yellow-400 rounded-full flex items-center justify-center">
-              <!-- <Slider v-model="data" color="#FB278D" track-color="#FEFEFE" /> -->
+        <div class="w-70">
+          <div class="h-1/2 bg-gray-800 m-4 flex flex-row justify-between">
+             <!-- <h1 class="text-3xl">Effect Board</h1> -->
+              <div class="flex flex-col justify-between">
+              <Effect text="VOLUME" />
+              <Slider id="volume" v-model:value="valueVolume" />
               </div>
-              <Rectangle text="Reverb" />
-              <div class="w-120 h-120 bg-yellow-400 rounded-full flex items-center justify-center">
-                <p>60%</p>
+
+              <div class="flex flex-col">
+              <Effect text="REVERB" />
+              <Slider id="volume" v-model:value="valueReverb" />
+              </div> 
+
+              <div class="flex flex-col">
+              <Effect text="DELAY" />
+              <Slider id="volume" v-model:value="valueDelay" />
               </div>
-              <Rectangle text="Reverb" />
-              <div class="w-120 h-120 bg-yellow-400 rounded-full flex items-center justify-center">
-                <p>60%</p>
+             
+              <div class="flex flex-col">
+              <Effect text="FLITER" />
+              <Slider id="volume" v-model:value="valueFliter" />
               </div>
-            </div>
+            
           </div>
 
-          <div class="h-1/2 bg-gray-800 m-4">
-            <Rectangle text="Delay" />
-            <div class="w-120 h-120 bg-yellow-400 rounded-full flex items-center justify-center">
-              <p>40%</p>
-            </div>
-            <Rectangle text="Filter" />
-            <div class="w-120 h-120 bg-yellow-400 rounded-full flex items-center justify-center">
-              <p>20%</p>
-            </div>
-            <Rectangle text="Filter" />
-            <div class="w-120 h-120 bg-yellow-400 rounded-full flex items-center justify-center">
-              <p>20%</p>
-            </div>
+          <div class="h-1/2 bg-gray-800 m-4 flex flex-row">
+            <Effect text="PIANO" />
+            <Effect text="DRUMS" />
+            <Effect text="HORNS" />
+            <Effect text="BASS" />
+            <Effect text="SYTH" />
           </div>
+
         </div>
       </div>
     </div>
   </div>
 </template>
 
-<!-- <style src="@vueform/slider/themes/default.css"></style> -->
+
+
+<style scoped>
+.code-box-demo .ant-slider {
+  margin-bottom: 16px;
+}
+</style>
+
