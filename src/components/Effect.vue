@@ -11,7 +11,7 @@
 
 <script>
 import * as Tone from 'tone'; 
-import { playDrums } from '../tone'; 
+import { playPiano, playDrums } from '../tone'; 
 Tone.start();
 export default {
   name: 'Rectangle',
@@ -25,8 +25,7 @@ methods: {
     playInstrument() {
       switch (this.text) {
         case 'PIANO':
-          const piano = new Tone.Synth().toDestination();
-          piano.triggerAttackRelease('C4', '8n');
+          playPiano();
           break;
         case 'DRUMS':
           playDrums();
