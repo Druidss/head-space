@@ -10,12 +10,17 @@
     extend: {},
     colors: {
       current: 'currentColor',
-      vi: '#1450EA',
+      vi: '#A44A3F',
       bgGray: '#424B59',
-      viWhite: '#FEFEFE',
+      viWhite: '#FCFCFC',
+    },
+    rotate: {
+      '270': '270deg',
+    },
+    backgroundImage: {
+      'texture': "url('/src/assets/texture.png')",
     }
   },
   plugins: [
-    // require('@vueform/slider/tailwind'),
   ],
   }

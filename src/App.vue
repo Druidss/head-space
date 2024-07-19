@@ -25,15 +25,18 @@ export default {
 </script>
 
 <template>
-  <div class="flex w-screen bg-orange-500">
+  <div class="flex w-screen bg-vi">
+    <div>
+    <h1 class="text-8xl text-center my-10 rotate-270 min-h-fit ">JOHNDA LEMON</h1>
+    <h1 class="text-xl text-center my-10 rotate-270">The Head Space</h1>
+    </div>
 
-    <NavigationColumn />
-    
-    <div class="w-9/10 w-screen border-l-2 border-gray-500">
-      <h1 class="text-8xl text-center my-10">The Head Space</h1>
-      <button class="absolute bottom-8 right-4 rounded-full m-4 p-2  text-white border border-vi ">Download Stems</button>
+    <div class="w-9/10 h-full border-l-2">
+      <NavigationColumn />
+      <h1 class="text-8xl text-center my-10 h-full">The Head Space</h1>
+      <button class="absolute bottom-8 right-4 rounded-full m-4 p-2  text-white border border-viWhite ">Download Stems</button>
 
-      <div class="flex items-center justify-center border border-vi m-4">
+      <div class="flex items-center justify-center border border-viWhite m-4 p-8">
         <div class="w-30">
           <h1 class=" text-3xl text-viWhite bg-bgGray text-center p-6">"Ginger"</h1>
           <div class="grid justify-center">

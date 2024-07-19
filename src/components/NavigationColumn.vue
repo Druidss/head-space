@@ -1,6 +1,6 @@
 <template>
-  <div class="w-1/10  h-screen border-solid border-black flex flex-col justify-between">
-    <div class="mt-10">
+  <div class="h-1/10  w-screen border-solid border-viwhite flex justify-between mx-auto">
+    <div class="mt-10 flex flex-row">
       <a href="#" class="block py-2 px-4">Player</a>
       <a href="#" class="block py-2 px-4">Album</a>
       <a href="#" class="block py-2 px-4">About</a>
