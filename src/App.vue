@@ -36,7 +36,7 @@ export default {
       <!-- <h1 class="text-8xl text-center my-10">The Head Space</h1> -->
       <!-- <button class="absolute bottom-8 right-4 rounded-full m-4 p-2  text-white border border-viWhite ">Download Stems</button> -->
 
-      <div class="flex items-center justify-center border border-viWhite m-4 p-8 ">
+      <div class="flex items-center justify-center border border-viWhite my-32 p-8 ">
         <div class="w-30">
           <h1 class=" text-3xl text-vi bg-viWhite  text-center p-6">"Ginger"</h1>
           <div class="grid justify-center">
