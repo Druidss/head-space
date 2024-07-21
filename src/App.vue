@@ -25,20 +25,20 @@ export default {
 </script>
 
 <template>
-  <div class="flex  h-screen bg-vi">
-    <div class="flex flex-col justify-center items-center w-1/10 h-screen">  
-    <h1 class="text-8xl text-center rotate-270  ">JOHNDA LEMON</h1>
-    <h1 class="text-2xl text-center rotate-270">The Head Space</h1>
+  <div class="flex w-screen  h-screen bg-vi">
+    <div class="flex flex-col justify-center items-center w-1/10">  
+      <h1 class="text-6xl text-center rotate-270 text-viWhite">JOHNDA LEMON</h1>
+      <h1 class="text-2xl text-center rotate-270 text-viWhite translate-x-12">The Head Space</h1>
     </div>
 
-    <div class="w-9/10 h-full">
+    <div class="w-9/10 h-screen">
       <NavigationColumn />
-      <h1 class="text-8xl text-center my-10 h-full">The Head Space</h1>
+      <!-- <h1 class="text-8xl text-center my-10">The Head Space</h1> -->
       <!-- <button class="absolute bottom-8 right-4 rounded-full m-4 p-2  text-white border border-viWhite ">Download Stems</button> -->
 
-      <div class="flex items-center justify-center border border-viWhite m-4 p-8 h-screen border">
+      <div class="flex items-center justify-center border border-viWhite m-4 p-8 ">
         <div class="w-30">
-          <h1 class=" text-3xl text-viWhite bg-bgGray text-center p-6">"Ginger"</h1>
+          <h1 class=" text-3xl text-vi bg-viWhite  text-center p-6">"Ginger"</h1>
           <div class="grid justify-center">
             <Rectangle class="p-4 bg-vi" text="Pause" />
             <Rectangle class='border border-vi'text="Key" number="Emin" />
@@ -47,7 +47,7 @@ export default {
         </div>
 
         <div class="w-70">
-          <div class="h-1/2 bg-gray-800 m-4 flex flex-row justify-between">
+          <div class="h-1/2 bg-gray-800 m-8 flex flex-row justify-between">
              <!-- <h1 class="text-3xl">Effect Board</h1> -->
               <div class="flex flex-col justify-between">
               <Effect text="VOLUME" />
@@ -71,7 +71,7 @@ export default {
             
           </div>
 
-          <div class="h-1/2 bg-gray-800 m-4 flex flex-row">
+          <div class="h-1/2 bg-gray-800 m-8 flex flex-row gap-4">
             <Effect text="PIANO" />
             <Effect text="DRUMS" />
             <Effect text="HORNS" />

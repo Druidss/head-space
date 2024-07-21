@@ -13,6 +13,8 @@
       vi: '#A44A3F',
       bgGray: '#424B59',
       viWhite: '#FCFCFC',
+      viBlack: '#02020A',
+      viOrange: '#FF9153',
     },
     rotate: {
       '270': '270deg',
