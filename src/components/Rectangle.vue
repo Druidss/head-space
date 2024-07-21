@@ -1,5 +1,5 @@
 <template>
-  <div class="w-32 h-32 bg-yellow-400 flex items-center justify-center">
+  <div class="w-32 h-32 bg-yellow-400 flex items-center justify-center bg-vi">
      <div>
       {{ text }}<br>
       {{ number }}</div>
