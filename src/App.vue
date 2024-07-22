@@ -26,9 +26,9 @@ export default {
 
 <template>
   <div class="flex w-screen  h-screen bg-vi">
-    <div class="flex flex-col justify-center items-center w-1/10">  
+    <div class="flex flex-col justify-center items-center w-1/10 md:w-auto">  
       <h1 class="text-6xl text-center rotate-270 text-viWhite">JOHNDA LEMON</h1>
-      <h1 class="text-2xl text-center rotate-270 text-viWhite translate-x-12">The Head Space</h1>
+      <h1 class="text-2xl text-center rotate-270 text-viWhite translate-x-16">The Head Space</h1>
     </div>
 
     <div class="w-9/10 h-screen">
@@ -36,7 +36,7 @@ export default {
       <!-- <h1 class="text-8xl text-center my-10">The Head Space</h1> -->
       <!-- <button class="absolute bottom-8 right-4 rounded-full m-4 p-2  text-white border border-viWhite ">Download Stems</button> -->
 
-      <div class="flex items-center justify-center border border-viWhite my-32 p-8 ">
+      <div class="flex items-center justify-center border border-viWhite m-32 p-8 md:m-12 md:p-8  ">
         <div class="w-30">
           <h1 class=" text-3xl text-vi bg-viWhite  text-center p-6">"Ginger"</h1>
           <div class="grid justify-center">

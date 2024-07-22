@@ -1,5 +1,5 @@
 <template>
-  <div class="h-1/10  border-solid border-viwhite flex justify-between mx-auto">
+  <div class="h-1/10  border-solid border-viwhite flex justify-between mx-auto md:mx-12">
     <div class="mt-10 flex flex-row text-viWhite">
       <router-link
         v-for="(item, index) in navItems"
@@ -49,6 +49,6 @@ export default {
 .selected {
   background-color: #FCFCFC;
   color: #A44A3F;
-  text-shadow: 0 0 1px 02020A;
+  text-shadow: 5 5 20px #FCFCFC;
 }
 </style>

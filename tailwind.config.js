@@ -21,7 +21,8 @@
     },
     backgroundImage: {
       'texture': "url('/src/assets/texture.png')",
-    }
+    },
+    
   },
   plugins: [
   ],

@@ -4,9 +4,6 @@ import pianoUrl from "./assets/Main_piano.wav";
 
 Tone.start();
 
-
-
-
 const drums = new Tone.Player({
   url: drumsUrl,
 }).toDestination();
