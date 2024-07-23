@@ -1,10 +1,7 @@
-import Vue from 'vue'
-import Router from 'vue-router'
+import { createWebHistory, createRouter } from 'vue-router'
 
-Vue.use(Router)
 
-export default new Router({
-  routes: [
+const routes = [
     {
       path: '/',
       name: 'home',
@@ -13,32 +10,24 @@ export default new Router({
     {
       path: '/player',
       name: 'player',
-      component: () => import('@/views/Player.vue')
+      component: () => import('@/views/Home.vue')
     },
     {
       path: '/album',
       name: 'album',
-      component: () => import('@/views/Album.vue')
+      component: () => import('@/views/Player.vue')
     },
     {
       path: '/about',
       name: 'about',
-      component: () => import('@/views/About.vue')
+      component: () => import('@/views/Player.vue')
     },
-    {
-      path: '/spotify',
-      name: 'spotify',
-      component: () => import('@/views/Spotify.vue')
-    },
-    {
-      path: '/instagram',
-      name: 'instagram',
-      component: () => import('@/views/Instagram.vue')
-    },
-    {
-      path: '/soundcloud',
-      name: 'soundcloud',
-      component: () => import('@/views/SoundCloud.vue')
-    }
-  ]
+
+]
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes,
 })
+
+export default router
