@@ -1,5 +1,5 @@
 <template>
-  <div class="h-1/10  border-solid border-viwhite flex justify-between mx-auto md:mx-12">
+  <div class="h-1/10  border-solid border-viwhite flex justify-between mx-6 md:mx-4 ">
     <div class="mt-10 flex flex-row text-viWhite cursor-pointer ">
       <router-link
         v-for="(item, index) in navItems"
@@ -26,7 +26,6 @@
 </template>
 
 <script>
-// import {RouterLink, RouterView } from 'vue-router';
 export default {
 
   data() {

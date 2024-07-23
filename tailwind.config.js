@@ -20,7 +20,8 @@
       '270': '270deg',
     },
     backgroundImage: {
-      'texture': "url('/src/assets/texture.png')",
+      'texture': "url('@/assets/texture.png')",
+      'stem': "url('@/assets/stemplayer.png')",
     },
     
   },
