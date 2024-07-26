@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-  <div class="flex w-screen h-screen bg-vi">
+  <div class="flex w-screen h-screen bg-texture bg-vi bg-opacity-75">
     <div class="flex flex-col justify-center items-center w-1/10 md:w-auto">  
       <h1 class="text-6xl text-center rotate-270 text-viWhite">JOHNDA LEMON</h1>
       <h1 class="text-2xl text-center rotate-270 text-viWhite translate-x-16">The Head Space</h1>

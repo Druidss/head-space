@@ -22,6 +22,9 @@
     backgroundImage: {
       'texture': "url('@/assets/texture.png')",
       'stem': "url('@/assets/stemplayer.png')",
+      '1': "url('@/assets/imgs/1.png')",
+      '2': "url('@/assets/imgs/2.png')",
+      '3': "url('@/assets/imgs/3.png')",
     },
     
   },

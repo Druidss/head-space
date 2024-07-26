@@ -33,7 +33,7 @@ export default {
       selectedIndex: 0,
       socialIndex: 0,
       navItems: [
-        { text: 'Player', href: '#', routeName: 'player' },
+        { text: 'Player', href: '#', routeName: 'home' },
         { text: 'Album', href: '#', routeName: 'album' },
         { text: 'About', href: '#', routeName: 'about' },
       ],

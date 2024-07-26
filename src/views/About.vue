@@ -1,62 +1,62 @@
 <template>
-  <a-carousel arrows dots-class="slick-dots slick-thumb">
-    <template #customPaging="props">
-      <a>
-        <img :src="getImgUrl(props.i)" />
-      </a>
-    </template>
-    <div v-for="item in 4" :key="item">
-      <img :src="baseUrl + 'headspace' + item + '.jpg'" />
+  <div class="bg-texture bg-vi bg-opacity-75 h-screen w-screen">
+    <NavigationColumn />
+    <div class="h-5/6 w-5/6 mx-auto ">
+       <Carousel  autoplay>
+        <div>
+            <img  :src="imageSrc1" alt="">
+        </div>
+        <div>
+          <img  :src="imageSrc2" alt="">
+        </div>
+        <div>
+          <img  :src="imageSrc3" alt="">
+        </div>
+      </Carousel>
     </div>
-  </a-carousel>
+  </div>
+
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script>
+import NavigationColumn from '@/components/NavigationColumn.vue'
+import { Carousel } from 'ant-design-vue';
+import imageSrc1 from '@/assets/images/1.png';
+import imageSrc2 from '@/assets/images/2.png';
+import imageSrc3 from '@/assets/images/3.png';
 
-const baseUrl =
-  '@/assets/imgs';
-export default defineComponent({
-  setup() {
-    const getImgUrl = (i: number) => {
-      return `${baseUrl}abstract0${i + 1}.jpg`;
-    };
-    return {
-      baseUrl,
-      getImgUrl,
-    };
+
+export default {
+  components: {
+    NavigationColumn,
+    Carousel
   },
-});
+  data() {
+    return {
+      imageSrc1: imageSrc1,
+      imageSrc2: imageSrc2,
+      imageSrc3: imageSrc3
+    }
+  }
+}
 </script>
 
 <style scoped>
-/* For demo */
-.ant-carousel :deep(.slick-dots) {
-  position: relative;
+.ant-carousel :deep(.slick-slide) {
+  text-align: center;
   height: auto;
+  width: 40rem;
+  max-width: fit-content;
+  max-height: fit-content;
+  /* overflow: hidden; */
 }
-.ant-carousel :deep(.slick-slide img) {
-  border: 5px solid #fff;
-  display: block;
-  margin: auto;
-  max-width: 80%;
+
+.ant-carousel :deep(.slick-slide h3) {
+  color: #fff;
 }
-.ant-carousel :deep(.slick-arrow) {
-  display: none !important;
-}
-.ant-carousel :deep(.slick-thumb) {
-  bottom: 0px;
-}
-.ant-carousel :deep(.slick-thumb li) {
-  width: 60px;
-  height: 45px;
-}
-.ant-carousel :deep(.slick-thumb li img) {
-  width: 100%;
-  height: 100%;
-  filter: grayscale(100%);
-}
-.ant-carousel :deep .slick-thumb li.slick-active img {
-  filter: grayscale(0%);
+img {
+  object-fit: contain;
+  max-width: 60rem;
+  height: auto;
 }
 </style>
