@@ -48,7 +48,7 @@ export default {
   width: 40rem;
   max-width: fit-content;
   max-height: fit-content;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .ant-carousel :deep(.slick-slide h3) {
