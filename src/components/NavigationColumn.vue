@@ -1,6 +1,6 @@
 <template>
   <div class="h-1/10  border-solid border-viwhite flex justify-between mx-6 md:mx-4 ">
-    <div class="mt-10 flex flex-row text-viWhite cursor-pointer ">
+    <div class="mt-10 mx-56 md:mx-24 flex flex-row text-viWhite cursor-pointer ">
       <router-link
         v-for="(item, index) in navItems"
         :key="index"

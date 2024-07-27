@@ -1,7 +1,7 @@
 <template>
   <div class="bg-texture bg-vi bg-opacity-75 h-screen w-screen">
     <NavigationColumn />
-    <div class="h-5/6 w-5/6 mx-auto ">
+    <div class="h-screen w-5/6 mx-auto ">
        <Carousel  autoplay>
         <div>
             <img  :src="imageSrc1" alt="">
@@ -45,18 +45,14 @@ export default {
 .ant-carousel :deep(.slick-slide) {
   text-align: center;
   height: auto;
-  width: 40rem;
   max-width: fit-content;
   max-height: fit-content;
   overflow: hidden;
 }
-
-.ant-carousel :deep(.slick-slide h3) {
-  color: #fff;
-}
-img {
-  object-fit: contain;
-  max-width: 60rem;
+.ant-carousel :deep(.slick-slide img) {
+  width: 90%;
   height: auto;
+  overflow: hidden;
 }
+
 </style>
