@@ -1,5 +1,7 @@
 <template>
-  <div class="w-32 h-32 bg-yellow-400 flex items-center justify-center bg-vi">
+  <div class="w-32 h-32 bg-yellow-400 flex items-center justify-center bg-vi" 
+  @click="start"
+  >
      <div>
       {{ text }}<br>
       {{ number }}</div>
@@ -7,6 +9,8 @@
 </template>
 
 <script>
+import { start } from 'tone';
+import { startTransport } from '../tone';
 export default {
   name: 'Rectangle',
   props: {
@@ -19,6 +23,11 @@ export default {
       required: true,
     },
   },
+  methods: {
+    start() {
+      startTransport();
+    }
+  }
 };
 </script>
 
