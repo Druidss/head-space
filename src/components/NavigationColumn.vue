@@ -1,23 +1,22 @@
 <template>
-  <div class="h-1/10  border-solid border-viwhite flex justify-between mx-6 md:mx-4 ">
-    <div class="mt-10 mx-56 md:mx-24 flex flex-row text-viWhite cursor-pointer ">
+  <div class="h-1/10  border-solid border-viwhite flex justify-between mx-56 md:mx-24 ">
+    <div class="mt-4 flex flex-row text-viWhite cursor-pointer ">
       <router-link
         v-for="(item, index) in navItems"
         :key="index"
         :to="{ name: item.routeName }"
-        class="block py-2 px-4 m-1 router-nav"
-        :class="{ selected: selectedIndex === index }"
+        class="block py-2 px-4 m-1 router-nav text-vi hover:font-bold "
+        :class="{ selected: isSelected(item.routeName) }"
         @click.native="selectedIndex = index"
       >{{ item.text }}</router-link>
     </div>
 
-    <div class="mt-10 flex flex-row text-viWhite cursor-pointer">
+    <div class="mt-4 flex flex-row  cursor-pointer">
       <a
         v-for="(item, index) in socialItems"
         :key="index"
         :href="item.href"
-        class="block py-2 px-4 m-1"
-        :class="{ selected: socialIndex === index }"
+        class="block py-2 px-4 m-1 text-vi hover:font-bold"
         @click.native="socialIndex = index"
       >{{ item.text }}</a>
     </div>
@@ -27,7 +26,6 @@
 
 <script>
 export default {
-
   data() {
     return {
       selectedIndex: 0,
@@ -43,6 +41,11 @@ export default {
         { text: 'SoundCloud', href: 'https://on.soundcloud.com/D1oL5Q5ba58MuPvD8', routeName: 'soundcloud' },
       ],
     }
+  },
+  methods: {
+    isSelected(routeName) {
+      return this.$route.name === routeName;
+    }
   }
 }
 </script>
@@ -50,17 +53,11 @@ export default {
 <style>
 .selected {
   background-color: #FCFCFC;
-  color: #A44A3F;
+  font-weight: 700;
   text-shadow: 20 20 10px #02020A;
-  cursor: pointer;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
 }
 a:hover {
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
-  transition: box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
-}
-
-.router-nav:hover {
   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
   transition: box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
 }

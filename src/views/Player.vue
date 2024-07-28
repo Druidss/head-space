@@ -1,7 +1,7 @@
 
 
 <template>
-  <div class="bg-texture bg-vi bg-opacity-75 h-screen w-screen">
+  <div class="bg-texture bg-vi bg-opacity-5 h-screen w-screen">
     <NavigationColumn />
     <div class="bg-stem bg-contain bg-center  mx-auto my-6 h-5/6 w-5/6"
     ></div>

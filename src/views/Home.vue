@@ -25,16 +25,15 @@ export default {
 </script>
 
 <template>
-  <div class="flex w-screen h-screen bg-texture bg-vi bg-opacity-75">
-    <div class="flex flex-col justify-center items-center w-1/10 md:w-auto">  
+  <div class="flex w-screen h-screen bg-texture  bg-contain bg-center  bg-vi bg-opacity-15">
+    <!-- <div class="flex flex-col justify-center items-center w-1/10 md:w-auto">  
       <h1 class="text-6xl text-center rotate-270 text-viWhite">JOHNDA LEMON</h1>
       <h1 class="text-2xl text-center rotate-270 text-viWhite translate-x-16">The Head Space</h1>
-    </div>
+    </div> -->
 
-    <div class="w-9/10">
+    <div class="w-screen">
       <NavigationColumn />
-      <!-- <h1 class="text-8xl text-center my-10">The Head Space</h1> -->
-      <!-- <button class="absolute bottom-8 right-4 rounded-full m-4 p-2  text-white border border-viWhite ">Download Stems</button> -->
+      <button class="absolute bottom-2 right-4 rounded-full m-4 p-2  text-white border border-vi hover:bg-viSelect">Download Stems</button>
 
       <div class="flex items-center justify-center border border-viWhite mx-24 my-8 p-8 md:mx-6 md:p-6  ">
         <div class="w-30">

@@ -10,11 +10,12 @@
     extend: {},
     colors: {
       current: 'currentColor',
-      vi: '#A44A3F',
+      vi: '#7F4634',
       bgGray: '#424B59',
       viWhite: '#FCFCFC',
       viBlack: '#02020A',
       viOrange: '#FF9153',
+      viSelect: '#F9E0A0'
     },
     rotate: {
       '270': '270deg',
