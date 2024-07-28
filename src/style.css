@@ -13,6 +13,15 @@
   -moz-osx-font-smoothing: grayscale;
 } */
 
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('./assets/fonts/ClashDisplay-Variable.ttf'); 
+}
+@font-face {
+  font-family: 'Goudy';
+  src: url('./assets/fonts/goudy_bookletter_1911-webfont.ttf'); 
+}
+
 a {
   font-weight: 500;
   color: #7F4634;
@@ -45,7 +54,6 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #7F4634;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
 }
 button:focus,

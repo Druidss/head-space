@@ -5,7 +5,7 @@
         v-for="(item, index) in navItems"
         :key="index"
         :to="{ name: item.routeName }"
-        class="block py-2 px-4 m-1 router-nav text-vi hover:font-bold "
+        class="block py-2 px-4 m-1 router-nav text-vi font-display hover:font-semibold "
         :class="{ selected: isSelected(item.routeName) }"
         @click.native="selectedIndex = index"
       >{{ item.text }}</router-link>
@@ -16,7 +16,7 @@
         v-for="(item, index) in socialItems"
         :key="index"
         :href="item.href"
-        class="block py-2 px-4 m-1 text-vi hover:font-bold"
+        class="block py-2 px-4 m-1 text-vi font-display hover:font-semibold"
         @click.native="socialIndex = index"
       >{{ item.text }}</a>
     </div>
@@ -31,7 +31,7 @@ export default {
       selectedIndex: 0,
       socialIndex: 0,
       navItems: [
-        { text: 'Player', href: '#', routeName: 'home' },
+        { text: 'MIXER', href: '#', routeName: 'home' },
         { text: 'Album', href: '#', routeName: 'album' },
         { text: 'About', href: '#', routeName: 'about' },
       ],

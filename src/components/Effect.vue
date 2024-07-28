@@ -1,6 +1,6 @@
 <template>
   <div 
-    class="w-32 h-32 flex items-center justify-center radial-gradient bg-viOrange"
+    class="w-28 h-28 flex items-center justify-center radial-gradient bg-viOrange"
     @click="playInstrument"
   >
      <div class="m-4">

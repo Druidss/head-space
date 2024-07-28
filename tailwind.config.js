@@ -27,6 +27,12 @@
       '2': "url('@/assets/imgs/2.png')",
       '3': "url('@/assets/imgs/3.png')",
     },
+    fontFamily: {
+      'sans': ['Roboto', 'sans-serif'],
+      'serif': ['Merriweather', 'serif'],
+      'display': ['ClashDisplay', 'serif'],
+      'goudy': ['Goudy', 'serif'],
+    },
     
   },
   plugins: [
