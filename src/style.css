@@ -21,6 +21,10 @@
   font-family: 'Goudy';
   src: url('./assets/fonts/goudy_bookletter_1911-webfont.ttf'); 
 }
+@font-face {
+  font-family: 'Anisette';
+  src: url('./assets/fonts/Anisette-Bold.otf'); 
+}
 
 a {
   font-weight: 500;

@@ -32,6 +32,7 @@
       'serif': ['Merriweather', 'serif'],
       'display': ['ClashDisplay', 'serif'],
       'goudy': ['Goudy', 'serif'],
+      'anisette': ['Anisette', 'serif'],
     },
     
   },

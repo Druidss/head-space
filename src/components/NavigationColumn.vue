@@ -1,6 +1,6 @@
 <template>
-  <div class="h-1/10  border-solid border-viwhite flex justify-between mx-56 md:mx-24 ">
-    <div class="mt-4 flex flex-row text-viWhite cursor-pointer ">
+  <div class="h-1/10  border-b-2 border-solid border-vi flex justify-between mx-56 md:mx-24 ">
+    <div class="my-4 flex flex-row text-viWhite cursor-pointer ">
       <router-link
         v-for="(item, index) in navItems"
         :key="index"
@@ -11,7 +11,7 @@
       >{{ item.text }}</router-link>
     </div>
 
-    <div class="mt-4 flex flex-row  cursor-pointer">
+    <div class="my-4 flex flex-row  cursor-pointer">
       <a
         v-for="(item, index) in socialItems"
         :key="index"
@@ -61,4 +61,5 @@ a:hover {
   box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
   transition: box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
 }
+
 </style>
