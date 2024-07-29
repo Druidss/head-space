@@ -1,5 +1,6 @@
 import * as Tone from 'tone';
 import { useSamplerStore } from './stores/samplerStore';
+import { useEffectStore } from './stores/effectStore';
 import pianoUrl from "./assets/Ginger/GINGERPIANO.mp3";
 import drumsUrl from "./assets/Ginger/GINGERDRUMS.mp3";
 import hornsUrl from "./assets/Ginger/GINGERRHODES.mp3"
@@ -7,6 +8,7 @@ import bassUrl from "./assets/Ginger/GINGERBASS.mp3"
 import synthUrl from "./assets/Ginger/GINGERSYNTHS.mp3"
 
 const sampleStore = useSamplerStore();
+const effectStore = useEffectStore();
 
 //Init Players
 const pianoPlayer = new Tone.Player({
@@ -114,6 +116,31 @@ export function stopSample() {
         default:
           break;
       }
+    }
+  })
+}
+
+export function addEffects() {
+  effectStore.pipeLine.forEach(element => {
+    switch (element.sample) {
+      case 'PIANO':
+        
+        break;
+      case 'DRUMS':
+
+        break;
+      case 'HORNS':
+
+        break;
+      case 'BASS':
+        
+        break;
+      case 'SYTH':
+
+        break;
+      
+      default:
+        break;
     }
   })
 }

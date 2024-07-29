@@ -1,7 +1,7 @@
 <template>
   <div 
     class="w-32 h-32 flex items-center justify-center radial-gradient bg-viOrange"
-    @click="playInstrument"
+    @click="playInstrument(); playEffect()"
   >
      <div class="m-4">
       {{ text }}
@@ -13,10 +13,15 @@
 import * as Tone from 'tone'; 
 import { playSample, stopSample, startTransport } from '../tone'; 
 import { useSamplerStore } from '../stores/samplerStore';
+import { useEffectStore } from '../stores/effectStore';
 import { reactive } from 'vue';
+
 const samplerStore = useSamplerStore();
+const effectStore = useEffectStore();
+
 const start = Tone.start();
-console.log(start);
+//console.log(start);
+
 export default {
   name: 'Rectangle',
   props: {
@@ -79,6 +84,13 @@ methods: {
           console.log(this.text);
       }
     },
+    playEffect() {
+      console.log("Effect should be played")
+      effectStore.pipeLine.forEach(element => {
+        element.sample = this.text;
+      })
+      console.log(effectStore.pipeLine)
+    }
   },
 };
 </script>

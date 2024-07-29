@@ -3,6 +3,9 @@ import NavigationColumn from '@/components/NavigationColumn.vue'
 import Rectangle from '@/components/Rectangle.vue'
 import Effect from '@/components/Effect.vue'
 import { Slider } from 'ant-design-vue';
+import { useEffectStore } from '../stores/effectStore';
+
+
 
 export default {
   components: {
@@ -15,6 +18,11 @@ export default {
     return {
       value: 20
     }
+  },
+  setup() {
+    const effectStore = useEffectStore();
+    
+    return { effectStore }
   }
 }
   import { ref } from 'vue';
