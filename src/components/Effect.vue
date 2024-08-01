@@ -1,9 +1,9 @@
 <template>
   <div 
-    class="w-28 h-28 flex items-center justify-center radial-gradient bg-viOrange"
+    class="w-28 h-28 flex items-center justify-center radial-gradient bg-viOrange cursor-pointer"
     @click="playInstrument"
   >
-     <div class="m-4 font-display text-sm font-medium">
+     <div class="m-4 font-display text-sm font-medium ">
       {{ text }}
     </div>
   </div>
@@ -41,11 +41,6 @@ methods: {
 
 <style scoped>
 .radial-gradient {
-  background-image: radial-gradient(
-    farthest-corner at 50% 50%,
-    #FFACA2 20%,
-    #FF9153 50%
-  );
-  cursor: pointer;
+  background: radial-gradient(#FFF4D8 30%, #FCD777 100%);
 }
 </style>

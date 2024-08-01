@@ -1,5 +1,3 @@
-
-
 <template>
   <div class="bg-texture bg-cover bg-center h-screen w-screen">
     <NavigationColumn />

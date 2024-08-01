@@ -16,7 +16,7 @@
         v-for="(item, index) in socialItems"
         :key="index"
         :href="item.href"
-        class="block py-2 px-4 m-1 text-vi font-display hover:font-semibold"
+        class="block py-2 px-4 m-1 text-vi font-display hover:font-semibold link"
         @click.native="socialIndex = index"
       >{{ item.text }}</a>
     </div>
@@ -31,14 +31,14 @@ export default {
       selectedIndex: 0,
       socialIndex: 0,
       navItems: [
-        { text: 'Mixer', href: '#', routeName: 'home' },
-        { text: 'Album', href: '#', routeName: 'album' },
-        { text: 'About', href: '#', routeName: 'about' },
+        { text: 'mixer', href: '#', routeName: 'mixer' },
+        { text: 'album', href: '#', routeName: 'album' },
+        { text: 'about', href: '#', routeName: 'about' },
       ],
       socialItems: [
-        { text: 'Spotify', href: 'https://open.spotify.com/artist/4mZMlXKDeS8tEuMLn2SHRE?si=XeoevquKTJCdQdUPs4RBWg', routeName: 'spotify' },
-        { text: 'Instagram', href: 'https://www.instagram.com/johndalemon/?hl=de', routeName: 'instagram' },
-        { text: 'SoundCloud', href: 'https://on.soundcloud.com/D1oL5Q5ba58MuPvD8', routeName: 'soundcloud' },
+        { text: 'spotify', href: 'https://open.spotify.com/artist/4mZMlXKDeS8tEuMLn2SHRE?si=XeoevquKTJCdQdUPs4RBWg', routeName: 'spotify' },
+        { text: 'instagram', href: 'https://www.instagram.com/johndalemon/?hl=de', routeName: 'instagram' },
+        { text: 'soundcloud', href: 'https://on.soundcloud.com/D1oL5Q5ba58MuPvD8', routeName: 'soundcloud' },
       ],
     }
   },
@@ -57,7 +57,7 @@ export default {
   box-shadow: 5px 5px 0px #7F4634;
   text-transform: uppercase;
 }
-a:hover {
+.link:hover {
   background-color: #F9E0A0;
   box-shadow: 5px 5px 0px #7F4634;
   font-weight: 700;

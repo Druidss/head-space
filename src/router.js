@@ -8,9 +8,9 @@ const routes = [
       component: () => import('@/views/Home.vue')
     },
     {
-      path: '/player',
-      name: 'player',
-      component: () => import('@/views/Home.vue')
+      path: '/mixer',
+      name: 'mixer',
+      component: () => import('@/views/Mixer.vue')
     },
     {
       path: '/album',
