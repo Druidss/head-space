@@ -3,7 +3,7 @@
     class="w-28 h-28 flex items-center justify-center radial-gradient bg-viOrange"
     @click="playInstrument"
   >
-     <div class="m-4">
+     <div class="m-4 font-display text-sm font-medium">
       {{ text }}
     </div>
   </div>

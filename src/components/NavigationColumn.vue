@@ -1,5 +1,5 @@
 <template>
-  <div class="h-1/10  border-b-2 border-solid border-vi flex justify-between mx-56 md:mx-24 ">
+  <div class="h-1/10 w-9/12 border-b-2 border-solid border-vi flex justify-between mx-auto ">
     <div class="my-4 flex flex-row text-viWhite cursor-pointer ">
       <router-link
         v-for="(item, index) in navItems"
@@ -31,7 +31,7 @@ export default {
       selectedIndex: 0,
       socialIndex: 0,
       navItems: [
-        { text: 'MIXER', href: '#', routeName: 'home' },
+        { text: 'Mixer', href: '#', routeName: 'home' },
         { text: 'Album', href: '#', routeName: 'album' },
         { text: 'About', href: '#', routeName: 'about' },
       ],
@@ -52,13 +52,15 @@ export default {
 
 <style>
 .selected {
-  background-color: #FCFCFC;
+  background-color: #F9E0A0;
   font-weight: 700;
-  text-shadow: 20 20 10px #02020A;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.8);
+  box-shadow: 5px 5px 0px #7F4634;
+  text-transform: uppercase;
 }
 a:hover {
-  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+  background-color: #F9E0A0;
+  box-shadow: 5px 5px 0px #7F4634;
+  font-weight: 700;
   transition: box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
 }
 

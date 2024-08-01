@@ -29,21 +29,23 @@ export default {
 </script>
 
 <template>
-  <div class="flex w-screen h-screen bg-texture  bg-contain bg-center  bg-vi bg-opacity-25">
-    <div class="w-screen h-3/4 ">
-      <NavigationColumn />
-      <div class='border-l-2 border-vi '></div>
+  
+  <div class="flex w-screen h-screen flex-col  bg-texture bg-cover bg-center"
+  >
+  <NavigationColumn />
+    <div class="w-9/12 mx-auto">
+      
       <!-- text -->
-        <div class="flex justify-between items-center mx-56 mt-12 md:mx-24 border-r-2">
-          <div class="text-4xl font-anisette text-viSelect text-outline">jOHN DA LEMON</div>
-          <div class="text-4xl font-anisette text-viSelect text-outline">THE SOUL SANCTUARY</div>
+        <div class="flex justify-between items-center mt-12">
+          <div class="text-4xl font-anisette text-viSelect text-outline">john da lemon</div>
+          <div class="text-4xl font-anisette text-viSelect text-outline">thE sOul sanctuary</div>
         </div>
-      <div class="vert-line border-l-2 border-gray-400"></div>
+      <!-- <div class="vert-line border-l-2 border-gray-400"></div> -->
       <!-- player -->
-      <div class="flex items-center justify-center border-2 border-vi mx-56 mb-8 py-8 px-24 md:mx-24">
+      <div class="flex items-center justify-center border-2 border-vi mb-8 py-16 px-24">
 
         <div class="w-30">
-          <h1 class=" giner text-3xl text-vi bg-viWhite font-display  text-center p-2 font-bold border border-vi">"Ginger"</h1>
+          <h1 class=" giner text-3xl text-vi bg-viWhite font-display  text-center p-2 font-bold border-2 border-vi">"Ginger"</h1>
           <div class="grid justify-center">
             <Pause class="p-4 bg-vi" text="Pause" />
             <Rectangle class=''text="Key" number="Emin" />
@@ -52,11 +54,20 @@ export default {
         </div>
 
         <div class="w-70">
-          <div class="h-1/2 bg-gray-800 m-8 flex flex-row justify-between">
-             <!-- <h1 class="text-3xl">Effect Board</h1> -->
-              <div class="flex flex-col justify-between">
+          <h1 class="text-xl mx-8  px-4 font-display bg-viSelect linear giner"
+          >EFFECT BORARD</h1>
+          <div class="h-1/2 bg-gray-800 m-8 mb-4 flex flex-row justify-between ">
+            <div class="flex flex-col">
+           
               <Effect text="VOLUME" />
-              <Slider id="volume" class="" v-model:value="valueVolume" />
+              <Slider 
+                id="volume" class="" v-model:value="valueVolume" 
+                :theme="{
+                  token: {
+                  colorPrimary: '#FCC454',
+                  },
+                }"
+              />
               </div>
 
               <div class="flex flex-col">
@@ -73,9 +84,8 @@ export default {
               <Effect text="FLITER" />
               <Slider id="volume" v-model:value="valueFliter" />
               </div>
-            
           </div>
-
+          <h1 class="text-xl mx-8 font-display bg-viSelect px-4 linear giner">INSTRUMENT BORARD</h1>
           <div class="h-1/2 bg-gray-800 m-8 flex flex-row gap-4">
             <Effect text="PIANO" />
             <Effect text="DRUMS" />
@@ -87,13 +97,17 @@ export default {
         </div>
       </div>
 
-      <!-- group -->
-      <div class="border-t-2 border-vi md:mx-24 mt-52  md:mt-40 inset-0 flex justify-center items-center">
-        <div class="w-72 h-12 mt-2 flex items-center justify-center"><img :src="group" alt=""></div>
-      </div>
+    <div class="flex justify-end items-center mx-56 mt-4 md:mx-24 ">
+      <button class="rounded-full m-4 px-6 py-2  text-white  border-vi border-2 hover:bg-viSelect font-goudy ">Download Stems</button>
     </div>
-    
-    <button class="absolute bottom-16 right-20 rounded-full m-4 px-6 py-2  text-white  border-vi border-2 hover:bg-viSelect font-goudy">Download Stems</button>
+    <!-- group -->
+    <div class=" border-t-2 border-vi mx-24 flex justify-center items-center  inset-x-0 mt-6 ">
+      <div class="w-72 h-12 mt-2 mb-8 flex items-center justify-center "><img :src="group" alt=""></div>
+    </div>
+
+
+  </div>
+
   </div>
 </template>
 
@@ -104,7 +118,7 @@ export default {
     margin-bottom: 16px;
   }
   .giner{
-    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.8);
+    box-shadow: 5px 5px 0px #7F4634;
     transition: box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
   }
   .text-outline {
@@ -115,18 +129,12 @@ export default {
       1px  1px 0 #7F4634;
   }
   .border-r-2 {
-  border-right: 2px solid #ccc; /* adjust the width and color of the line */
+  border-right: 2px solid #ccc; 
   } 
-  /* .vert-line {
-  content: "";
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%; 
-  width: 2px; 
-  background-color: #7F4634; 
-  transform: translateX(-50%); 
-  z-index: -999; 
-} */
+
+  .linear{
+    background: linear-gradient(90deg, #F9E0A0 0%, #FFD66E 100%);
+  }
+
 </style>
 

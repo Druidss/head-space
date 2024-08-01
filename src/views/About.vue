@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-texture bg-vi bg-opacity-25 bg-contain bg-center h-screen w-screen">
+  <div class="bg-texture bg-cover bg-center h-screen w-screen">
     <NavigationColumn />
     <div class="h-3/4 w-4/6 mx-auto ">
        <Carousel  autoplay>
