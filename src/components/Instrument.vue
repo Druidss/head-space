@@ -1,13 +1,11 @@
 <template>
   <div 
     class="w-28 h-28 flex items-center justify-center radial-gradient bg-viOrange cursor-pointer"
-    :class="{ 'selected': isSelected }"
-    @click="handleClick"
+     @click="handleClick"
+     :class="{ 'selected': isSelected }"
   >
      <div class="m-4 font-display text-sm font-medium ">
       {{ text }}
-     
-      <img :src="img" alt="Image" class="w-12 h-12 mx-auto mt-2">
     </div>
   </div>
 </template>
@@ -15,9 +13,6 @@
 <script>
 import * as Tone from 'tone'; 
 import { playPiano, playDrums } from '../tone'; 
-
-
-
 Tone.start();
 export default {
   name: 'Rectangle',
@@ -26,32 +21,29 @@ export default {
       type: String,
       required: true,
     },
-    img: {
-      type: String,
-      required: true,
-    },   
   },
 methods: {
-    handleClick() {
-    this.playInstrument();
-    this.toggleSelect();
-    },
-    playInstrument() {
-      switch (this.text) {
-        case 'PIANO':
-          playPiano();
-          break;
-        case 'DRUMS':
-          playDrums();
-          break;
-        case 'HORNS':
-        default:
-          console.log(this.text);
-      }
-    },
-    toggleSelect() {
-      this.isSelected = !this.isSelected;
-    },
+  handleClick() {
+  this.playInstrument();
+  this.toggleSelect();
+  },
+  playInstrument() {
+    switch (this.text) {
+      case 'PIANO':
+        playPiano();
+        break;
+      case 'DRUMS':
+        playDrums();
+        break;
+      case 'HORNS':
+      default:
+        console.log(this.text);
+    }
+  },
+  toggleSelect() {
+    this.isSelected = !this.isSelected;
+    this.$forceUpdate();
+  },
   }
 };
 </script>
@@ -66,4 +58,7 @@ methods: {
   transition: box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
   background: radial-gradient(#FFF4D8 30%, #FCD777 100%);
 }
+
+
+
 </style>

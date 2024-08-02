@@ -4,15 +4,6 @@
     <div class="h-4/6 w-4/6 mx-auto">
        <Carousel  autoplay>
         <div><img  :src="imageSrc1" alt=""></div>
-        <div><img  :src="imageSrc1" alt=""></div>
-        <div><img  :src="imageSrc1" alt=""></div>
-        <div><img  :src="imageSrc1" alt=""></div>
-        <div><img  :src="imageSrc1" alt=""></div>
-        <div><img  :src="imageSrc1" alt=""></div>
-        <div><img  :src="imageSrc1" alt=""></div>
-        <div><img  :src="imageSrc1" alt=""></div>
-        <div><img  :src="imageSrc1" alt=""></div>
-
       </Carousel>
     </div>
   </div>
@@ -24,10 +15,12 @@ import NavigationColumn from '@/components/NavigationColumn.vue'
 import { Carousel } from 'ant-design-vue';
 import imageSrc1 from '@/assets/stemplayer.png';
 
+
 export default {
   name: 'Player',
   components: {
     NavigationColumn,
+    Stem,
     Carousel
   },
   data() {
