@@ -3,7 +3,7 @@ import NavigationColumn from '@/components/NavigationColumn.vue'
 import Rectangle from '@/components/Rectangle.vue'
 import Effect from '@/components/Effect.vue'
 import Pause from '@/components/Pause.vue'
-import { Slider } from 'ant-design-vue';
+import { Slider,ConfigProvider } from 'ant-design-vue';
 import group from '@/assets/images/group.png';
 
 export default {
@@ -12,7 +12,8 @@ export default {
     Rectangle,
     Effect,
     Pause,
-    Slider  
+    Slider,
+    ConfigProvider
   },
   data() {
     return {
@@ -29,9 +30,15 @@ export default {
 </script>
 
 <template>
-  
+  <ConfigProvider           
+    :theme="{
+      token: {
+      colorPrimary: '#FFB700',
+      },
+    }" 
+  >
   <div class="flex w-screen h-screen flex-col">
-    <div class="  bg-texture bg-cover bg-center">
+    <div class=" w-screen h-screen bg-texture bg-cover bg-center">
       <NavigationColumn />
       <div class="w-9/12 mx-auto">
         <!-- text -->
@@ -40,7 +47,7 @@ export default {
             <div class="text-4xl font-anisette text-viSelect text-outline">thE sOul sanctuary</div>
           </div>
         <!-- player -->
-        <div class="flex items-center justify-center border-2 border-vi mb-8 py-16 px-24">
+        <div class="flex items-center justify-center border-2 border-vi mb-8 py-16 px-8">
 
           <div class="w-30">
             <h1 class=" giner text-3xl text-vi bg-viWhite font-display  text-center p-2 font-bold border-2 border-vi">"Ginger"</h1>
@@ -60,11 +67,7 @@ export default {
                 <Effect text="VOLUME" />
                 <Slider 
                   id="volume" class="" v-model:value="valueVolume" 
-                  :theme="{
-                    token: {
-                    colorPrimary: '#FCC454',
-                    },
-                  }"
+
                 />
                 </div>
 
@@ -94,17 +97,18 @@ export default {
 
           </div>
         </div>
-
+        <!-- button -->
       <div class="flex justify-end items-center ">
         <button class="rounded-full  px-4 py-1 text-white  border-vi border-2 linear hover:bg-viSelect font-goudy text-xs ">DOWNLOAD SONG STEMS </button>
       </div>
       <!-- group -->
       <div class=" border-t-2 border-vi flex justify-center items-center  inset-x-0 mt-6 ">
-        <div class="w-72 h-12 mt-2 mb-8 flex items-center justify-center "><img :src="group" alt=""></div>
+        <div class="w-72 h-12 my-2 flex items-center justify-center "><img :src="group" alt=""></div>
       </div>
       </div>
     </div>
   </div>
+  </ConfigProvider>
 </template>
 
 
@@ -118,14 +122,12 @@ export default {
     transition: box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
   }
   .text-outline {
-  text-shadow: 
-      -1px -1px 0 #7F4634,  
-      1px -1px 0 #7F4634,
-      -1px  1px 0 #7F4634,
-      1px  1px 0 #7F4634;
+    text-shadow: 
+        -1px -1px 0 #7F4634,  
+        1px -1px 0 #7F4634,
+        -1px  1px 0 #7F4634,
+        1px  1px 0 #7F4634;
   }
-
-
   .linear{
     background: linear-gradient(90deg, #F9E0A0 0%, #FFD66E 100%);
   }
