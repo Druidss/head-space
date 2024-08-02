@@ -5,7 +5,7 @@
         v-for="(item, index) in navItems"
         :key="index"
         :to="{ name: item.routeName }"
-        class="block py-2 px-4 m-1 router-nav text-vi font-display hover:font-semibold "
+        class="block py-2 px-4 m-1 router-nav text-vi font-display hover:font-semibold link "
         :class="{ selected: isSelected(item.routeName) }"
         @click.native="selectedIndex = index"
       >{{ item.text }}</router-link>

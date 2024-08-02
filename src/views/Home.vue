@@ -47,4 +47,10 @@ export default {
   .linear{
     background: linear-gradient(90deg, #F9E0A0 0%, #FFD66E 100%);
   }
+  .link:hover {
+  background-color: #F9E0A0;
+  box-shadow: 5px 5px 0px #7F4634;
+  font-weight: 700;
+  transition: box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+}
 </style>
