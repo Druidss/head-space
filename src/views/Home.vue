@@ -22,7 +22,7 @@ export default {
       <div class="flex-1">
       <div class="text-center flex flex-col justify-center my-auto">
         <div class="bg-cover bg-center h-2/12 w-2/12 mx-auto mt-24 "><img  :src="logo" alt=""></div>
-        <p class="text-4xl w-6/12 mx-auto text-vi uppercase font-bold">an Album Concept <br>
+        <p class="font-display text-4xl w-6/12 mx-auto text-vi uppercase font-semibold">an Album Concept <br>
           by designer and beatmaker <br> alexander sente aka <br>
           john da lemon.
         </p>
