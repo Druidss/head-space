@@ -1,0 +1,38 @@
+[
+  {
+    "name": "GINGER",
+    "instruments": ["PIANO", "DRUMS", "BASS", "RHODES", "SYNTHS"]
+  },
+  {
+    "name": "BLUE SKY",
+    "instruments": ["CHORDS", "DRUMS", "BASS", "ONESHOTS", "SYNTH"]
+  },
+  {
+    "name": "HOEHENANGST",
+    "instruments": ["GUITARS", "DRUMS", "BASS", "SAMPLE", "SYNTHS"]
+  },
+  {
+    "name": "SANCTUARY",
+    "instruments": ["CHORDS", "DRUMS", "BASS", "GUITARS", "SYNTHS"]
+  },
+  {
+    "name": "WALDBODEN",
+    "instruments": ["RHODES", "DRUMS", "BASS", "GUITARS", "SYNTHS"]
+  },
+  {
+    "name": "HARSH WINDS",
+    "instruments": ["CHORDS", "DRUMS", "SAMPLE", "SAXOPHONE", "SYNTHS"]
+  },
+  {
+    "name": "THE SOUL",
+    "instruments": ["CHORDS", "DRUMS", "BASS", "GUITARS", "SYNTHS"]
+  },
+  {
+    "name": "FEATHER WEIGHT",
+    "instruments": ["PIANO", "DRUMS", "BASS", "ONESHOTS", "SYNTHS"]
+  },
+  {
+    "name": "AT PEACE",
+    "instruments": ["RHODES", "DRUMS", "VIBRAPHONE", "AMBIENCE", "SYNTHS"]
+  }
+]

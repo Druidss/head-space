@@ -1,7 +1,7 @@
 <template>
   <div class="bg-texture bg-cover bg-center h-screen w-screen">
     <NavigationColumn />
-    <div class="h-4/6 w-9/12 mx-auto">
+    <div class=" w-9/12 mx-auto">
       <div class="flex justify-center">
         <div class=" giner text-3xl text-vi bg-viWhite font-display  text-center mt-4 py-1 px-4 font-bold border-2 border-vi cursor-pointer">Auto Play</div>
       </div>
@@ -10,18 +10,19 @@
         <div class="text-4xl font-anisette text-viSelect text-outline">john da lemon</div>
         <div class="text-4xl font-anisette text-viSelect text-outline">thE sOul sanctuary</div>
       </div>
-     
-       <Carousel  autoplay>
-         <Stem />
-      </Carousel>
     </div>
+  <Stem />
   </div>
-  <div class="bg-stem bg-contain bg-center h-4/6 w-4/6"></div>
 
-  <div class="absolute bottom-0 w-9/12 mx-auto  border-t-2 border-vi flex justify-center items-center  inset-x-0 mt-6 ">
+     <Carousel >
+          <!-- <Stem /> -->
+      </Carousel>
+
+<!-- group -->
+  <!-- <div class="absolute bottom-0 w-9/12 mx-auto  border-t-2 border-vi flex justify-center items-center  inset-x-0 mt-6 ">
     <div class="w-72 h-12 mt-2 mb-8 flex items-center justify-center ">
       <img :src="group" alt=""></div>
-  </div>
+  </div> -->
 </template>
 
 <script>

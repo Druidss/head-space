@@ -20,6 +20,16 @@ export default {
     Slider,
     ConfigProvider
   },
+  props: {
+    name: {
+      type: String,
+      required: true,
+    },
+    instruments: {
+      type: Array,
+      required: true, 
+    },
+  },
   data() {
     return {
       value: 20,
@@ -51,7 +61,7 @@ export default {
     };
 
     return { valueVolume, updateStore, applyEffects };
-  }
+  },
 }
   
   // const valueVolume = ref(0);
@@ -71,7 +81,7 @@ export default {
   <div class="flex w-screen flex-col">
     <div class="w-9/12 mx-auto" >
         <!-- text -->
-          <div class="flex justify-between items-center mt-12">
+          <div class="flex justify-between items-center mt-4">
             <div class="text-4xl font-anisette text-viSelect text-outline">john da lemon</div>
             <div class="text-4xl font-anisette text-viSelect text-outline">thE sOul sanctuary</div>
           </div>
@@ -80,7 +90,7 @@ export default {
         <div class="flex items-center justify-center border-2 border-vi mb-8 py-16 px-8 md:p-6">
 
           <div class="w-30">
-            <h1 class=" giner text-3xl text-vi bg-viWhite font-display  text-center p-2 font-bold border-2 border-vi">"Ginger"</h1>
+            <h1 class=" giner text-3xl text-vi bg-viWhite font-display  text-center p-2 font-bold border-2 border-vi">{{ name }}</h1>
             <div class="grid justify-center">
               <Pause  class="p-4 bg-vi" text="Pause" />
               <Rectangle class=''text="Key" number="Emin" />
@@ -114,18 +124,19 @@ export default {
             </div>
             <h1 class="text-xl text-left mx-8 font-display bg-viSelect px-4 linear giner">INSTRUMENT BORARD</h1>
             <div class="h-1/2 bg-gray-800 m-8 flex flex-row gap-4">
-              <Instrument text="PIANO" />
-              <Instrument text="DRUMS" />
+              <Instrument v-for="(instrument, index) in instruments" :key="index" :text="instrument" />
+              <!-- <Instrument text="PIANO" /> -->
+              <!-- <Instrument text="DRUMS" />
               <Instrument text="HORNS" />
               <Instrument text="BASS" />
-              <Instrument text="SYTH" />
+              <Instrument text="SYTH" /> -->
             </div>
 
           </div>
         </div>
         <!-- button -->
       <div class="flex justify-end items-center ">
-        <button class="rounded-full  px-4 py-1 text-white  border-vi border-2 linear hover:bg-viSelect font-goudy text-xs mb-2">DOWNLOAD SONG STEMS </button>
+        <button class="rounded-full  px-4 py-1 text-white  border-vi border-2 linear hover:bg-viSelect font-goudy text-xs mb-">DOWNLOAD SONG STEMS </button>
       </div>
 
     

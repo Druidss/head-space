@@ -47,18 +47,14 @@ h1 {
   margin-bottom: 0;
 }
 
-/* button {
-  border-radius: 8px;
-  border-color: #7F4634;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  transition: border-color 0.25s;
-} */
+button::after{
+  background-color: #7F4634;
+  /* border-radius: 9999px; */
+}
+
 button:hover {
   box-shadow: 2px 2px 0px #7F4634;
+  background: linear-gradient(90deg, #F9E0A0 0%, #FFD66E 100%);
 }
 button:focus,
 button:focus-visible {

@@ -1,7 +1,7 @@
 <template>
    <!-- stemplayer -->
-  <div class="w-screen  mx-auto border-2 border-vi px-12 py-4">
-
+  <div class=" w-9/12 mx-auto">
+  <div class="flex flex-col border-2 border-vi px-12 py-4">
     <div class="flex justify-left item-center flex-col items-center mb-4">
       
       <div class="flex w-full justify-center mx-8 ">
@@ -21,14 +21,14 @@
         </div>
       </div>
     </div>
-
     <div class="flex justify-center">
-      <video ref="video" :src="videoSrc" class="w-4/12 h-fit border border-vi " autoplay></video>
+      <video ref="video" :src="videoSrc" class="w-6/12 h-4/12 border border-vi " autoplay></video>
     </div>
-
     <div class="flex justify-center text-white text-4xl text-vi font-display mt-4"> <span class="font-bold">01</span> / 09
     </div>
   </div>
+  </div>
+
 </template>
 
 <script>

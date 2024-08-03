@@ -1,6 +1,5 @@
 <template>
   <div 
-
     class="w-28 h-28 flex items-center justify-center radial-gradient bg-viOrange cursor-pointer"
     :class="{ 'selected': isSelected }"
     @click="handleClick"

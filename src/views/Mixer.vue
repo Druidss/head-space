@@ -1,14 +1,9 @@
 <template>
   <div class="bg-texture bg-cover bg-center h-screen w-screen">
     <NavigationColumn />
-    <div class="">
-       <Carousel  >
-        <MixerPlayer />
-        <MixerPlayer />
-        <MixerPlayer />
-        <MixerPlayer />
-        <MixerPlayer />
-        <MixerPlayer />
+    <div class="w-screen">
+       <Carousel  autoplay>
+        <MixerPlayer v-for="(track, index) in tracks" :key="index" :name="track.name" :instruments="track.instruments" />
       </Carousel>
     </div>
 
@@ -25,6 +20,7 @@ import NavigationColumn from '@/components/NavigationColumn.vue'
 import MixerPlayer from '../components/MixerPlayer.vue';       
 import { Carousel } from 'ant-design-vue';
 import group from '@/assets/images/group.png';
+import tracks from '@/assets/tracks.json';
 
 
 
@@ -38,8 +34,10 @@ export default {
   data() {
     return {
       group: group,
+      tracks: tracks,
+      currentTrack: null,
     }
-  }
+  },
 }
 </script>
 
@@ -57,5 +55,7 @@ export default {
   height: auto;
   overflow: hidden;
 }
+
+
 
 </style>
