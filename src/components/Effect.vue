@@ -51,6 +51,7 @@ methods: {
     },
     toggleSelect() {
       this.isSelected = !this.isSelected;
+      this.$forceUpdate();
     },
   }
 };

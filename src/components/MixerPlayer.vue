@@ -40,7 +40,7 @@ export default {
     }" 
   >
   <div class="flex w-screen flex-col">
-    <div class="w-9/12 mx-auto " >
+    <div class="w-9/12 mx-auto" >
         <!-- text -->
           <div class="flex justify-between items-center mt-12">
             <div class="text-4xl font-anisette text-viSelect text-outline">john da lemon</div>
@@ -96,7 +96,7 @@ export default {
         </div>
         <!-- button -->
       <div class="flex justify-end items-center ">
-        <button class="rounded-full  px-4 py-1 text-white  border-vi border-2 linear hover:bg-viSelect font-goudy text-xs ">DOWNLOAD SONG STEMS </button>
+        <button class="rounded-full  px-4 py-1 text-white  border-vi border-2 linear hover:bg-viSelect font-goudy text-xs mb-2">DOWNLOAD SONG STEMS </button>
       </div>
 
     
@@ -104,8 +104,6 @@ export default {
   </div>
   </ConfigProvider>
 </template>
-
-
 
 <style scoped>
   .code-box-demo .ant-slider {
