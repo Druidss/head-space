@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { start } from 'tone';
+
 import { startTransport } from '../tone';
 export default {
   name: 'Rectangle',

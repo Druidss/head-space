@@ -1,7 +1,7 @@
 <template>
   <div 
     class="w-32 h-32 flex items-center justify-center radial-gradient bg-viOrange"
-    @click="playInstrument(); playEffect()"
+    @click="playInstrument()"
   >
      <div class="m-4">
       {{ text }}
@@ -14,7 +14,7 @@ import * as Tone from 'tone';
 import { playSample, stopSample, startTransport } from '../tone'; 
 import { useSamplerStore } from '../stores/samplerStore';
 import { useEffectStore } from '../stores/effectStore';
-import { reactive } from 'vue';
+
 
 const samplerStore = useSamplerStore();
 const effectStore = useEffectStore();
@@ -48,8 +48,8 @@ methods: {
               stopSample();
             } else {
               samplerStore.pipeLine[1].isPlaying = true;
-               //Logs pipeline
-              console.log(samplerStore.pipeLine);
+              //Logs pipeline
+              //console.log(samplerStore.pipeLine);
               playSample()
             }
             break;
@@ -84,12 +84,12 @@ methods: {
           console.log(this.text);
       }
     },
-    playEffect() {
-      console.log("Effect should be played")
+    updateSampleInPiniaStore() {
+      //console.log("Effect should be played")
       effectStore.pipeLine.forEach(element => {
         element.sample = this.text;
       })
-      console.log(effectStore.pipeLine)
+      console.log("DEBUG-updateSampleInPiniaStore: " + effectStore.pipeLine.forEach(element => {console.log(element.sample)}));
     }
   },
 };

@@ -69,6 +69,7 @@ export function playSample() {
         case 'DRUMS':
           console.log("DEBUG-BACKEND: Drum Button On!")
           drumsPlayer.mute = false;
+          console.log("DEBUG-BACKEND: Drums Volume "+drumsPlayer.volume.value);
           break;
         case 'HORNS':
           console.log("DEBUG-BACKEND: Horns Button On!")
@@ -124,10 +125,21 @@ export function addEffects() {
   effectStore.pipeLine.forEach(element => {
     switch (element.sample) {
       case 'PIANO':
-        
+          //Value of Reverb
+          console.log("DEBUG: Reverb added!")
+          
         break;
       case 'DRUMS':
-
+        console.log("DEBUG-BACKEND: DRUMS VOLUME")
+        applyVolume(effectStore.pipeLine[0].value, drumsPlayer);
+        applyReverb(effectStore.pipeLine[1].value,drumsPlayer);
+        
+        //setTimeout(applyReverb(effectStore.pipeLine[1].value,drumsPlayer),2000);
+        
+        
+        //const volume = new Tone.Gain(1).toDestination();
+        //drumsPlayer.connect(volume);
+        
         break;
       case 'HORNS':
 
@@ -143,4 +155,58 @@ export function addEffects() {
         break;
     }
   })
+}
+
+//Helper
+function applyVolume(value, player) {
+  //Initial Connect of Gain()-Effect
+  let calculatedValue = (value/10)-1;
+  const volume = new Tone.Gain(calculatedValue).toDestination();
+  
+  if (!effectStore.pipeLine[0].connected) {
+  effectStore.pipeLine[0].effectObject = volume;
+  player.connect(volume);
+  effectStore.pipeLine[0].connected = true;
+  } else {
+  player.disconnect(effectStore.pipeLine[0].effectObject);
+  effectStore.pipeLine[0].effectObject = volume;
+  player.connect(Tone.getDestination());
+  player.chain(volume, Tone.getDestination());
+  //effectStore.pipeLine[0].connected = false;
+
+  }
+}
+
+function applyReverb(value,player) {
+   //Initial Connect of Gain()-Effect
+   //let calculatedValue = (value/10)-1;
+   if (value == 0) {
+      return;
+   }
+   const reverb = new Tone.Reverb(value).toDestination();
+   
+   if (!effectStore.pipeLine[1].connected) {
+   effectStore.pipeLine[1].effectObject = reverb;
+   player.connect(reverb);
+   effectStore.pipeLine[1].connected = true;
+   } else {
+   player.disconnect(effectStore.pipeLine[1].effectObject);
+   effectStore.pipeLine[1].effectObject = reverb;
+   player.connect(Tone.getDestination());
+   player.chain(reverb, Tone.getDestination());
+   //effectStore.pipeLine[0].connected = false;
+ 
+   }
+}
+
+function applyDelay() {
+  
+}
+
+function applyFilter() {
+  
+}
+
+function chainEffects() {
+  
 }

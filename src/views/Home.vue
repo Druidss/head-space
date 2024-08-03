@@ -3,9 +3,16 @@ import NavigationColumn from '@/components/NavigationColumn.vue'
 import Rectangle from '@/components/Rectangle.vue'
 import Effect from '@/components/Effect.vue'
 import { Slider } from 'ant-design-vue';
+
 import { useEffectStore } from '../stores/effectStore';
+import { ref } from 'vue';
+import  { addEffects } from "../tone";
 
 
+//const valueVolume = ref();
+
+//const volumeValue = computed(() => effectStore.pipeLine[0].value);
+//return { valueVolume }
 
 export default {
   components: {
@@ -14,6 +21,11 @@ export default {
     Effect,
     Slider  
   },
+  methods: {
+    updateEffect() {
+      addEffects();
+    }
+  },
   data() {
     return {
       value: 20
@@ -21,15 +33,30 @@ export default {
   },
   setup() {
     const effectStore = useEffectStore();
-    
-    return { effectStore }
+    const valueVolume = ref(10);
+
+    const updateStore = (effectString,newSliderValue) => {
+      valueVolume.value = newSliderValue;
+      //console.log("Updating store!");
+      //console.log(effectString);
+      //console.log(valueVolume.value);
+      effectStore.setValue(valueVolume.value,effectString);
+      console.log("DEBUG-updateStore(): VolumeValue in Pinia" + effectStore.pipeLine[1].value);
+      applyEffects();
+    };
+
+    const applyEffects = () => {
+        addEffects();
+    };
+
+    return { valueVolume, updateStore, applyEffects };
   }
 }
-  import { ref } from 'vue';
-  const valueVolume = ref(0);
-  const valueReverb = ref(0);
-  const valueDelay = ref(0);
-  const valueFliter = ref(0);
+  
+  //const valueVolume = ref(0);
+  //const valueReverb = ref(0);
+  //const valueDelay = ref(0);
+  //const valueFliter = ref(0);
 </script>
 
 <template>
@@ -59,12 +86,12 @@ export default {
              <!-- <h1 class="text-3xl">Effect Board</h1> -->
               <div class="flex flex-col justify-between">
               <Effect text="VOLUME" />
-              <Slider id="volume" v-model:value="valueVolume" />
+              <Slider id="volume" v-model:value="valueVolume" @change="updateStore('VOLUME',$event)" :min="0" :max="10"/>
               </div>
 
               <div class="flex flex-col">
               <Effect text="REVERB" />
-              <Slider id="volume" v-model:value="valueReverb" />
+              <Slider id="volume" v-model:value="valueReverb" @change="updateStore('REVERB',$event)" />
               </div> 
 
               <div class="flex flex-col">
