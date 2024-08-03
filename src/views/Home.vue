@@ -3,58 +3,17 @@ import NavigationColumn from '@/components/NavigationColumn.vue'
 import logo from '@/assets/images/logo.png';
 import group from '@/assets/images/group.png';
 
-import { useEffectStore } from '../stores/effectStore';
-import { ref } from 'vue';
-import  { addEffects } from "../tone";
-
-
-//const valueVolume = ref();
-
-//const volumeValue = computed(() => effectStore.pipeLine[0].value);
-//return { valueVolume }
-
 export default {
   components: {
     NavigationColumn
-  },
-  methods: {
-    updateEffect() {
-      addEffects();
-    }
   },
   data() {
     return {
       logo: logo,
       group: group,
     }
-  },
-  setup() {
-    const effectStore = useEffectStore();
-    const valueVolume = ref(10);
-
-    const updateStore = (effectString,newSliderValue) => {
-      valueVolume.value = newSliderValue;
-      //console.log("Updating store!");
-      //console.log(effectString);
-      //console.log(valueVolume.value);
-      effectStore.setValue(valueVolume.value,effectString);
-      console.log("DEBUG-updateStore(): VolumeValue in Pinia" + effectStore.pipeLine[1].value);
-      applyEffects();
-    };
-
-    const applyEffects = () => {
-        addEffects();
-    };
-
-    return { valueVolume, updateStore, applyEffects };
   }
-
-  
-  //const valueVolume = ref(0);
-  //const valueReverb = ref(0);
-  //const valueDelay = ref(0);
-  //const valueFliter = ref(0);
-
+}
 </script>
 
 <template>
@@ -73,7 +32,9 @@ export default {
             >dive in & explore</button>
          </router-link>
         </div>
-
+        <div class="absolute bottom-0 w-9/12 mx-auto  border-t-2 border-vi flex justify-center items-center  inset-x-0 mt-6 ">
+            <div class="w-72 h-12 mt-2 mb-8 flex items-center justify-center ">
+              <img :src="group" alt=""></div>
         </div>
         </div>
 

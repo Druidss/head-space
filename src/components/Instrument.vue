@@ -11,9 +11,7 @@
 </template>
 
 <script>
-import * as Tone from 'tone'; 
-import { playPiano, playDrums } from '../tone'; 
-Tone.start();
+
 export default {
   name: 'Rectangle',
   props: {
@@ -30,14 +28,14 @@ methods: {
   playInstrument() {
     switch (this.text) {
       case 'PIANO':
-        playPiano();
+       
         break;
       case 'DRUMS':
-        playDrums();
+        
         break;
       case 'HORNS':
       default:
-        console.log(this.text);
+        
     }
   },
   toggleSelect() {

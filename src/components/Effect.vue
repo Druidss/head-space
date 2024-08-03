@@ -4,7 +4,6 @@
     class="w-28 h-28 flex items-center justify-center radial-gradient bg-viOrange cursor-pointer"
     :class="{ 'selected': isSelected }"
     @click="handleClick"
-]
   >
      <div class="m-4 font-display text-sm font-medium ">
       {{ text }}
@@ -45,6 +44,7 @@ methods: {
     this.playInstrument();
     this.toggleSelect();
     },
+
     playInstrument() {
       switch (this.text) {
         case 'PIANO':
@@ -108,13 +108,12 @@ methods: {
     }
   },
 
-    toggleSelect() {
-      this.isSelected = !this.isSelected;
-      this.$forceUpdate();
-    },
-  }
-
+  toggleSelect() {
+    this.isSelected = !this.isSelected;
+    this.$forceUpdate();
+  },
 };
+
 </script>
 
 <style scoped>
