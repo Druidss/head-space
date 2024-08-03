@@ -1,4 +1,5 @@
 <template>
+
   <div class="w-28 h-28 m-1 flex items-center justify-center ">
      <div class="flex text-center flex-col ">
       <div class="font-goudy text-vi ">{{ text }}</div><br>
@@ -8,6 +9,8 @@
 </template>
 
 <script>
+
+import { startTransport } from '../tone';
 export default {
   name: 'Rectangle',
   props: {
@@ -20,6 +23,11 @@ export default {
       required: true,
     },
   },
+  methods: {
+    start() {
+      startTransport();
+    }
+  }
 };
 </script>
 

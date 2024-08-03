@@ -7,6 +7,10 @@ import { Slider,ConfigProvider } from 'ant-design-vue';
 import group from '@/assets/images/group.png';
 import volume from '@/assets/images/volume.png';
 
+import { useEffectStore } from '../stores/effectStore';
+import { ref } from 'vue';
+import  { addEffects } from "../tone";
+
 export default {
   components: {
     Rectangle,
@@ -22,13 +26,38 @@ export default {
       group: group,
       volume: volume,
     }
+  },
+  methods: {
+    updateEffect() {
+      addEffects();
+    }
+  },
+  setup() {
+    const effectStore = useEffectStore();
+    const valueVolume = ref(10);
+
+    const updateStore = (effectString,newSliderValue) => {
+      valueVolume.value = newSliderValue;
+      //console.log("Updating store!");
+      //console.log(effectString);
+      //console.log(valueVolume.value);
+      effectStore.setValue(valueVolume.value,effectString);
+      console.log("DEBUG-updateStore(): VolumeValue in Pinia" + effectStore.pipeLine[1].value);
+      applyEffects();
+    };
+
+    const applyEffects = () => {
+        addEffects();
+    };
+
+    return { valueVolume, updateStore, applyEffects };
   }
 }
-  import { ref } from 'vue';
-  const valueVolume = ref(0);
-  const valueReverb = ref(0);
-  const valueDelay = ref(0);
-  const valueFliter = ref(0);
+  
+  // const valueVolume = ref(0);
+  // const valueReverb = ref(0);
+  // const valueDelay = ref(0);
+  // const valueFliter = ref(0);
 </script>
 
 <template>
@@ -53,7 +82,7 @@ export default {
           <div class="w-30">
             <h1 class=" giner text-3xl text-vi bg-viWhite font-display  text-center p-2 font-bold border-2 border-vi">"Ginger"</h1>
             <div class="grid justify-center">
-              <Pause class="p-4 bg-vi" text="Pause" />
+              <Pause  class="p-4 bg-vi" text="Pause" />
               <Rectangle class=''text="Key" number="Emin" />
               <Rectangle class='' text="Tempo"  number="90Bpm" />
             </div>
@@ -65,12 +94,12 @@ export default {
             <div class="h-1/2 bg-gray-800 m-8 mb-4 flex flex-row justify-between ">
               <div class="flex flex-col">
                 <Effect text="VOLUME" img="https://i.imgur.com/AxET1xh.png"/>
-                <Slider id="volume" class="" v-model:value="valueVolume" />
+                <Slider id="volume" class="" v-model:value="valueVolume" @change="updateStore('VOLUME',$event)" :min="0" :max="10" />
                 </div>
 
                 <div class="flex flex-col">
                 <Effect text="REVERB" img="https://i.imgur.com/vpjAkpT.png" />
-                <Slider id="volume" v-model:value="valueReverb" />
+                <Slider id="volume" v-model:value="valueReverb" @change="updateStore('REVERB',$event)" />
                 </div> 
 
                 <div class="flex flex-col">
