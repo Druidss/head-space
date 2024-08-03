@@ -10,7 +10,7 @@ export const useEffectStore = defineStore('effectStore', {
     state: () => ({
         pipeLine: [
             {id: 'VOLUME', value: 10, sample:'DRUMS', connected: false, effectObject: null},
-            {id: 'REVERB', value: 0,sample: 'DRUMS', connected: false, effectObject: null},
+            {id: 'REVERB', value: 0,sample: '', connected: false, effectObject: null},
             {id: 'DELAY', value: 0,sample: '', connected: false, effectObject: null},
             {id: 'FILTER', value: 0,sample: '', connected: false, effectObject: null}
         ]

@@ -132,7 +132,7 @@ export function addEffects() {
       case 'DRUMS':
         console.log("DEBUG-BACKEND: DRUMS VOLUME")
         applyVolume(effectStore.pipeLine[0].value, drumsPlayer);
-        applyReverb(effectStore.pipeLine[1].value,drumsPlayer);
+        //applyReverb(effectStore.pipeLine[1].value,drumsPlayer);
         
         //setTimeout(applyReverb(effectStore.pipeLine[1].value,drumsPlayer),2000);
         
@@ -168,10 +168,11 @@ function applyVolume(value, player) {
   player.connect(volume);
   effectStore.pipeLine[0].connected = true;
   } else {
-  player.disconnect(effectStore.pipeLine[0].effectObject);
-  effectStore.pipeLine[0].effectObject = volume;
-  player.connect(Tone.getDestination());
-  player.chain(volume, Tone.getDestination());
+  chainEffects(volume, player);
+    //player.disconnect(effectStore.pipeLine[0].effectObject);
+  //effectStore.pipeLine[0].effectObject = volume;
+  //player.connect(Tone.getDestination());
+  //player.chain(volume, Tone.getDestination());
   //effectStore.pipeLine[0].connected = false;
 
   }
@@ -207,6 +208,32 @@ function applyFilter() {
   
 }
 
-function chainEffects() {
-  
+function chainEffects(newEffectObject, player) {
+  const currentConnectedEffect =[];
+  //Loop to disconnect every Effect
+  effectStore.pipeLine.forEach(element => {
+    if(element.connected) {
+      currentConnectedEffect.push(element.effectObject)
+      player.disconnect(element.effectObject);
+      player.connect(Tone.getDestination());
+      element.connected = false;
+      //player.connect();
+    }
+  })
+  let lenghtByIndex = currentConnectedEffect.length -1 ;
+  switch (lenghtByIndex) {
+    //Just one effect
+    case 1:
+      player.chain(currentConnectedEffect[0],newEffectObject,Tone.getDestination())
+      break;
+    case 2:
+      break;
+    case 3:
+      break;
+    case 4:
+      break;
+    default:
+      break;
+  }
+
 }
