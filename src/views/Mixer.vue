@@ -4,6 +4,11 @@
     <div class="">
        <Carousel  autoplay>
         <MixerPlayer />
+        <MixerPlayer />
+        <MixerPlayer />
+        <MixerPlayer />
+        <MixerPlayer />
+        <MixerPlayer />
       </Carousel>
     </div>
 

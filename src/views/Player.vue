@@ -3,16 +3,16 @@
     <NavigationColumn />
     <div class="h-4/6 w-9/12 mx-auto">
       <div class="flex justify-center">
-        <div class=" giner text-3xl text-vi bg-viWhite font-display  text-center m-4 py-1 px-4 font-bold border-2 border-vi cursor-pointer">Auto Play</div>
+        <div class=" giner text-3xl text-vi bg-viWhite font-display  text-center mt-4 py-1 px-4 font-bold border-2 border-vi cursor-pointer">Auto Play</div>
       </div>
       <!-- text -->
       <div class="flex justify-between items-center ">
         <div class="text-4xl font-anisette text-viSelect text-outline">john da lemon</div>
         <div class="text-4xl font-anisette text-viSelect text-outline">thE sOul sanctuary</div>
       </div>
-      <Stem />
+     
        <Carousel  autoplay>
-        <!-- <div><img  :src="imageSrc1" alt=""></div> -->
+         <Stem />
       </Carousel>
     </div>
   </div>

@@ -1,21 +1,21 @@
 <template>
    <!-- stemplayer -->
-  <div class="w-12/12  mx-auto border-2 border-vi p-4">
+  <div class="w-screen  mx-auto border-2 border-vi px-12 py-4">
 
-    <div class="flex justify-left flex-col items-center mb-4">
+    <div class="flex justify-left item-center flex-col items-center mb-4">
       
-      <div class="flex mx-8 ">
-        <div class="text-vi font-display font-bold text-3xl mb-2">"GINGER"</div>
+      <div class="flex w-full justify-center mx-8 ">
+        <div class="flex-1 text-vi font-display font-bold text-3xl mb-2 justify-center text-center items-center pt-12">"GINGER"</div>
+ 
 
-
-        <div class="flex justify-center items-center">
-          <button @click="togglePlayPause" class="text-white text-2xl">
+        <div class="flex  flex-1 justify-center items-center">
+          <button @click="togglePlayPause" class="text-white text-2xl mx-2">
             <span v-if="isPlaying">❚❚</span>
             <span v-else>▶</span>
           </button>
         </div>
 
-        <div class="flex justify-between text-white text-lg mt-4">
+        <div class="flex  flex-1 justify-between text-white text-lg mt-4">
           <Rectangle class=''text="Key" number="Emin" />
           <Rectangle class=''text="Key" number="Emin" />
         </div>
@@ -49,9 +49,11 @@ export default {
       if (video.paused) {
         video.play();
         this.isPlaying = true;
+        this.$forceUpdate();
       } else {
         video.pause();
         this.isPlaying = false;
+        this.$forceUpdate();
       }
     },
     toggleAutoplay() {
