@@ -13,9 +13,22 @@
   -moz-osx-font-smoothing: grayscale;
 } */
 
+@font-face {
+  font-family: 'ClashDisplay';
+  src: url('./assets/fonts/ClashDisplay-Variable.ttf'); 
+}
+@font-face {
+  font-family: 'Goudy';
+  src: url('./assets/fonts/goudy_bookletter_1911-webfont.ttf'); 
+}
+@font-face {
+  font-family: 'Anisette';
+  src: url('./assets/fonts/Anisette-Bold.otf'); 
+}
+
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #7F4634;
   text-decoration: inherit;
   cursor: pointer;
 }
@@ -34,19 +47,18 @@ h1 {
   margin-bottom: 0;
 }
 
-button {
+/* button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border-color: #7F4634;
   padding: 0.6em 1.2em;
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
+} */
 button:hover {
-  border-color: #646cff;
+  box-shadow: 2px 2px 0px #7F4634;
 }
 button:focus,
 button:focus-visible {
@@ -57,25 +69,7 @@ button:focus-visible {
   padding: 2em;
 }
 
-#app {
 
-}
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
 
-.select {
-  background-color: var(--vi-white);
-  color: var(--vi-shadow);
-  text-shadow: 0 0 1px var(--vi-black);
-}
+

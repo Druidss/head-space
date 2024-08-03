@@ -1,8 +1,7 @@
 <script>
 import NavigationColumn from '@/components/NavigationColumn.vue'
-import Rectangle from '@/components/Rectangle.vue'
-import Effect from '@/components/Effect.vue'
-import { Slider } from 'ant-design-vue';
+import logo from '@/assets/images/logo.png';
+import group from '@/assets/images/group.png';
 
 import { useEffectStore } from '../stores/effectStore';
 import { ref } from 'vue';
@@ -16,10 +15,7 @@ import  { addEffects } from "../tone";
 
 export default {
   components: {
-    NavigationColumn,
-    Rectangle,
-    Effect,
-    Slider  
+    NavigationColumn
   },
   methods: {
     updateEffect() {
@@ -28,7 +24,8 @@ export default {
   },
   data() {
     return {
-      value: 20
+      logo: logo,
+      group: group,
     }
   },
   setup() {
@@ -51,80 +48,48 @@ export default {
 
     return { valueVolume, updateStore, applyEffects };
   }
-}
+
   
   //const valueVolume = ref(0);
   //const valueReverb = ref(0);
   //const valueDelay = ref(0);
   //const valueFliter = ref(0);
+
 </script>
 
 <template>
-  <div class="flex w-screen h-screen bg-vi">
-    <div class="flex flex-col justify-center items-center w-1/10 md:w-auto">  
-      <h1 class="text-6xl text-center rotate-270 text-viWhite">JOHNDA LEMON</h1>
-      <h1 class="text-2xl text-center rotate-270 text-viWhite translate-x-16">The Head Space</h1>
-    </div>
-
-    <div class="w-9/10">
-      <NavigationColumn />
-      <!-- <h1 class="text-8xl text-center my-10">The Head Space</h1> -->
-      <!-- <button class="absolute bottom-8 right-4 rounded-full m-4 p-2  text-white border border-viWhite ">Download Stems</button> -->
-
-      <div class="flex items-center justify-center border border-viWhite mx-24 my-8 p-8 md:mx-6 md:p-6  ">
-        <div class="w-30">
-          <h1 class=" text-3xl text-vi bg-viWhite  text-center p-6">"Ginger"</h1>
-          <div class="grid justify-center">
-            <Rectangle class="p-4 bg-vi" text="Pause" />
-            <Rectangle class='border border-vi'text="Key" number="Emin" />
-            <Rectangle class='border border-vi' text="Tempo"  number="90Bpm" />
-          </div>
+  <div class="flex w-screen h-screen flex-col  bg-texture bg-cover bg-center">
+      <NavigationColumn/>
+      <div class="flex-1">
+      <div class="text-center flex flex-col justify-center my-auto">
+        <div class="bg-cover bg-center h-2/12 w-2/12 mx-auto mt-24 "><img  :src="logo" alt=""></div>
+        <p class="font-display text-4xl w-6/12 mx-auto text-vi uppercase font-semibold">an Album Concept <br>
+          by designer and beatmaker <br> alexander sente aka <br>
+          john da lemon.
+        </p>
+         <router-link :to="{ name: 'mixer' }">
+            <button 
+            class="text-sm text-vi font-medium font-display linear px-2 rounded-full border border-vi cursor-pointer"
+            >dive in & explore</button>
+         </router-link>
         </div>
 
-        <div class="w-70">
-          <div class="h-1/2 bg-gray-800 m-8 flex flex-row justify-between">
-             <!-- <h1 class="text-3xl">Effect Board</h1> -->
-              <div class="flex flex-col justify-between">
-              <Effect text="VOLUME" />
-              <Slider id="volume" v-model:value="valueVolume" @change="updateStore('VOLUME',$event)" :min="0" :max="10"/>
-              </div>
-
-              <div class="flex flex-col">
-              <Effect text="REVERB" />
-              <Slider id="volume" v-model:value="valueReverb" @change="updateStore('REVERB',$event)" />
-              </div> 
-
-              <div class="flex flex-col">
-              <Effect text="DELAY" />
-              <Slider id="volume" v-model:value="valueDelay" />
-              </div>
-             
-              <div class="flex flex-col">
-              <Effect text="FLITER" />
-              <Slider id="volume" v-model:value="valueFliter" />
-              </div>
-            
-          </div>
-
-          <div class="h-1/2 bg-gray-800 m-8 flex flex-row gap-4">
-            <Effect text="PIANO" />
-            <Effect text="DRUMS" />
-            <Effect text="HORNS" />
-            <Effect text="BASS" />
-            <Effect text="SYTH" />
-          </div>
-
         </div>
-      </div>
-    </div>
+        </div>
+
   </div>
+
 </template>
 
 
-
-<style scoped>
-.code-box-demo .ant-slider {
-  margin-bottom: 16px;
+<style>
+  .linear{
+    background: linear-gradient(90deg, #F9E0A0 0%, #FFD66E 100%);
+  }
+  .link:hover {
+  background-color: #F9E0A0;
+  box-shadow: 5px 5px 0px #7F4634;
+  font-weight: 700;
+  transition: box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
 }
 </style>
-
