@@ -105,13 +105,15 @@ methods: {
         element.sample = this.text;
       })
       console.log("DEBUG-updateSampleInPiniaStore: " + effectStore.pipeLine.forEach(element => {console.log(element.sample)}));
-    }
-  },
-
-  toggleSelect() {
+    },
+    
+    toggleSelect() {
     this.isSelected = !this.isSelected;
     this.$forceUpdate();
   },
+  },
+
+
 };
 
 </script>

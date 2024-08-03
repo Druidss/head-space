@@ -11,6 +11,15 @@
 </template>
 
 <script>
+import * as Tone from 'tone'; 
+
+import { playSample, stopSample, startTransport } from '../tone'; 
+import { useSamplerStore } from '../stores/samplerStore';
+import { useEffectStore } from '../stores/effectStore';
+const samplerStore = useSamplerStore();
+const effectStore = useEffectStore();
+
+const start = Tone.start();
 
 export default {
   name: 'Rectangle',
@@ -28,20 +37,67 @@ methods: {
   playInstrument() {
     switch (this.text) {
       case 'PIANO':
-       
+        if (samplerStore.pipeLine[0].isPlaying) {
+            samplerStore.pipeLine[0].isPlaying = false;
+            stopSample();
+          } else {
+            samplerStore.pipeLine[0].isPlaying = true;
+            playSample()
+          }
         break;
       case 'DRUMS':
-        
-        break;
+        if (samplerStore.pipeLine[1].isPlaying) {
+            samplerStore.pipeLine[1].isPlaying = false;
+            stopSample();
+          } else {
+            samplerStore.pipeLine[1].isPlaying = true;
+            //Logs pipeline
+            //console.log(samplerStore.pipeLine);
+            playSample()
+          }
+          break;
       case 'HORNS':
+        if (samplerStore.pipeLine[2].isPlaying) {
+            samplerStore.pipeLine[2].isPlaying = false;
+            stopSample()
+          } else {
+            samplerStore.pipeLine[2].isPlaying = true;
+            playSample()
+          }
+          break;
+      case 'BASS':
+        if (samplerStore.pipeLine[3].isPlaying) {
+            samplerStore.pipeLine[3].isPlaying = false;
+            stopSample()
+          } else {
+            samplerStore.pipeLine[3].isPlaying = true;
+            playSample()
+          }
+        break;
+      case 'SYTH':
+      if (samplerStore.pipeLine[4].isPlaying) {
+            samplerStore.pipeLine[4].isPlaying = false;
+            stopSample()
+          } else {
+            samplerStore.pipeLine[4].isPlaying = true;
+            playSample()
+            break;
+          }
       default:
-        
+        console.log(this.text);
     }
   },
   toggleSelect() {
     this.isSelected = !this.isSelected;
     this.$forceUpdate();
   },
+  updateSampleInPiniaStore() {
+  //console.log("Effect should be played")
+  effectStore.pipeLine.forEach(element => {
+    element.sample = this.text;
+  })
+  console.log("DEBUG-updateSampleInPiniaStore: " + effectStore.pipeLine.forEach(element => {console.log(element.sample)}));
+} 
   }
 };
 </script>

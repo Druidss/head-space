@@ -53,7 +53,7 @@ export default {
           <div class="w-30">
             <h1 class=" giner text-3xl text-vi bg-viWhite font-display  text-center p-2 font-bold border-2 border-vi">"Ginger"</h1>
             <div class="grid justify-center">
-              <Pause class="p-4 bg-vi" text="Pause" />
+              <Pause  class="p-4 bg-vi" text="Pause" />
               <Rectangle class=''text="Key" number="Emin" />
               <Rectangle class='' text="Tempo"  number="90Bpm" />
             </div>

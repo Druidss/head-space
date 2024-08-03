@@ -2,7 +2,7 @@
   <div class="bg-texture bg-cover bg-center h-screen w-screen">
     <NavigationColumn />
     <div class="">
-       <Carousel  autoplay>
+       <Carousel  >
         <MixerPlayer />
         <MixerPlayer />
         <MixerPlayer />
