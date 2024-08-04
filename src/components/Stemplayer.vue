@@ -24,8 +24,6 @@
               <div class="flex  flex-1 justify-center items-center">
                 <button @click="togglePlayPause" class="text-vi text-2xl mx-2 p-1">
                   <span>{{ isPlaying ? '❚❚' : '▶' }}</span>
-                  <!-- <span v-show="isPlaying">▶</span>
-                  <span v-show="!isPlaying">❚❚</span> -->
                 </button>
               </div>
 
@@ -38,9 +36,9 @@
             </div>
           </div>
           <div class="flex justify-center">
-            <div class="">
-              <vueVimeoPlayer ref="video" :video-id="videoId" :player-height="height" @ready="onReady" loop controls='false'/>
-            </div>
+            <video class="w-6/12" ref="video">
+              <source :src="videoSrc" type="video/mp4">
+            </video>
           </div>
           <div class="flex justify-center text-white text-4xl text-vi font-display mt-4 ">       
             <span class="font-bold px-2">{{number}}</span> / 09
@@ -55,6 +53,7 @@
 <script>
 import Rectangle from '@/components/Rectangle.vue';
  import { vueVimeoPlayer } from 'vue-vimeo-player'
+ import myVideo from '@/assets/vids/wave.mp4';
 
 export default {
   components: {
@@ -67,7 +66,7 @@ export default {
       required: true,
     },
     number: {
-      type: String,
+      type: Number,
       required: true,
     },
     name: {
@@ -78,23 +77,21 @@ export default {
   data() {
     return {
       isPlaying: false,
-      videoId: "994471958",
-      height: 350,
-      options: {
-				muted: true,
-        autoplay: true,
-			},
-      playerReady: true
-    };
+      videoSrc: myVideo
+    }
+  },
+  mounted() {
+    this.videoId = this.id;
+    this.playerReady = false;
   },
   methods: {
     onReady() {
-			this.playerReady = true
+			this.playerReady = true;
+      
 		},
     togglePlayPause() {
       const video = this.$refs.video;
       if (!this.isPlaying) {
-        video.update(this.id);
         video.play();
         this.isPlaying = true;
       } else {
@@ -113,5 +110,9 @@ export default {
       1px -1px 0 #7F4634,
       -1px  1px 0 #7F4634,
       1px  1px 0 #7F4634;
+}
+video {
+  width: 500px;
+  height: auto;
 }
 </style>

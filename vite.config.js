@@ -10,9 +10,9 @@ export default defineConfig({
       '@': path.resolve(__dirname,'src')
     }
   },
-  server: {
-    headers: {
-      'Content-Security-Policy': 'none',
-    },
-  },
+  // server: {
+  //   headers: {
+  //     'Content-Security-Policy': 'none',
+  //   },
+  // },
 })
