@@ -14,7 +14,7 @@
 
         <!-- stem -->
         <div>
-        <div class="flex flex-col border-2 border-vi px-12 py-4">
+        <div class="flex flex-col border-2 border-vi px-12 pb-4">
           <div class="flex justify-left item-center flex-col items-center mb-4">
             
             <div class="flex w-full justify-center mx-8 ">
@@ -37,11 +37,11 @@
           </div>
           <div class="flex justify-center">
             <div class="">
-              <vueVimeoPlayer ref="video" :video-id="videoID" :player-height="height" @ready="onReady" loop/>
+              <vueVimeoPlayer ref="video" :video-id="videoId" :player-height="height" @ready="onReady" loop/>
             </div>
           </div>
           <div class="flex justify-center text-white text-4xl text-vi font-display mt-4 ">       
-            <span class="font-bold">{{id}}</span> / 09
+            <span class="font-bold px-2">{{number}}</span> / 09
           </div>
         </div>
         </div>
@@ -75,8 +75,8 @@ export default {
   },
   data() {
     return {
-      isPlaying: true,
-      videoId: this.id,
+      isPlaying: false,
+      videoId: "994471958",
       height: 350,
       options: {
 				muted: true,
@@ -90,15 +90,13 @@ export default {
 			this.playerReady = true
 		},
     togglePlayPause() {
-      console.log(this.isPlaying);
       const video = this.$refs.video;
-      if (video.paused) {
+      if (!this.isPlaying) {
         video.play();
         this.isPlaying = true;
       } else {
         video.pause();
         this.isPlaying = false;
-        // this.$forceUpdate();
       }
     },
   }

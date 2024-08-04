@@ -9,7 +9,7 @@
    <div class="w-screen">
        <Carousel >
           <Stem v-for="(track, index) in tracks" 
-          :key="index" :name="track.name" :id="track.id" 
+          :key="index" :name="track.name" :id="track.videoID" 
           :number="track.number" 
           />
       </Carousel>
