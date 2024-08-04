@@ -7,7 +7,7 @@
     <div class=" w-9/12  h-screen mx-auto flex flex-row .carousel-container">
       <div class="carousel">
           <div v-for="(img, index) in images" :key="index" class="carousel-item ">
-            <img :src="img" alt="" class=" object-cover h-9/12 w-full">
+            <img :src="img" alt="" class=" object-cover h-9/12 ">
           </div>
       </div>
     </div>
@@ -20,6 +20,7 @@
   </div>
   </div>
 </div>
+
 </template>
 
 <script>
@@ -64,6 +65,7 @@ export default {
 .carousel-container {
   height: 60vh; 
   width: 100%;
+  max-height: 80vh; /* add this */
   overflow-x: auto;
   overflow-y: hidden;
   position: absolute;
@@ -77,6 +79,7 @@ export default {
 .carousel-item {
   flex: 0 0 100%; 
   height: 80vh;
+  max-height: 80vh; 
 }
 
 

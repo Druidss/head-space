@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons-vue": "^7.0.1",
     "@vimeo/player": "^2.23.0",
     "ant-design-vue": "^4.2.3",
     "pinia": "^2.1.7",
