@@ -3,6 +3,8 @@ import Antd from 'ant-design-vue'
 import App from './App.vue'
 import router from './router'
 import { createPinia } from 'pinia'
+import vueVimeoPlayer from 'vue-vimeo-player'
+
 import './style.css'
 import './index.css'
 import 'ant-design-vue/dist/reset.css';
@@ -11,4 +13,4 @@ import 'ant-design-vue/dist/reset.css';
 const app = createApp(App);
 const pinia = createPinia();
 
-app.use(Antd).use(router).use(pinia).mount('#app');
+app.use(Antd).use(router).use(pinia).use(vueVimeoPlayer).mount('#app');

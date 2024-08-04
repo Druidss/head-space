@@ -49,7 +49,6 @@ h1 {
 
 button::after{
   background-color: #7F4634;
-  /* border-radius: 9999px; */
 }
 
 button:hover {
@@ -65,7 +64,10 @@ button:focus-visible {
   padding: 2em;
 }
 
-
+.vp-center {
+    display: flex;
+    justify-content: center;
+}
 
 
 

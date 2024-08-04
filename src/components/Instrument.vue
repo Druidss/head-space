@@ -29,6 +29,11 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      isSelected: true, 
+    };
+  },
 methods: {
   handleClick() {
   this.playInstrument();
@@ -108,9 +113,13 @@ methods: {
 }
 .radial-gradient:hover, .selected {
   border: 2px solid #7F4634;
-  box-shadow: 5px 5px 0px #7F4634;
+  
   transition: box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
   background: radial-gradient(#FFF4D8 30%, #FCD777 100%);
+}
+
+.selected {
+  box-shadow: 5px 5px 0px #7F4634;
 }
 
 

@@ -2,14 +2,14 @@
   <div class="bg-texture bg-cover bg-center h-screen w-screen">
     <NavigationColumn />
     <div class="w-screen">
-       <Carousel  autoplay>
+       <Carousel  >
         <MixerPlayer v-for="(track, index) in tracks" :key="index" :name="track.name" :instruments="track.instruments" />
       </Carousel>
     </div>
 
   </div>
   <!-- group -->
-  <div class=" absolute w-9/12 mx-auto border-t-2 border-vi flex justify-center items-center  inset-x-0 mt-6  bottom-0">
+  <div class=" absolute w-9/12 mx-auto border-t-2 border-vi flex justify-center items-center  inset-x-0 mt-4 bottom-0">
   <div class="w-72 h-12 my-2 flex items-center justify-center "><img :src="group" alt="">
   </div>
   </div>

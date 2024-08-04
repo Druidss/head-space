@@ -1,38 +1,57 @@
 [
   {
     "name": "GINGER",
-    "instruments": ["PIANO", "DRUMS", "BASS", "RHODES", "SYNTHS"]
+    "instruments": ["PIANO", "DRUMS", "BASS", "RHODES", "SYNTHS"],
+    "videoID": "994471958",
+    "number": 1
   },
   {
     "name": "BLUE SKY",
-    "instruments": ["CHORDS", "DRUMS", "BASS", "ONESHOTS", "SYNTH"]
+    "instruments": ["CHORDS", "DRUMS", "BASS", "ONESHOTS", "SYNTH"],
+    "videoID": "994471958",
+    "number": 2 
   },
   {
     "name": "HOEHENANGST",
-    "instruments": ["GUITARS", "DRUMS", "BASS", "SAMPLE", "SYNTHS"]
+    "instruments": ["GUITARS", "DRUMS", "BASS", "SAMPLE", "SYNTHS"],
+    "videoID": "994471958",
+    "number": 3
   },
   {
     "name": "SANCTUARY",
-    "instruments": ["CHORDS", "DRUMS", "BASS", "GUITARS", "SYNTHS"]
+    "instruments": ["CHORDS", "DRUMS", "BASS", "GUITARS", "SYNTHS"],
+    "videoID": "994471958",
+    "number": 4
   },
   {
     "name": "WALDBODEN",
-    "instruments": ["RHODES", "DRUMS", "BASS", "GUITARS", "SYNTHS"]
+    "instruments": ["RHODES", "DRUMS", "BASS", "GUITARS", "SYNTHS"],
+    "videoID": "994471958",
+    "number": 5
+
   },
   {
     "name": "HARSH WINDS",
-    "instruments": ["CHORDS", "DRUMS", "SAMPLE", "SAXOPHONE", "SYNTHS"]
+    "instruments": ["CHORDS", "DRUMS", "SAMPLE", "SAXOPHONE", "SYNTHS"],
+    "videoID": "994471958",
+    "number": 6
   },
   {
     "name": "THE SOUL",
-    "instruments": ["CHORDS", "DRUMS", "BASS", "GUITARS", "SYNTHS"]
+    "instruments": ["CHORDS", "DRUMS", "BASS", "GUITARS", "SYNTHS"],
+    "videoID": "994471958",
+    "number": 7
   },
   {
     "name": "FEATHER WEIGHT",
-    "instruments": ["PIANO", "DRUMS", "BASS", "ONESHOTS", "SYNTHS"]
+    "instruments": ["PIANO", "DRUMS", "BASS", "ONESHOTS", "SYNTHS"],
+    "videoID": "994471958",
+    "number": 8
   },
   {
     "name": "AT PEACE",
-    "instruments": ["RHODES", "DRUMS", "VIBRAPHONE", "AMBIENCE", "SYNTHS"]
+    "instruments": ["RHODES", "DRUMS", "VIBRAPHONE", "AMBIENCE", "SYNTHS"],
+    "videoID": "994471958",
+    "number": 9
   }
 ]

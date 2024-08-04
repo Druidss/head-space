@@ -2,27 +2,27 @@
   <div class="bg-texture bg-cover bg-center h-screen w-screen">
     <NavigationColumn />
     <div class=" w-9/12 mx-auto">
-      <div class="flex justify-center">
-        <div class=" giner text-3xl text-vi bg-viWhite font-display  text-center mt-4 py-1 px-4 font-bold border-2 border-vi cursor-pointer">Auto Play</div>
-      </div>
-      <!-- text -->
-      <div class="flex justify-between items-center ">
-        <div class="text-4xl font-anisette text-viSelect text-outline">john da lemon</div>
-        <div class="text-4xl font-anisette text-viSelect text-outline">thE sOul sanctuary</div>
-      </div>
+
+
     </div>
-  <Stem />
+  <!-- <Stem /> -->
+   <div class="w-screen">
+       <Carousel >
+          <Stem v-for="(track, index) in tracks" 
+          :key="index" :name="track.name" :id="track.id" 
+          :number="track.number" 
+          />
+      </Carousel>
+    </div>
   </div>
 
-     <Carousel >
-          <!-- <Stem /> -->
-      </Carousel>
+
 
 <!-- group -->
-  <!-- <div class="absolute bottom-0 w-9/12 mx-auto  border-t-2 border-vi flex justify-center items-center  inset-x-0 mt-6 ">
-    <div class="w-72 h-12 mt-2 mb-8 flex items-center justify-center ">
-      <img :src="group" alt=""></div>
-  </div> -->
+  <div class=" absolute w-9/12 mx-auto border-t-2 border-vi flex justify-center items-center  inset-x-0 mt-4 bottom-0">
+  <div class="w-72 h-12 my-2 flex items-center justify-center "><img :src="group" alt="">
+  </div>
+  </div>
 </template>
 
 <script>
@@ -31,6 +31,7 @@ import Stem from '@/components/Stemplayer.vue';
 import { Carousel } from 'ant-design-vue';
 import imageSrc1 from '@/assets/stemplayer.png';
 import group from '@/assets/images/group.png';
+import tracks from '@/assets/tracks.json';
 
 
 export default {
@@ -44,6 +45,7 @@ export default {
     return {
       imageSrc1: imageSrc1,
       group: group,
+      tracks: tracks,
     }
   }
 }
@@ -63,11 +65,5 @@ export default {
   height: auto;
   overflow: hidden;
 }
-.text-outline {
-  text-shadow: 
-      -1px -1px 0 #7F4634,  
-      1px -1px 0 #7F4634,
-      -1px  1px 0 #7F4634,
-      1px  1px 0 #7F4634;
-}
+
 </style>

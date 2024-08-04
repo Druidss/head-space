@@ -81,8 +81,8 @@ export default {
   <div class="flex w-screen flex-col">
     <div class="w-9/12 mx-auto" >
         <!-- text -->
-          <div class="flex justify-between items-center mt-4">
-            <div class="text-4xl font-anisette text-viSelect text-outline">john da lemon</div>
+          <div class="flex justify-between items-center mt-12">
+            <div class="text-4xl font-display font-bold uppercase text-viSelect text-outline">john da lemon</div>
             <div class="text-4xl font-anisette text-viSelect text-outline">thE sOul sanctuary</div>
           </div>
           <!-- <div class="w-px h-full bg-vi mx-4 absolute inset-y-0 left-1/2 "></div> -->
@@ -90,7 +90,7 @@ export default {
         <div class="flex items-center justify-center border-2 border-vi mb-8 py-16 px-8 md:p-6">
 
           <div class="w-30">
-            <h1 class=" giner text-3xl text-vi bg-viWhite font-display  text-center p-2 font-bold border-2 border-vi">{{ name }}</h1>
+            <h1 class=" giner text-3xl text-vi bg-viWhite font-display  text-center p-2 font-bold border-2 border-vi">"{{ name }}"</h1>
             <div class="grid justify-center">
               <Pause  class="p-4 bg-vi" text="Pause" />
               <Rectangle class=''text="Key" number="Emin" />
@@ -136,7 +136,7 @@ export default {
         </div>
         <!-- button -->
       <div class="flex justify-end items-center ">
-        <button class="rounded-full  px-4 py-1 text-white  border-vi border-2 linear hover:bg-viSelect font-goudy text-xs mb-">DOWNLOAD SONG STEMS </button>
+        <button class="rounded-full mb-2  px-4 py-1 text-white  border-vi border-2 linear hover:bg-viSelect font-goudy text-xs mb-">DOWNLOAD SONG STEMS </button>
       </div>
 
     

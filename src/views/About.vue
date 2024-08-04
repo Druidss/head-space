@@ -14,6 +14,12 @@
         </div>
       </Carousel>
     </div>
+
+    
+      <div class=" absolute w-9/12 mx-auto border-t-2 border-vi flex justify-center items-center  inset-x-0 mt-4 bottom-0">
+  <div class="w-72 h-12 my-2 flex items-center justify-center "><img :src="group" alt="">
+  </div>
+  </div>
   </div>
 
 </template>
@@ -24,6 +30,7 @@ import { Carousel } from 'ant-design-vue';
 import imageSrc1 from '@/assets/images/1.png';
 import imageSrc2 from '@/assets/images/2.png';
 import imageSrc3 from '@/assets/images/3.png';
+import group from '@/assets/images/group.png';
 
 
 export default {
@@ -35,7 +42,8 @@ export default {
     return {
       imageSrc1: imageSrc1,
       imageSrc2: imageSrc2,
-      imageSrc3: imageSrc3
+      imageSrc3: imageSrc3,
+      group: group,
     }
   }
 }
