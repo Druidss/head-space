@@ -3,7 +3,10 @@
     <NavigationColumn />
     <div class="w-screen">
        <Carousel  >
-        <MixerPlayer v-for="(track, index) in tracks" :key="index" :name="track.name" :instruments="track.instruments" />
+        <MixerPlayer v-for="(track, index) in tracks" 
+        :key="index" :name="track.name" :instruments="track.instruments"  
+        :musicKey="track.key" :tempo="track.tempo" 
+        />
       </Carousel>
     </div>
 

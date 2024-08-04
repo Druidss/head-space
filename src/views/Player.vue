@@ -11,6 +11,7 @@
           <Stem v-for="(track, index) in tracks" 
           :key="index" :name="track.name" :id="track.videoID" 
           :number="track.number" 
+          :musicKey="track.key" :tempo="track.tempo" 
           />
       </Carousel>
     </div>

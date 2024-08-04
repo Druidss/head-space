@@ -5,7 +5,7 @@ import Pause from '@/components/Pause.vue'
 import Instrument from '@/components/Instrument.vue'
 import { Slider,ConfigProvider } from 'ant-design-vue';
 import group from '@/assets/images/group.png';
-import volume from '@/assets/images/volume.png';
+
 
 import { useEffectStore } from '../stores/effectStore';
 import { ref } from 'vue';
@@ -25,6 +25,14 @@ export default {
       type: String,
       required: true,
     },
+    musicKey: {
+      type: String,
+      required: true,
+    },
+    tempo: {
+      type: String,
+      required: true,
+    },
     instruments: {
       type: Array,
       required: true, 
@@ -34,7 +42,6 @@ export default {
     return {
       value: 20,
       group: group,
-      volume: volume,
     }
   },
   methods: {
@@ -85,7 +92,7 @@ export default {
             <div class="text-4xl font-display font-bold uppercase text-viSelect text-outline">john da lemon</div>
             <div class="text-4xl font-anisette text-viSelect text-outline">thE sOul sanctuary</div>
           </div>
-          <!-- <div class="w-px h-full bg-vi mx-4 absolute inset-y-0 left-1/2 "></div> -->
+         
         <!-- player -->
         <div class="flex items-center justify-center border-2 border-vi mb-8 py-16 px-8 md:p-6">
 
@@ -93,8 +100,8 @@ export default {
             <h1 class=" giner text-3xl text-vi bg-viWhite font-display  text-center p-2 font-bold border-2 border-vi">"{{ name }}"</h1>
             <div class="grid justify-center">
               <Pause  class="p-4 bg-vi" text="Pause" />
-              <Rectangle class=''text="Key" number="Emin" />
-              <Rectangle class='' text="Tempo"  number="90Bpm" />
+              <Rectangle class=''text="Key" :number="musicKey" />
+              <Rectangle class='' text="Tempo"  :number="tempo" />
             </div>
           </div>
 
@@ -125,11 +132,6 @@ export default {
             <h1 class="text-xl text-left mx-8 font-display bg-viSelect px-4 linear giner">INSTRUMENT BORARD</h1>
             <div class="h-1/2 bg-gray-800 m-8 flex flex-row gap-4">
               <Instrument v-for="(instrument, index) in instruments" :key="index" :text="instrument" />
-              <!-- <Instrument text="PIANO" /> -->
-              <!-- <Instrument text="DRUMS" />
-              <Instrument text="HORNS" />
-              <Instrument text="BASS" />
-              <Instrument text="SYTH" /> -->
             </div>
 
           </div>

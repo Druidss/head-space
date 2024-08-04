@@ -29,14 +29,14 @@
 
               <div class="flex flex-1 justify-center text-white text-lg mt-4">
                 <div class="flex max-w-60 justify-center">
-                <Rectangle class=''text="Key" number="Emin" />
-                <Rectangle class=''text="Tempo" number="91Bpm" />
+                <Rectangle class=''text="Key" :number="musicKey" />
+                <Rectangle class=''text="Tempo" :number="tempo" />
                 </div>
               </div>
             </div>
           </div>
           <div class="flex justify-center">
-            <video class="w-6/12" ref="video">
+            <video class="w-6/12 " ref="video">
               <source :src="videoSrc" type="video/mp4">
             </video>
           </div>
@@ -70,6 +70,14 @@ export default {
       required: true,
     },
     name: {
+      type: String,
+      required: true,
+    },
+    musicKey: {
+      type: String,
+      required: true,
+    },
+    tempo: {
       type: String,
       required: true,
     },
@@ -111,8 +119,5 @@ export default {
       -1px  1px 0 #7F4634,
       1px  1px 0 #7F4634;
 }
-video {
-  width: 500px;
-  height: auto;
-}
+
 </style>
