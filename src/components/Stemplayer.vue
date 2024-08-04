@@ -29,15 +29,17 @@
                 </button>
               </div>
 
-              <div class="flex  flex-1 justify-between text-white text-lg mt-4">
+              <div class="flex flex-1 justify-center text-white text-lg mt-4">
+                <div class="flex max-w-60 justify-center">
                 <Rectangle class=''text="Key" number="Emin" />
-                <Rectangle class=''text="Key" number="Emin" />
+                <Rectangle class=''text="Tempo" number="91Bpm" />
+                </div>
               </div>
             </div>
           </div>
           <div class="flex justify-center">
             <div class="">
-              <vueVimeoPlayer ref="video" :video-id="videoId" :player-height="height" @ready="onReady" loop/>
+              <vueVimeoPlayer ref="video" :video-id="videoId" :player-height="height" @ready="onReady" loop controls='false'/>
             </div>
           </div>
           <div class="flex justify-center text-white text-4xl text-vi font-display mt-4 ">       
@@ -92,6 +94,7 @@ export default {
     togglePlayPause() {
       const video = this.$refs.video;
       if (!this.isPlaying) {
+        video.update(this.id);
         video.play();
         this.isPlaying = true;
       } else {
