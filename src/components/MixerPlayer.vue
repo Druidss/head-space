@@ -107,7 +107,7 @@ export default {
 
           <div class="w-70">
             <h1 class="text-xl text-left mx-8  px-4 font-display bg-viSelect linear giner"
-            >EFFECT BORARD</h1>
+            >EFFECT BOARD</h1>
             <div class="h-1/2 bg-gray-800 m-8 mb-4 flex flex-row justify-between ">
               <div class="flex flex-col">
                 <Effect text="VOLUME" img="https://i.imgur.com/AxET1xh.png"/>
@@ -125,11 +125,11 @@ export default {
                 </div>
                 
                 <div class="flex flex-col">
-                <Effect text="FLITER" img="https://i.imgur.com/YyuaWX9.png"/>
+                <Effect text="FILTER" img="https://i.imgur.com/YyuaWX9.png"/>
                 <Slider id="volume" v-model:value="valueFliter" />
                 </div>
             </div>
-            <h1 class="text-xl text-left mx-8 font-display bg-viSelect px-4 linear giner">INSTRUMENT BORARD</h1>
+            <h1 class="text-xl text-left mx-8 font-display bg-viSelect px-4 linear giner">INSTRUMENT BOARD</h1>
             <div class="h-1/2 bg-gray-800 m-8 flex flex-row gap-4">
               <Instrument v-for="(instrument, index) in instruments" :key="index" :text="instrument" />
             </div>
