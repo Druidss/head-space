@@ -147,7 +147,13 @@ export default {
         </div>
         <!-- button -->
       <div class="flex justify-end items-center ">
-        <button class="rounded-full mb-2  px-4 py-1 text-white  border-vi border-2 linear hover:bg-viSelect font-goudy text-xs mb-">DOWNLOAD SONG STEMS </button>
+        <button class="rounded-full mb-4  px-4 py-1 text-white  border-vi border-2 linear hover:bg-viSelect font-goudy text-xs">
+          <a href="https://drive.google.com/drive/folders/1--R81ZPS4ZeNBxBYO9VivOqB3BY9r63U?usp=sharing" target="_blank"
+          class="hover:no-underline hover:text-viBlack focus:no-underline "
+          >
+          DOWNLOAD SONG STEMS 
+          </a>
+        </button>
       </div>
 
     
