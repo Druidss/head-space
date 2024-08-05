@@ -15,15 +15,15 @@
 <script>
 import * as Tone from 'tone'; 
 
-import { playSample, stopSample, startTransport } from '../tone'; 
-import { useSamplerStore } from '../stores/samplerStore';
+//import { playSample, stopSample, startTransport } from '../mixers/ginger'; 
+import { useSamplerStore } from '../stores/gingerStore';
 import { useEffectStore } from '../stores/effectStore';
 
 
-const samplerStore = useSamplerStore();
+//const samplerStore = useSamplerStore();
 const effectStore = useEffectStore();
 
-const start = Tone.start();
+//const start = Tone.start();
 //console.log(start);
 
 export default {
@@ -40,63 +40,63 @@ export default {
   },
 methods: {
     handleClick() {
-    this.playInstrument();
+    //this.playInstrument();
     this.toggleSelect();
     },
 
-    playInstrument() {
-      switch (this.text) {
-        case 'PIANO':
-          if (samplerStore.pipeLine[0].isPlaying) {
-              samplerStore.pipeLine[0].isPlaying = false;
-              stopSample();
-            } else {
-              samplerStore.pipeLine[0].isPlaying = true;
-              playSample()
-            }
-          break;
-        case 'DRUMS':
-          if (samplerStore.pipeLine[1].isPlaying) {
-              samplerStore.pipeLine[1].isPlaying = false;
-              stopSample();
-            } else {
-              samplerStore.pipeLine[1].isPlaying = true;
-              //Logs pipeline
-              //console.log(samplerStore.pipeLine);
-              playSample()
-            }
-            break;
-        case 'HORNS':
-          if (samplerStore.pipeLine[2].isPlaying) {
-              samplerStore.pipeLine[2].isPlaying = false;
-              stopSample()
-            } else {
-              samplerStore.pipeLine[2].isPlaying = true;
-              playSample()
-            }
-            break;
-        case 'BASS':
-          if (samplerStore.pipeLine[3].isPlaying) {
-              samplerStore.pipeLine[3].isPlaying = false;
-              stopSample()
-            } else {
-              samplerStore.pipeLine[3].isPlaying = true;
-              playSample()
-            }
-          break;
-        case 'SYTH':
-        if (samplerStore.pipeLine[4].isPlaying) {
-              samplerStore.pipeLine[4].isPlaying = false;
-              stopSample()
-            } else {
-              samplerStore.pipeLine[4].isPlaying = true;
-              playSample()
-              break;
-            }
-        default:
-          console.log(this.text);
-      }
-    },
+    //playInstrument() {
+    //  switch (this.text) {
+    //    case 'PIANO':
+    //      if (samplerStore.pipeLine[0].isPlaying) {
+    //          samplerStore.pipeLine[0].isPlaying = false;
+    //          stopSample();
+    //        } else {
+    //          samplerStore.pipeLine[0].isPlaying = true;
+    //          playSample()
+    //        }
+    //      break;
+    //    case 'DRUMS':
+    //      if (samplerStore.pipeLine[1].isPlaying) {
+    //          samplerStore.pipeLine[1].isPlaying = false;
+    //          stopSample();
+    //        } else {
+    //          samplerStore.pipeLine[1].isPlaying = true;
+    //          //Logs pipeline
+    //          //console.log(samplerStore.pipeLine);
+    //          playSample()
+    //        }
+    //        break;
+    //    case 'HORNS':
+    //      if (samplerStore.pipeLine[2].isPlaying) {
+    //          samplerStore.pipeLine[2].isPlaying = false;
+    //          stopSample()
+    //        } else {
+    //          samplerStore.pipeLine[2].isPlaying = true;
+    //          playSample()
+    //        }
+    //        break;
+    //    case 'BASS':
+    //      if (samplerStore.pipeLine[3].isPlaying) {
+    //          samplerStore.pipeLine[3].isPlaying = false;
+    //          stopSample()
+    //        } else {
+    //          samplerStore.pipeLine[3].isPlaying = true;
+    //          playSample()
+    //        }
+    //      break;
+    //    case 'SYTH':
+    //    if (samplerStore.pipeLine[4].isPlaying) {
+    //          samplerStore.pipeLine[4].isPlaying = false;
+    //          stopSample()
+    //        } else {
+    //          samplerStore.pipeLine[4].isPlaying = true;
+    //          playSample()
+    //          break;
+    //        }
+    //    default:
+    //      console.log(this.text);
+    //  }
+    //},
 
     updateSampleInPiniaStore() {
       //console.log("Effect should be played")

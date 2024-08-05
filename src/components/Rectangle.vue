@@ -10,7 +10,7 @@
 
 <script>
 
-import { startTransport } from '../tone';
+//import { startTransport } from '../mixers/tone';
 export default {
   name: 'Rectangle',
   props: {
@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     start() {
-      startTransport();
+      //startTransport();
     }
   }
 };

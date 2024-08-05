@@ -9,7 +9,7 @@ import volume from '@/assets/images/volume.png';
 
 import { useEffectStore } from '../stores/effectStore';
 import { ref } from 'vue';
-import  { addEffects } from "../tone";
+import  { addEffects } from "../mixers/ginger";
 
 export default {
   components: {
@@ -29,6 +29,10 @@ export default {
       type: Array,
       required: true, 
     },
+    numberSampler: {
+      type: Number,
+      required: true,
+    }
   },
   data() {
     return {
@@ -40,25 +44,30 @@ export default {
   methods: {
     updateEffect() {
       addEffects();
+    },
+    checkPage() {
+
     }
   },
   setup() {
     const effectStore = useEffectStore();
     const valueVolume = ref(10);
 
+    //Updates value of slider in Pinia Store
+    //applyEffects with Values from Pinia Store
     const updateStore = (effectString,newSliderValue) => {
       valueVolume.value = newSliderValue;
-      //console.log("Updating store!");
-      //console.log(effectString);
-      //console.log(valueVolume.value);
       effectStore.setValue(valueVolume.value,effectString);
-      console.log("DEBUG-updateStore(): VolumeValue in Pinia" + effectStore.pipeLine[1].value);
       applyEffects();
     };
 
     const applyEffects = () => {
         addEffects();
     };
+
+    const checkSampler = (key) => {
+      
+    }
 
     return { valueVolume, updateStore, applyEffects };
   },
@@ -92,7 +101,7 @@ export default {
           <div class="w-30">
             <h1 class=" giner text-3xl text-vi bg-viWhite font-display  text-center p-2 font-bold border-2 border-vi">"{{ name }}"</h1>
             <div class="grid justify-center">
-              <Pause  class="p-4 bg-vi" text="Pause" />
+              <Pause  class="p-4 bg-vi" text="Pause" :numberSampler="numberSampler"/>
               <Rectangle class=''text="Key" number="Emin" />
               <Rectangle class='' text="Tempo"  number="90Bpm" />
             </div>
@@ -124,7 +133,7 @@ export default {
             </div>
             <h1 class="text-xl text-left mx-8 font-display bg-viSelect px-4 linear giner">INSTRUMENT BORARD</h1>
             <div class="h-1/2 bg-gray-800 m-8 flex flex-row gap-4">
-              <Instrument v-for="(instrument, index) in instruments" :key="index" :text="instrument" />
+              <Instrument v-for="(instrument, index) in instruments" :key="index" :text="instrument" :numberSampler="numberSampler" :instruments="instruments"/>
               <!-- <Instrument text="PIANO" /> -->
               <!-- <Instrument text="DRUMS" />
               <Instrument text="HORNS" />

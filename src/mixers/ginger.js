@@ -1,65 +1,132 @@
 import * as Tone from 'tone';
-import { useSamplerStore } from './stores/samplerStore';
-import { useEffectStore } from './stores/effectStore';
-import pianoUrl from "./assets/Ginger/GINGERPIANO.mp3";
-import drumsUrl from "./assets/Ginger/GINGERDRUMS.mp3";
-import hornsUrl from "./assets/Ginger/GINGERRHODES.mp3"
-import bassUrl from "./assets/Ginger/GINGERBASS.mp3"
-import synthUrl from "./assets/Ginger/GINGERSYNTHS.mp3"
+import { useGingerStore } from '../stores/gingerStore';
+import { useEffectStore } from '../stores/effectStore';
+//import pianoUrl from "../assets/Ginger/GINGERPIANO.mp3";
+import pianoUrl from "../assets/Albumstems/01Ginger/GINGERPIANO.mp3"
+import drumsUrl from "../assets/Albumstems/01Ginger/GINGERDRUMS.mp3";
+import rhodesUrl from "../assets/Albumstems/01Ginger/GINGERRHODES.mp3"
+import bassUrl from "../assets/Albumstems/01Ginger/GINGERBASS.mp3"
+import synthUrl from "../assets/Albumstems/01Ginger/GINGERSYNTHS.mp3"
 
-const sampleStore = useSamplerStore();
+const gingerStore = useGingerStore();
 const effectStore = useEffectStore();
 
+//Load playSampleGinger and stopSampleGinger in gingerStore
+gingerStore.play = playSampleGinger;
+gingerStore.stop = stopSampleGinger;
+
+//Variables
+//-> Player:
+let pianoPlayer;
+let drumsPlayer;
+let rhodesPlayer;
+let bassPlayer;
+let synthPlayer;
+//->Loops:
+let loopPiano;
+let loopDrums;
+let loopRhodes;
+let loopBass;
+let loopSynth;
+
+
+//TODO: update status player.mute after init
 //Init Players
-const pianoPlayer = new Tone.Player({
+
+export function initPlayerLoopsGinger() {  
+pianoPlayer = new Tone.Player({
   url: pianoUrl,
 }).toDestination();
+gingerStore.pipeLine[0].player = pianoPlayer;
 
-const drumsPlayer = new Tone.Player({
+drumsPlayer = new Tone.Player({
   url: drumsUrl,
 }).toDestination();
+gingerStore.pipeLine[1].player = drumsPlayer;
 
-const hornsPlayer = new Tone.Player({
-  url: hornsUrl,
+rhodesPlayer = new Tone.Player({
+  url: rhodesUrl,
 }).toDestination();
+gingerStore.pipeLine[2].player = rhodesPlayer;
 
-const bassPlayer = new Tone.Player({
+bassPlayer = new Tone.Player({
   url: bassUrl,
 }).toDestination();
+gingerStore.pipeLine[3].player = bassPlayer;
 
-const synthPlayer = new Tone.Player({
+synthPlayer = new Tone.Player({
   url: synthUrl,
 }).toDestination();
+gingerStore.pipeLine[4].player = synthPlayer;
 
 //Init Loops
-let loopPiano = new Tone.Loop((time) => {
+loopPiano = new Tone.Loop((time) => {
   pianoPlayer.start(time);
   },21).start(0);
 
-let loopDrums = new Tone.Loop((time) => {
+loopDrums = new Tone.Loop((time) => {
   drumsPlayer.start(time);
 },21).start(0);
 
-let loopHorns = new Tone.Loop((time) => {
-  hornsPlayer.start(time)
-},21).start(0);
-
-let loopBass = new Tone.Loop((time) => {
+loopBass = new Tone.Loop((time) => {
   bassPlayer.start(time)
 },21).start(0);
 
-let loopSynth = new Tone.Loop((time) => {
+loopRhodes = new Tone.Loop((time) => {
+  rhodesPlayer.start(time)
+},21).start(0);
+
+loopSynth = new Tone.Loop((time) => {
   synthPlayer.start(time);
 },21).start(0);
 
+//Sets mute according to PiniaStore isPlaying
+gingerStore.pipeLine.forEach(element => {
+  if (!element.isPlaying) {
+    element.player.mute = true;
+  }
+})
+
+}
+
+//FIX THIS deprecated
 export function startTransport() {
-  if (Tone.getTransport().state != 'started') {
+  console.log("WRONG START TRANSPORT")
+}
+//
+export function startMixerGinger() {
+  initPlayerLoopsGinger();
+  console.log("Wait 1sec to load Players/Loops");
+  setTimeout(() => {
+    if (Tone.getTransport().state != 'started') {
       Tone.getTransport().start();
+  }
+  }, 1000);
+  
+}
+
+export function stopMixerGinger() {
+  if (Tone.getTransport().state != 'stopped') {
+    //Stop all Players
+    pianoPlayer.stop();
+    drumsPlayer.stop();
+    bassPlayer.stop();
+    rhodesPlayer.stop();
+    synthPlayer.stop();
+    //stop all Loops
+    loopPiano.stop();
+    loopDrums.stop();
+    loopBass.stop();
+    loopRhodes.stop();
+    loopSynth.stop();
+    Tone.getTransport().stop();
+    Tone.getTransport().clear();
+    Tone.getTransport().loop = false;
   }
 }
 
-export function playSample() {
-  sampleStore.pipeLine.forEach(element => {
+export function playSampleGinger() {
+  gingerStore.pipeLine.forEach(element => {
     if (element.isPlaying == true) {
       switch (element.id) {
         case 'PIANO':
@@ -71,27 +138,28 @@ export function playSample() {
           drumsPlayer.mute = false;
           console.log("DEBUG-BACKEND: Drums Volume "+drumsPlayer.volume.value);
           break;
-        case 'HORNS':
-          console.log("DEBUG-BACKEND: Horns Button On!")
-          hornsPlayer.mute = false;
-          break;
         case 'BASS':
           console.log("DEBUG-BACKEND: Bass Button On!")
           bassPlayer.mute = false;
           break;
-        case 'SYTH':
+        case 'RHODES':
+          console.log("DEBUG-BACKEND: Rhodes Button On!")
+          rhodesPlayer.mute = false;
+          break;
+        case 'SYNTHS':
           console.log("DEBUG-BACKEND: Syth Button On!")
           synthPlayer.mute = false;
           break;
         default:
-          console.log(element.id)
+          console.log("SWITCH-CASE playSample()-toneJS. DEFAULT")
+          break;
       }
     }
   });
 }
 
-export function stopSample() {
-  sampleStore.pipeLine.forEach(element => {
+export function stopSampleGinger() {
+  gingerStore.pipeLine.forEach(element => {
     if (element.isPlaying == false) {
       switch (element.id) {
         case 'PIANO':
@@ -102,15 +170,15 @@ export function stopSample() {
           console.log("DEBUG-BACKEND: Drums Button Off!");
           drumsPlayer.mute = true;
           break;
-        case 'HORNS':
-          console.log("DEBUG-BACKEND: Horns Button Off!");
-          hornsPlayer.mute = true;
-          break;
         case 'BASS':
-          console.log("DEBUG-BACKEND: Horns Button Off!");
+          console.log("DEBUG-BACKEND: Bass Button Off!");
+          rhodesPlayer.mute = true;
+          break;
+        case 'RHODES':
+          console.log("DEBUG-BACKEND: Rhodes Button Off!");
           bassPlayer.mute = true;
           break;
-        case 'SYTH':
+        case 'SYNTHS':
           console.log("DEBUG-BACKEND: Synth Button Off!");
           synthPlayer.mute = true;
           break;
@@ -120,7 +188,14 @@ export function stopSample() {
     }
   })
 }
+//HELPER FUNCTIONS
+function updateAfterInitGinger() {
+  
+}
 
+
+//#########################################################################################
+//Adds effects, with current values from Pinia Store
 export function addEffects() {
   effectStore.pipeLine.forEach(element => {
     switch (element.sample) {
@@ -141,13 +216,13 @@ export function addEffects() {
         //drumsPlayer.connect(volume);
         
         break;
-      case 'HORNS':
+      case 'RHODES':
 
         break;
       case 'BASS':
         
         break;
-      case 'SYTH':
+      case 'SYNTH':
 
         break;
       

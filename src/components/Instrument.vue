@@ -13,13 +13,31 @@
 <script>
 import * as Tone from 'tone'; 
 
-import { playSample, stopSample, startTransport } from '../tone'; 
-import { useSamplerStore } from '../stores/samplerStore';
-import { useEffectStore } from '../stores/effectStore';
-const samplerStore = useSamplerStore();
-const effectStore = useEffectStore();
 
-const start = Tone.start();
+import { useGingerStore } from '../stores/gingerStore';
+import { useBlueskyStore } from '../stores/blueskyStore';
+import { useHoehenangstStore } from '../stores/hoehenangstStore';
+import { useSanctuaryStore } from '../stores/sanctuaryStore';
+import { useWaldbodenStore } from '../stores/waldbodenStore';
+import { useHarshwindsStore } from '../stores/harshwindsStore';
+import { useThesoulStore } from '../stores/theSoulStore';
+import { useFeatherweightStore } from '../stores/featherweightStore';
+import { useAtpeaceStore } from '../stores/atpeaceStore';
+
+import { useEffectStore } from '../stores/effectStore';
+
+const gingerStore = useGingerStore();
+const blueskyStore = useBlueskyStore();
+const hoehenangstStore = useHoehenangstStore();
+const sanctuaryStore = useSanctuaryStore();
+const waldbodenStore = useWaldbodenStore();
+const harshwindsStore = useHarshwindsStore();
+const theSoulStore = useThesoulStore();
+const featherweightStore = useFeatherweightStore();
+const atpeaceStore = useAtpeaceStore();
+const effectStore = useEffectStore();
+//const start = Tone.start();
+
 
 export default {
   name: 'Rectangle',
@@ -28,6 +46,14 @@ export default {
       type: String,
       required: true,
     },
+    numberSampler: {
+      type: Number,
+      required: true,
+    },
+    instruments: {
+      type: Array,
+      required: true,
+    }
   },
   data() {
     return {
@@ -35,58 +61,112 @@ export default {
     };
   },
 methods: {
+  //Index Track from tracks.json
   handleClick() {
-  this.playInstrument();
+  //console.log("Current Index: " + " "+  this.numberSampler + " AND " + this.text)
+  this.findBeatAndStartSampler(this.numberSampler);
   this.toggleSelect();
   },
-  playInstrument() {
+  findBeatAndStartSampler(numberSampler) {
+    switch (numberSampler) {
+    case 1:
+      this.playBeat(gingerStore,this.instruments);
+      console.log("GINGER IS PLAYING");
+      break;
+    case 2:
+      this.playBeat(blueskyStore,this.instruments);
+      console.log(this.instruments[0]);
+      console.log("BLUE SKY IS PLAYING");
+      break;
+    case 3:
+      this.playBeat(hoehenangstStore, this.instruments);
+      console.log("HOEHENANGST IS PLAYING")
+      break;
+    case 4:
+      this.playBeat(sanctuaryStore,this.instruments);
+      console.log("SANCTUARY IS PLAYING")
+      break;
+    case 5:
+      this.playBeat(waldbodenStore, this.instruments);
+      console.log("WALDBODEN IS PLAYING");
+      break;
+    case 6:
+      this.playBeat(harshwindsStore, this.instruments);
+      console.log("HARSH WINDS IS PLAYING");
+      break;
+    case 7:
+      this.playBeat(theSoulStore, this.instruments);
+      console.log("THE SOUL IS PLAYING");
+      break;
+    case 8:
+      this.playBeat(featherweightStore, this.instruments);
+      console.log("FEATHER WEIGHT IS PLAYING");
+      break;
+    case 9:
+      this.playBeat(atpeaceStore, this.instruments);
+      console.log("AT PEACE IS PLAYING");
+      break;
+    default:
+      console.log("DEFAULT IS PLAYING");
+      break;
+  }
+  },
+  playBeat(store,arrayOfSamples) {
     switch (this.text) {
-      case 'PIANO':
-        if (samplerStore.pipeLine[0].isPlaying) {
-            samplerStore.pipeLine[0].isPlaying = false;
-            stopSample();
+      case arrayOfSamples[0]:
+        if (store.pipeLine[0].isPlaying) {
+            store.pipeLine[0].isPlaying = false;
+            store.stop();
+            //stopSampleBlueSky();
           } else {
-            samplerStore.pipeLine[0].isPlaying = true;
-            playSample()
+            store.pipeLine[0].isPlaying = true;
+            store.play();
+            //playSampleBlueSky()
           }
         break;
-      case 'DRUMS':
-        if (samplerStore.pipeLine[1].isPlaying) {
-            samplerStore.pipeLine[1].isPlaying = false;
-            stopSample();
+      case arrayOfSamples[1]:
+        if (store.pipeLine[1].isPlaying) {
+            store.pipeLine[1].isPlaying = false;
+            store.stop();
+            //stopSampleBlueSky();
           } else {
-            samplerStore.pipeLine[1].isPlaying = true;
-            //Logs pipeline
-            //console.log(samplerStore.pipeLine);
-            playSample()
+            store.pipeLine[1].isPlaying = true;
+            store.play();
+            //playSampleBlueSky()
           }
           break;
-      case 'HORNS':
-        if (samplerStore.pipeLine[2].isPlaying) {
-            samplerStore.pipeLine[2].isPlaying = false;
-            stopSample()
+      case arrayOfSamples[2]:
+        if (store.pipeLine[2].isPlaying) {
+            store.pipeLine[2].isPlaying = false;
+            store.stop();
+            //stopSampleBlueSky()
           } else {
-            samplerStore.pipeLine[2].isPlaying = true;
-            playSample()
+            store.pipeLine[2].isPlaying = true;
+            store.play();
+            //playSampleBlueSky()
           }
           break;
-      case 'BASS':
-        if (samplerStore.pipeLine[3].isPlaying) {
-            samplerStore.pipeLine[3].isPlaying = false;
-            stopSample()
+      case arrayOfSamples[3]:
+        if (store.pipeLine[3].isPlaying) {
+            store.pipeLine[3].isPlaying = false;
+            store.stop();
+            //stopSampleBlueSky()
           } else {
-            samplerStore.pipeLine[3].isPlaying = true;
-            playSample()
+            store.pipeLine[3].isPlaying = true;
+            store.play();
+            //playSampleBlueSky()
           }
         break;
-      case 'SYTH':
-      if (samplerStore.pipeLine[4].isPlaying) {
-            samplerStore.pipeLine[4].isPlaying = false;
-            stopSample()
+      case arrayOfSamples[4]:
+      if (store.pipeLine[4].isPlaying) {
+          store.pipeLine[4].isPlaying = false;
+          store.stop();
+          //stopSampleBlueSky()
           } else {
-            samplerStore.pipeLine[4].isPlaying = true;
-            playSample()
-            break;
+          store.pipeLine[4].isPlaying = true;
+          store.play();
+          //playSampleBlueSky()
+          break;
           }
       default:
         console.log(this.text);
