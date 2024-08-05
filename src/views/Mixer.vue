@@ -2,7 +2,7 @@
   <div class="bg-texture bg-cover bg-center h-screen w-screen">
     <NavigationColumn />
     <div class="w-screen">
-       <Carousel  ref="carousel" >
+       <Carousel  ref="carousel" :beforeChange="cleanPlayersAndLoops">
         <MixerPlayer v-for="(track, index) in tracks" 
         :key="index" :name="track.name" :instruments="track.instruments"  
         :musicKey="track.key" :tempo="track.tempo" :numberSampler="track.number"
@@ -124,9 +124,7 @@ export default defineComponent( {
         default:
           break;
       }
-    }
-  }
-}
+    },
     toggleNext() {
        const carousel = this.$refs.carousel;
        carousel.next();
