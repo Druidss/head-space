@@ -2,12 +2,10 @@
   <div class="bg-texture bg-cover bg-center h-screen w-screen">
     <NavigationColumn />
     <div class=" w-9/12 mx-auto">
-
-
     </div>
   <!-- <Stem /> -->
    <div class="w-screen">
-       <Carousel  ref="carousel" >
+       <Carousel  ref="carousel" :beforeChange="cleanPlayersAndLoops" >
           <Stem v-for="(track, index) in tracks" 
           :key="index" :name="track.name" :id="track.videoID" 
           :number="track.number" 
@@ -17,14 +15,14 @@
     </div>
   </div>
 
+  <div @click="togglePre" class="p-3 absolute bottom-1/3 left-72 cursor-pointer">
+    <img :src="left" alt="" class="w-6 h-10"></img>
+  </div>
+  <div @click="toggleNext" class="p-3 absolute bottom-1/3 right-72 cursor-pointer">
+    <img :src="right" alt="" class="w-6 h-10"></img>
+  </div>
 
-      <div @click="togglePre" class="p-3 absolute bottom-1/3 left-72 cursor-pointer">
-        <img :src="left" alt="" class="w-6 h-10"></img>
-      </div>
-      <div @click="toggleNext" class="p-3 absolute bottom-1/3 right-72 cursor-pointer">
-        <img :src="right" alt="" class="w-6 h-10"></img>
-      </div>
-<!-- group -->
+  <!-- group -->
   <div class=" absolute w-9/12 mx-auto border-t-2 border-vi flex justify-center items-center  inset-x-0 mt-4 bottom-0">
   <div class="w-72 h-12 my-2 flex items-center justify-center "><img :src="group" alt="">
   </div>
@@ -40,7 +38,15 @@ import group from '@/assets/images/group.png';
 import left from '@/assets/images/left.png';
 import right from '@/assets/images/right.png';
 import tracks from '@/assets/tracks.json';
-
+import { initPlayerLoopsGinger, stopMixerGinger } from '../mixers/ginger';
+import { initPlayerLoopsBluesky, stopMixerBluesky } from '../mixers/bluesky';
+import { initPlayerLoopsHoehenangst, stopMixerHoehenangst } from '../mixers/hoehenangst';
+import { initPlayerLoopsSanctuary, stopMixerSanctuary } from '../mixers/sanctuary';
+import { initPlayerLoopsWaldboden, stopMixerWaldboden } from '../mixers/waldboden';
+import { initPlayerLoopsHarshwinds, stopMixerHarshwinds } from '../mixers/harshwinds';
+import { initPlayerLoopsThesoul,stopMixerThesoul } from '../mixers/thesoul';
+import { initPlayerLoopsFeatherweight, stopMixerFeatherweight } from '../mixers/featherweight';
+import { initPlayerLoopsAtpeace, stopMixerAtpeace } from '../mixers/atpeace';
 
 export default {
   name: 'Player',
@@ -66,6 +72,39 @@ export default {
     togglePre() {
        const carousel = this.$refs.carousel;
        carousel.prev();
+    },
+    cleanPlayersAndLoops(currentSlide) {
+      switch (currentSlide) {
+        case 0:
+          stopMixerGinger();
+          break;
+        case 1:
+          stopMixerBluesky();
+          break;
+        case 2:
+          stopMixerHoehenangst();
+          break;
+        case 3:
+          stopMixerSanctuary();
+          break;
+        case 4:
+          stopMixerWaldboden();
+          break;
+        case 5:
+          stopMixerHarshwinds();
+          break;
+        case 6:
+          stopMixerThesoul();
+          break;
+        case 7:
+          stopMixerFeatherweight();
+          break;
+        case 8:
+          stopMixerAtpeace();
+          break;
+        default:
+          break;
+      }
     },
   },
 }

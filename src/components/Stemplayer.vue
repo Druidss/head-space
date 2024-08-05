@@ -22,7 +22,7 @@
       
 
               <div class="flex  flex-1 justify-center items-center">
-                <button @click="togglePlayPause" class="text-vi text-2xl mx-2 p-1">
+                <button @click="handleClick" class="text-vi text-2xl mx-2 p-1">
                   <span>{{ isPlaying ? '❚❚' : '▶' }}</span>
                 </button>
               </div>
@@ -52,8 +52,19 @@
 
 <script>
 import Rectangle from '@/components/Rectangle.vue';
- import { vueVimeoPlayer } from 'vue-vimeo-player'
- import myVideo from '@/assets/vids/wave.mp4';
+import { vueVimeoPlayer } from 'vue-vimeo-player'
+import myVideo from '@/assets/vids/wave.mp4';
+
+import * as Tone from 'tone';
+import { startMixerGinger, stopMixerGinger } from '../mixers/ginger';
+import { startMixerBluesky, stopMixerBluesky } from '../mixers/bluesky';
+import { startMixerHoehenangst,stopMixerHoehenangst } from '../mixers/hoehenangst';
+import { startMixerSanctuary,stopMixerSanctuary } from '../mixers/sanctuary';
+import { startMixerWaldboden,stopMixerWaldboden } from '../mixers/waldboden';
+import { startMixerHarshwinds,stopMixerHarshwinds } from '../mixers/harshwinds';
+import { startMixerThesoul,stopMixerThesoul } from '../mixers/thesoul';
+import { startMixerFeatherweight,stopMixerFeatherweight } from '../mixers/featherweight';
+import { startMixerAtpeace,stopMixerAtpeace } from '../mixers/atpeace';
 
 export default {
   components: {
@@ -93,10 +104,78 @@ export default {
     this.playerReady = false;
   },
   methods: {
-    onReady() {
-			this.playerReady = true;
-      
-		},
+    handleClick() {
+      this.togglePlayPause();
+      //startTransportGinger();
+      switch (this.number) {
+        case 1:
+        if(Tone.getTransport().state == 'started') {
+          stopMixerGinger();
+        } else {
+          startMixerGinger();
+        };
+          break;
+        case 2:
+        if(Tone.getTransport().state == 'started') {
+          stopMixerBluesky();
+          console.log("Mixer Bluesky stopped")
+        } else {
+          startMixerBluesky();
+        };
+          break;
+        case 3:
+        if(Tone.getTransport().state == 'started') {
+          stopMixerHoehenangst();
+        } else {
+          startMixerHoehenangst();
+        };
+          break;
+        case 4:
+        if(Tone.getTransport().state == 'started') {
+          stopMixerSanctuary();
+        } else {
+          startMixerSanctuary();
+        };
+          break;
+        case 5:
+        if(Tone.getTransport().state == 'started') {
+          stopMixerWaldboden();
+        } else {
+          startMixerWaldboden();
+        };
+          break;
+        case 6:
+        if(Tone.getTransport().state == 'started') {
+          stopMixerHarshwinds();
+        } else {
+          startMixerHarshwinds();
+        };
+          break;
+        case 7:
+        if(Tone.getTransport().state == 'started') {
+          stopMixerThesoul();
+        } else {
+          startMixerThesoul();
+        };
+          break;
+        case 8:
+        if(Tone.getTransport().state == 'started') {
+          stopMixerFeatherweight();
+        } else {
+          startMixerFeatherweight();
+        };
+          break;
+        case 9:
+        if(Tone.getTransport().state == 'started') {
+          stopMixerAtpeace();
+        } else {
+          startMixerAtpeace();
+        };
+          break;
+        default:
+          break;
+      }
+    },
     togglePlayPause() {
       const video = this.$refs.video;
       if (!this.isPlaying) {
@@ -107,6 +186,7 @@ export default {
         this.isPlaying = false;
       }
     },
+    
   }
 };
 </script>

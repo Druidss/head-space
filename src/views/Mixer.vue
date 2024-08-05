@@ -119,6 +119,9 @@ export default defineComponent( {
           stopMixerThesoul();
           break;
         case 7:
+          stopMixerFeatherweight();
+          break;
+        case 7:
           stopMixerAtpeace();
           break;
         default:
