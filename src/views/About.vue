@@ -1,26 +1,25 @@
 <template>
-  <div class="bg-texture bg-cover bg-center h-screen w-screen">
-    <NavigationColumn />
-    <div class="h-9/12 w-9/12 mx-auto ">
-       <Carousel  autoplay>
-        <div>
-            <img  :src="imageSrc1" alt="">
-        </div>
-        <div>
-          <img  :src="imageSrc2" alt="">
-        </div>
-        <div>
-          <img  :src="imageSrc3" alt="">
-        </div>
-      </Carousel>
+  <div class="fixed top-0 left-0 w-screen">
+    <NavigationColumn /></div>
+
+  <div class="w-300 bg-cover  bg-texture">
+  <div class="h-screen w-screen">
+    <div class=" w-9/12  h-screen mx-auto flex flex-row .carousel-container">
+      <div class="carousel">
+          <div v-for="(img, index) in images" :key="index" class="carousel-item ">
+            <img :src="img" alt="" class=" object-cover h-9/12 ">
+          </div>
+      </div>
     </div>
 
-    
-      <div class=" absolute w-9/12 mx-auto border-t-2 border-vi flex justify-center items-center  inset-x-0 mt-4 bottom-0">
-  <div class="w-72 h-12 my-2 flex items-center justify-center "><img :src="group" alt="">
+    <!-- footer-group -->
+      <div class=" fixed w-9/12 mx-auto border-t-2 border-vi flex justify-center items-center  inset-x-0  bottom-0">
+        <div class="w-72 h-12 my-2 flex items-center justify-center  "><img :src="group" alt=""> 
+      </div>
+
   </div>
   </div>
-  </div>
+</div>
 
 </template>
 
@@ -40,9 +39,7 @@ export default {
   },
   data() {
     return {
-      imageSrc1: imageSrc1,
-      imageSrc2: imageSrc2,
-      imageSrc3: imageSrc3,
+      images: [imageSrc1, imageSrc2, imageSrc3],
       group: group,
     }
   }
@@ -50,17 +47,40 @@ export default {
 </script>
 
 <style scoped>
-.ant-carousel :deep(.slick-slide) {
-  text-align: center;
-  height: auto;
-  max-width: fit-content;
-  max-height: fit-content;
-  overflow: hidden;
+.w-300{
+  width: 500vh;
+  background-size: contain;
+  background-position: center;
+  background-repeat: repeat;
+  position: aboslute;
+  z-index: -999;
 }
-.ant-carousel :deep(.slick-slide img) {
-  width: 90%;
-  height: auto;
-  overflow: hidden;
+
+.bg-texture {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  z-index: -1; 
 }
+.carousel-container {
+  height: 60vh; 
+  width: 100%;
+  max-height: 80vh; /* add this */
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: absolute;
+}
+
+.carousel {
+  display: flex;
+  width: 300%; 
+}
+
+.carousel-item {
+  flex: 0 0 100%; 
+  height: 80vh;
+  max-height: 80vh; 
+}
+
 
 </style>

@@ -3,55 +3,73 @@
     "name": "GINGER",
     "instruments": ["PIANO", "DRUMS", "BASS", "RHODES", "SYNTHS"],
     "videoID": "994471958",
-    "number": 1
+    "number": 1,
+    "tempo": "91 Bpm",
+    "key": "D Min"
   },
   {
     "name": "BLUE SKY",
     "instruments": ["CHORDS", "DRUMS", "BASS", "ONESHOTS", "SYNTH"],
     "videoID": "994472010",
-    "number": 2 
+    "number": 2,
+    "tempo": "86 Bpm",
+    "key": "E-Flat Maj" 
   },
   {
     "name": "HOEHENANGST",
     "instruments": ["GUITARS", "DRUMS", "BASS", "SAMPLE", "SYNTHS"],
     "videoID": "994472047",
-    "number": 3
+    "number": 3,
+    "tempo": "119 Bpm",
+    "key": "A Maj"
   },
   {
     "name": "SANCTUARY",
     "instruments": ["CHORDS", "DRUMS", "BASS", "GUITARS", "SYNTHS"],
     "videoID": "994472087",
-    "number": 4
+    "number": 4,
+    "tempo": "112 Bpm",
+    "key": "F Min"
   },
   {
     "name": "WALDBODEN",
     "instruments": ["RHODES", "DRUMS", "BASS", "GUITARS", "SYNTHS"],
     "videoID": "994472124",
-    "number": 5
+    "number": 5,
+    "tempo": "100 Bpm",
+    "key": "F# Min"
 
   },
   {
     "name": "HARSH WINDS",
     "instruments": ["CHORDS", "DRUMS", "SAMPLE", "SAXOPHONE", "SYNTHS"],
     "videoID": "994473600",
-    "number": 6
+    "number": 6,
+    "tempo": "103 Bpm",
+    "key": "C Min"
   },
   {
     "name": "THE SOUL",
     "instruments": ["CHORDS", "DRUMS", "BASS", "GUITARS", "SYNTHS"],
     "videoID": "994473644",
-    "number": 7
+    "number": 7,
+    "tempo": "82 Bpm",
+    "key": "C Min"
   },
   {
     "name": "FEATHER WEIGHT",
     "instruments": ["PIANO", "DRUMS", "BASS", "ONESHOTS", "SYNTHS"],
     "videoID": "994473695",
-    "number": 8
+    "number": 8,
+    "tempo": "115 Bpm",
+    "key": "D# Min"
   },
   {
     "name": "AT PEACE",
     "instruments": ["RHODES", "DRUMS", "VIBRAPHONE", "AMBIENCE", "SYNTHS"],
     "videoID": "994473740",
-    "number": 9
+    "number": 9,
+    "tempo": "102 Bpm",
+    "key": "G Min"
   }
 ]

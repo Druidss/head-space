@@ -51,6 +51,10 @@ button::after{
   background-color: #7F4634;
 }
 
+button:focus {
+  outline: none;
+}
+
 button:hover {
   box-shadow: 2px 2px 0px #7F4634;
   background: linear-gradient(90deg, #F9E0A0 0%, #FFD66E 100%);
