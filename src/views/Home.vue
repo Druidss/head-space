@@ -1,16 +1,16 @@
-<script>
+8<script>
 import NavigationColumn from '@/components/NavigationColumn.vue'
+import Footer from '@/components/Footer.vue'
 import logo from '@/assets/images/logo.png';
-import group from '@/assets/images/group.png';
 
 export default {
   components: {
-    NavigationColumn
+    NavigationColumn,
+    Footer
   },
   data() {
     return {
       logo: logo,
-      group: group,
     }
   }
 }
@@ -21,23 +21,19 @@ export default {
       <NavigationColumn/>
       <div class="flex-1">
       <div class="text-center flex flex-col justify-center my-auto">
-        <div class="bg-cover bg-center h-2/12 w-2/12 mx-auto mt-20 md:mt-12 "><img  :src="logo" alt=""></div>
-        <p class="font-display text-4xl w-6/12 mx-auto text-vi uppercase font-semibold">an Album Concept <br>
-          by designer and beatmaker <br> alexander sente aka <br>
-          john da lemon.
+        <div class="bg-cover bg-center h-3/12 w-3/12 mx-auto mt-4"><img  :src="logo" alt=""></div>
+        <p class="font-display text-3xl w-6/12 mx-auto text-vi">
+          an album concept by designer and beatmaker <br>
+           Alexander Sente aka John da Lemon.
         </p>
          <router-link :to="{ name: 'mixer' }">
             <button 
-            class="text-sm text-vi font-medium font-display linear px-2 rounded-full border border-vi cursor-pointer"
-            >dive in & explore</button>
+            class="text-2xl text-vi font-display linear px-4 py-1 rounded-full border border-vi border-2 cursor-pointer"
+            >Dive in & explore</button>
          </router-link>
         </div>
-        <div class="absolute bottom-0 w-9/12 mx-auto  border-t-2 border-vi flex justify-center items-center  inset-x-0 mt-6 ">
-            <div class="w-72 h-12 mt-2 mb-8 flex items-center justify-center ">
-              <img :src="group" alt=""></div>
-        </div>
-        </div>
-
+      </div>
+      <Footer/>
   </div>
 
 </template>

@@ -2,7 +2,7 @@
   <div class="fixed top-0 left-0 w-screen">
     <NavigationColumn /></div>
 
-  <div class="w-300 bg-cover  bg-texture">
+  <div class="w-300 bg-cover bg-texture">
   <div class="h-screen w-screen">
     <div class=" w-9/12  h-screen mx-auto flex flex-row .carousel-container">
       <div class="carousel">
@@ -11,21 +11,18 @@
           </div>
       </div>
     </div>
-
-    <!-- footer-group -->
-      <div class=" fixed w-9/12 mx-auto border-t-2 border-vi flex justify-center items-center  inset-x-0  bottom-0">
-        <div class="w-72 h-12 my-2 flex items-center justify-center  "><img :src="group" alt=""> 
-      </div>
-
-  </div>
   </div>
 </div>
+
+ <div class="fixed bottom-0 left-0 w-screen">
+    <Footer /></div>
 
 </template>
 
 <script>
 import NavigationColumn from '@/components/NavigationColumn.vue'
 import { Carousel } from 'ant-design-vue';
+import Footer from '@/components/Footer.vue';
 import imageSrc1 from '@/assets/images/1.png';
 import imageSrc2 from '@/assets/images/2.png';
 import imageSrc3 from '@/assets/images/3.png';
@@ -35,6 +32,7 @@ import group from '@/assets/images/group.png';
 export default {
   components: {
     NavigationColumn,
+    Footer,
     Carousel
   },
   data() {

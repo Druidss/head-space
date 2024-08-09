@@ -22,17 +22,14 @@
     <img :src="right" alt="" class="w-6 h-10"></img>
   </div>
 
-  <!-- group -->
-  <div class=" absolute w-9/12 mx-auto border-t-2 border-vi flex justify-center items-center  inset-x-0 mt-4 bottom-0">
-  <div class="w-72 h-12 my-2 flex items-center justify-center "><img :src="group" alt="">
-  </div>
-  </div>
+  <Footer/>
 </template>
 
 <script>
 import NavigationColumn from '@/components/NavigationColumn.vue'
 import Stem from '@/components/Stemplayer.vue';
 import { Carousel } from 'ant-design-vue';
+import Footer from '@/components/Footer.vue';
 import imageSrc1 from '@/assets/stemplayer.png';
 import group from '@/assets/images/group.png';
 import left from '@/assets/images/left.png';
@@ -53,6 +50,7 @@ export default {
   components: {
     NavigationColumn,
     Stem,
+    Footer,
     Carousel
   },
   data() {
