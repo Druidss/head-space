@@ -36,7 +36,7 @@
             </div>
           </div>
           <div class="flex justify-center">
-            <video class="w-6/12 " ref="video">
+            <video class="w-5/12 " ref="video">
               <source :src="videoSrc" type="video/mp4">
             </video>
           </div>

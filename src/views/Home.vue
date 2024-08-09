@@ -28,7 +28,7 @@ export default {
         </p>
          <router-link :to="{ name: 'mixer' }">
             <button 
-            class="text-2xl text-vi font-display linear px-4 py-1 rounded-full border border-vi border-2 cursor-pointer"
+            class="text-2xl text-vi font-display linear px-4 py-1 rounded-full border-vi border-2 cursor-pointer"
             >Dive in & explore</button>
          </router-link>
         </div>

@@ -11,6 +11,12 @@
       >{{ item.text }}</router-link>
     </div>
 
+         <router-link :to="{ name: 'home' }">
+            <div clas="h-1/10 bg-cover bg-center  mx-auto">
+              <img :src="logo" class="h-16 w-16"> </img>
+            </div>
+         </router-link>
+
     <div class="my-4 flex flex-row  cursor-pointer">
       <a
         v-for="(item, index) in socialItems"
@@ -25,9 +31,11 @@
 </template>
 
 <script>
+import logo from '@/assets/images/logo.png';
 export default {
   data() {
     return {
+      logo: logo,
       selectedIndex: 0,
       socialIndex: 0,
       navItems: [

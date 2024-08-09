@@ -15,10 +15,10 @@
       </div>
   </div>
 
-  <div @click="togglePre" class="p-3 absolute bottom-1/2 left-80 cursor-pointer">
+  <div @click="togglePre" class="pt-10 absolute bottom-1/2 left-80 cursor-pointer">
     <img :src="left" alt="" class="w-6 h-10"></img>
   </div>
-  <div @click="toggleNext" class="p-3 absolute bottom-1/2 right-80 cursor-pointer">
+  <div @click="toggleNext" class=" absolute bottom-1/2 right-80 cursor-pointer">
     <img :src="right" alt="" class="w-6 h-10"></img>
   </div>
 
