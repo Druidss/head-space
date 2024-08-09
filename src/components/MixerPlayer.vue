@@ -5,8 +5,6 @@ import Pause from '@/components/Pause.vue'
 import Instrument from '@/components/Instrument.vue'
 import { Slider,ConfigProvider } from 'ant-design-vue';
 import group from '@/assets/images/group.png';
-
-
 import { useEffectStore } from '../stores/effectStore';
 import { ref } from 'vue';
 import  { addEffects } from "../mixers/ginger";
@@ -79,18 +77,13 @@ export default {
     return { valueVolume, updateStore, applyEffects };
   },
 }
-  
-  // const valueVolume = ref(0);
-  // const valueReverb = ref(0);
-  // const valueDelay = ref(0);
-  // const valueFliter = ref(0);
 </script>
 
 <template>
   <ConfigProvider           
     :theme="{
       token: {
-      colorPrimary: '#FFB700',
+      colorPrimary: '#7F4634',
       },
     }" 
   >
@@ -103,33 +96,38 @@ export default {
           </div>
          
         <!-- player -->
-        <div class="flex items-center justify-center border-2 border-vi mb-8 py-16 px-8 md:p-6">
-
+        <div class="flex items-center justify-center border-2 border-vi mb-8 pb-8">
           <div class="w-30">
             <h1 class=" giner text-3xl text-vi bg-viWhite font-display  text-center p-2 font-bold border-2 border-vi">"{{ name }}"</h1>
-            <div class="grid justify-center">
+            <div class="grid justify-center gap-10">
               <Pause  class="p-4 bg-vi" text="Pause" :numberSampler="numberSampler"/>
-              <Rectangle class=''text="Key" :number="musicKey" />
-              <Rectangle class='' text="Tempo"  :number="tempo" />
+              <Rectangle class=''text="Key" :number="musicKey"  />
+              <Rectangle class='flex justify-bettween' text="Tempo"  :number="tempo" />
             </div>
           </div>
 
           <div class="w-70">
-            <h1 class="text-xl text-left mx-8  px-4 font-display bg-viSelect linear giner"
+            <h1 class="text-xl text-left mx-8 mt-20 mb-2 px-4 font-display bg-viSelect linear giner"
             >EFFECT BOARD</h1>
-            <div class="h-1/2 bg-gray-800 m-8 mb-4 flex flex-row justify-between ">
+            <div class="h-1/2 bg-gray-800 mx-8 mt-6 mb-4 flex flex-row justify-between ">
               <div class="flex flex-col">
-                <Effect text="VOLUME" img="https://i.imgur.com/AxET1xh.png"/>
+                <Effect text="VOLUME" img="https://i.imgur.com/AxET1xh.png"
+                selectedImg="https://i.imgur.com/nxarzJ4.png"
+                />
                 <Slider id="volume" class="" v-model:value="valueVolume" @change="updateStore('VOLUME',$event)" :min="0" :max="10" />
                 </div>
 
                 <div class="flex flex-col">
-                <Effect text="REVERB" img="https://i.imgur.com/vpjAkpT.png" />
+                <Effect text="REVERB" img="https://i.imgur.com/vpjAkpT.png" 
+                 selectedImg="https://i.imgur.com/okD56Jl.png"
+                />
                 <Slider id="volume" v-model:value="valueReverb" @change="updateStore('REVERB',$event)" />
                 </div> 
 
                 <div class="flex flex-col">
-                <Effect text="DELAY" img="https://i.imgur.com/8N9tFCn.png" />
+                <Effect text="DELAY" img="https://i.imgur.com/jO6OF29.png" 
+                  selectedImg="https://i.imgur.com/int6frq.png"
+                />
                 <Slider id="volume" v-model:value="valueDelay" />
                 </div>
                 
@@ -146,12 +144,12 @@ export default {
           </div>
         </div>
         <!-- button -->
-      <div class="flex justify-end items-center ">
-        <button class="rounded-full mb-4  px-4 py-1 text-white  border-vi border-2 linear hover:bg-viSelect font-goudy text-xs">
-          <a href="https://drive.google.com/drive/folders/1--R81ZPS4ZeNBxBYO9VivOqB3BY9r63U?usp=sharing" target="_blank"
-          class="hover:no-underline hover:text-viBlack focus:no-underline "
+      <div class="flex justify-center items-center">
+        <button class="rounded-full mb-4  px-4 py-1 text-white  border-vi border-2 linear hover:bg-viSelect text-sm text-vi font-display">
+          <a href="https://ditto.fm/coast-to-coast-john-da-lemon" target="_blank"
+          class="hover:no-underline hover:text-viBlack focus:no-underline text-display text-sm "
           >
-          DOWNLOAD SONG STEMS 
+          Listen on Streaming Platform 
           </a>
         </button>
       </div>

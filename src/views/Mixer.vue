@@ -2,7 +2,7 @@
   <div class="bg-texture bg-cover bg-center h-screen w-screen">
     <NavigationColumn />
     <div class="w-screen">
-       <Carousel  ref="carousel" :beforeChange="cleanPlayersAndLoops">
+       <Carousel  ref="carousel" :beforeChange="cleanPlayersAndLoops" :dots="false">
         <MixerPlayer v-for="(track, index) in tracks" 
         :key="index" :name="track.name" :instruments="track.instruments"  
         :musicKey="track.key" :tempo="track.tempo" :numberSampler="track.number"
@@ -10,10 +10,10 @@
       </Carousel>
     </div>
 
-      <div @click="togglePre" class="p-3 absolute bottom-1/2 left-64 cursor-pointer">
+      <div @click="togglePre" class="p-3 absolute bottom-1/2 left-80 cursor-pointer">
         <img :src="left" alt="" class="w-6 h-10"></img>
       </div>
-      <div @click="toggleNext" class="p-3 absolute bottom-1/2 right-64 cursor-pointer">
+      <div @click="toggleNext" class="p-3 absolute bottom-1/2 right-80 cursor-pointer">
         <img :src="right" alt="" class="w-6 h-10"></img>
       </div>
   </div>

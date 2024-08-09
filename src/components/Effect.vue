@@ -6,8 +6,9 @@
   >
      <div class="m-4 font-display text-sm font-medium ">
       {{ text }}
-     
-      <img :src="img" alt="Image" class="w-12 h-12 mx-auto mt-2">
+      <!-- {{ selectedImg }} -->
+      <img v-if="isSelected" :src="selectedImg" alt="Image" class="w-12 h-12 mx-auto mt-2">
+      <img v-else :src="img" alt="Image" class="w-12 h-12 mx  -auto mt-2">
     </div>
   </div>
 </template>
@@ -36,9 +37,13 @@ export default {
     img: {
       type: String,
       required: true,
-    },   
+    },  
+    selectedImg: {
+      type: String,
+      required: true,
+    } 
   },
-methods: {
+  methods: {
     handleClick() {
     //this.playInstrument();
     this.toggleSelect();
@@ -108,9 +113,20 @@ methods: {
     
     toggleSelect() {
     this.isSelected = !this.isSelected;
-    this.$forceUpdate();
+  //   if (this.isSelected) {
+  //   this.currentImg = this.selectedImg;
+  // } else {
+  //   this.currentImg = this.img;
+  // }
+    // this.$forceUpdate();
   },
   },
+  data()  {
+    return {
+      currentImg: this.img,
+      isSelected: false,
+    };
+  }
 
 
 };

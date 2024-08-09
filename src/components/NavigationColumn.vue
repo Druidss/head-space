@@ -6,7 +6,7 @@
         :key="index"
         :to="{ name: item.routeName }"
         class="block py-2 px-4 m-1 router-nav text-vi font-display hover:font-semibold link "
-        :class="{ selected: isSelected(item.routeName) }"
+        :class="{ isselected: isSelected(item.routeName) }"
         @click.native="selectedIndex = index"
       >{{ item.text }}</router-link>
     </div>
@@ -51,17 +51,19 @@ export default {
 </script>
 
 <style>
-.selected {
+.isselected {
   background-color: #F9E0A0;
   font-weight: 700;
   box-shadow: 5px 5px 0px #7F4634;
   text-transform: uppercase;
+  border-radius: 999px; 
 }
 .link:hover {
   background-color: #F9E0A0;
   box-shadow: 5px 5px 0px #7F4634;
   font-weight: 700;
   transition: box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
+  border-radius: 999px; 
 }
 
 </style>

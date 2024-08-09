@@ -3,22 +3,22 @@
     <NavigationColumn />
     <div class=" w-9/12 mx-auto">
     </div>
-  <!-- <Stem /> -->
-   <div class="w-screen">
-       <Carousel  ref="carousel" :beforeChange="cleanPlayersAndLoops" >
-          <Stem v-for="(track, index) in tracks" 
-          :key="index" :name="track.name" :id="track.videoID" 
-          :number="track.number" 
-          :musicKey="track.key" :tempo="track.tempo" 
-          />
-      </Carousel>
-    </div>
+      <!-- <Stem /> -->
+      <div class="w-screen">
+          <Carousel  ref="carousel" :beforeChange="cleanPlayersAndLoops" :dots="false">
+              <Stem v-for="(track, index) in tracks" 
+              :key="index" :name="track.name" :id="track.videoID" 
+              :number="track.number" 
+              :musicKey="track.key" :tempo="track.tempo" 
+              />
+          </Carousel>
+      </div>
   </div>
 
-  <div @click="togglePre" class="p-3 absolute bottom-1/3 left-72 cursor-pointer">
+  <div @click="togglePre" class="p-3 absolute bottom-1/2 left-80 cursor-pointer">
     <img :src="left" alt="" class="w-6 h-10"></img>
   </div>
-  <div @click="toggleNext" class="p-3 absolute bottom-1/3 right-72 cursor-pointer">
+  <div @click="toggleNext" class="p-3 absolute bottom-1/2 right-80 cursor-pointer">
     <img :src="right" alt="" class="w-6 h-10"></img>
   </div>
 

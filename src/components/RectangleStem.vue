@@ -1,9 +1,8 @@
 <template>
 
-  <div class="w-28 h-18 m-1 flex items-center justify-center ">
+  <div class=" h-12 m-1 flex items-center justify-center ">
      <div class="flex text-center flex-col ">
-      <div class="font-display text-vi text-xl ">{{ text }}</div>
-      <div class="font-display  text-vi tex "> {{ number }} </div>
+      <div class="font-display text-vi text-xl "><span class="mx-2">{{ text }}:</span> {{ number }} </div>
      </div>
   </div>
 </template>
