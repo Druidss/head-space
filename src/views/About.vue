@@ -3,7 +3,7 @@
     <NavigationColumn /></div>
 
   <div class="w-300 bg-cover bg-texture">
-  <div class="h-screen w-screen">
+  <div class="w-screen">
     <div class=" w-9/12  h-screen mx-auto flex flex-row .carousel-container">
       <div class="carousel">
           <div v-for="(img, index) in images" :key="index" class="carousel-item ">
@@ -22,7 +22,7 @@
 <script>
 import NavigationColumn from '@/components/NavigationColumn.vue'
 import { Carousel } from 'ant-design-vue';
-import Footer from '@/components/Footer.vue';
+import Footer from '@/components/FooterAbout.vue';
 import imageSrc1 from '@/assets/images/1.png';
 import imageSrc2 from '@/assets/images/2.png';
 import imageSrc3 from '@/assets/images/3.png';
@@ -48,7 +48,7 @@ export default {
 
 <style scoped>
 .w-300{
-  width: 500vh;
+  width: 520vh;
   background-size: contain;
   background-position: center;
   background-repeat: repeat;

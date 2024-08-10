@@ -1,5 +1,5 @@
 <template >
-  <div class="w-full h-full">
+  <div class="w-screen">
   <div class="w-9/12 mx-auto">
         <!-- text -->
           <div class="flex justify-between items-center mt-12">
@@ -8,9 +8,9 @@
           </div>
 
         <!-- stem -->
-        <div class="w-full">
-        <div class="flex flex-col border-2 border-vi px-12 py-16">
-          <div class="flex justify-left item-center flex-col items-center mb-4">
+        <div class="">
+        <div class="flex flex-col border-2 border-vi px-4 py-4">
+          <div class="flex justify-center items-center flex-col mb-4">
             
             <div class="flex w-full justify-center mx-8 ">
               <div class="flex-1 text-vi font-display font-bold text-3xl mb-2 justify-center text-center items-center pt-8">"{{ name }}"</div>
@@ -22,7 +22,7 @@
                 </button>
               </div>
 
-              <div class="flex flex-1 justify-center text-lg mt-4">
+              <div class="flex flex-1 justify-left text-lg mt-4">
                 <div class="flex w-150 justify-center">
                 <Rectangle class=''text="Key" :number="musicKey" />
                 <Rectangle class=''text="Tempo" :number="tempo" />
@@ -30,8 +30,8 @@
               </div>
             </div>
           </div>
-          <div class="flex justify-center">
-            <video class="w-1/2 " ref="video" loop>
+          <div class="flex w-full justify-center">
+            <video class="w-9/12 " ref="video" loop>
               <source :src="videoSrc" type="video/mp4"
                     width="1920"
                     height="667"
@@ -56,13 +56,12 @@
       </div>
   </div>
 </div>
-
 </template>
 
 <script>
 import Rectangle from '@/components/RectangleStem.vue';
 import { vueVimeoPlayer } from 'vue-vimeo-player'
-import myVideo from '@/assets/vids/wave.mp4';
+import myVideo from '@/assets/vids/wave-f.mp4';
 
 import * as Tone from 'tone';
 import { startMixerGinger, stopMixerGinger } from '../mixers/ginger';

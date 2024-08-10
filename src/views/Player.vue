@@ -19,7 +19,7 @@
     <img :src="right" alt="" class="w-6 h-10"></img>
   </div>
 
-  <!-- <Footer/> -->
+  <Footer/>
 </template>
 
 <script>
