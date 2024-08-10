@@ -1,10 +1,6 @@
 <template >
 
   <div class="mb-12">
-  <!-- <div class="flex justify-center w-screen ">
-    <div class=" giner text-3xl text-vi bg-viWhite font-display  text-center mt-8 py-1 px-4 font-bold border-2 border-vi cursor-pointer">Auto Play</div>
-  </div> -->
-
   <div class="w-9/12 mx-auto">
         <!-- text -->
           <div class="flex justify-between items-center mt-12">
@@ -14,7 +10,7 @@
 
         <!-- stem -->
         <div>
-        <div class="flex flex-col border-2 border-vi px-12 pb-4">
+        <div class="flex flex-col border-2 border-vi px-12 py-16">
           <div class="flex justify-left item-center flex-col items-center mb-4">
             
             <div class="flex w-full justify-center mx-8 ">

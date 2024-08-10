@@ -8,7 +8,7 @@
       {{ text }}
       <!-- {{ selectedImg }} -->
       <img v-if="isSelected" :src="selectedImg" alt="Image" class="w-12 h-12 mx-auto mt-2">
-      <img v-else :src="img" alt="Image" class="w-12 h-12 mx  -auto mt-2">
+      <img v-else :src="img" alt="Image" class="w-12 h-12 mx-auto mt-2">
     </div>
   </div>
 </template>

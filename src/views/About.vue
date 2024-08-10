@@ -26,6 +26,7 @@ import Footer from '@/components/Footer.vue';
 import imageSrc1 from '@/assets/images/1.png';
 import imageSrc2 from '@/assets/images/2.png';
 import imageSrc3 from '@/assets/images/3.png';
+import about from '@/assets/images/about.png';
 import group from '@/assets/images/group.png';
 
 
@@ -39,6 +40,7 @@ export default {
     return {
       images: [imageSrc1, imageSrc2, imageSrc3],
       group: group,
+      about
     }
   }
 }
