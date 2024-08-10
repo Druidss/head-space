@@ -7,7 +7,7 @@
     <div class=" w-9/12  h-screen mx-auto flex flex-row .carousel-container">
       <div class="carousel">
           <div v-for="(img, index) in images" :key="index" class="carousel-item ">
-            <img :src="img" alt="" class=" object-cover h-9/12 ">
+            <img :src="img" alt="" class=" object-cover h-9/12 mt-24">
           </div>
       </div>
     </div>

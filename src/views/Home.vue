@@ -21,8 +21,8 @@ export default {
       <NavigationColumn/>
       <div class="flex-1">
       <div class="text-center flex flex-col justify-center my-auto">
-        <div class="bg-cover bg-center h-3/12 w-3/12 mx-auto mt-4"><img  :src="logo" alt=""></div>
-        <p class="font-display text-3xl w-6/12 mx-auto text-vi">
+        <div class="bg-cover bg-center h-96 w-96 mx-auto mt-12"><img  :src="logo" alt=""></div>
+        <p class="font-display text-xl w-6/12 mx-auto  mb-20 text-vi">
           an album concept by designer and beatmaker <br>
            Alexander Sente aka John da Lemon.
         </p>
@@ -46,7 +46,7 @@ export default {
   .link:hover {
   background-color: #F9E0A0;
   box-shadow: 5px 5px 0px #7F4634;
-  font-weight: 700;
+  /* font-weight: 700; */
   transition: box-shadow 0.3s ease, color 0.3s ease, background-color 0.3s ease;
 }
 </style>

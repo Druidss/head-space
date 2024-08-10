@@ -1,6 +1,5 @@
 <template >
-
-  <div class="mb-12">
+  <div class="w-full h-full">
   <div class="w-9/12 mx-auto">
         <!-- text -->
           <div class="flex justify-between items-center mt-12">
@@ -9,7 +8,7 @@
           </div>
 
         <!-- stem -->
-        <div>
+        <div class="w-full">
         <div class="flex flex-col border-2 border-vi px-12 py-16">
           <div class="flex justify-left item-center flex-col items-center mb-4">
             
@@ -32,8 +31,11 @@
             </div>
           </div>
           <div class="flex justify-center">
-            <video class="w-5/12 " ref="video">
-              <source :src="videoSrc" type="video/mp4">
+            <video class="w-1/2 " ref="video" loop>
+              <source :src="videoSrc" type="video/mp4"
+                    width="1920"
+                    height="667"
+              >
             </video>
           </div>
           <div class="flex justify-center text-white text-4xl text-vi font-display mt-4 ">       

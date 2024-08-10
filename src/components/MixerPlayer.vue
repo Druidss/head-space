@@ -111,15 +111,15 @@ export default {
             >EFFECT BOARD</h1>
             <div class="h-1/2 bg-gray-800 mx-8 mt-6 mb-4 flex flex-row justify-between ">
               <div class="flex flex-col">
-                <Effect text="VOLUME" img="https://i.imgur.com/AxET1xh.png"
-                selectedImg="https://i.imgur.com/nxarzJ4.png"
+                <Effect text="VOLUME" img="https://i.imgur.com/6v1j1UP.png"
+                selectedImg="https://i.imgur.com/vhkyGLz.png"
                 />
                 <Slider id="volume" class="" v-model:value="valueVolume" @change="updateStore('VOLUME',$event)" :min="0" :max="10" />
                 </div>
 
                 <div class="flex flex-col">
-                <Effect text="REVERB" img="https://i.imgur.com/vpjAkpT.png" 
-                 selectedImg="https://i.imgur.com/okD56Jl.png"
+                <Effect text="REVERB" img="https://i.imgur.com/nR4zWpL.png" 
+                 selectedImg="https://i.imgur.com/3k3ziaB.png"
                 />
                 <Slider id="volume" v-model:value="valueReverb" @change="updateStore('REVERB',$event)" />
                 </div> 
@@ -132,7 +132,9 @@ export default {
                 </div>
                 
                 <div class="flex flex-col">
-                <Effect text="FILTER" img="https://i.imgur.com/YyuaWX9.png"/>
+                <Effect text="FILTER" img="https://i.imgur.com/Rsu6sex.png"
+                  selectedImg="https://i.imgur.com/mV2Ejwy.png"
+                />
                 <Slider id="volume" v-model:value="valueFliter" />
                 </div>
             </div>

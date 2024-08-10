@@ -1,9 +1,6 @@
 <template>
   <div class="bg-texture bg-cover bg-center h-screen w-screen">
     <NavigationColumn />
-    <div class=" w-9/12 mx-auto">
-    </div>
-      <!-- <Stem /> -->
       <div class="w-screen">
           <Carousel  ref="carousel" :beforeChange="cleanPlayersAndLoops" :dots="false">
               <Stem v-for="(track, index) in tracks" 
@@ -22,7 +19,7 @@
     <img :src="right" alt="" class="w-6 h-10"></img>
   </div>
 
-  <Footer/>
+  <!-- <Footer/> -->
 </template>
 
 <script>
