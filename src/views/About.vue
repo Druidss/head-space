@@ -2,21 +2,20 @@
   <div class="fixed top-0 left-0 w-screen">
     <NavigationColumn /></div>
 
-  <div class="w-300 bg-cover bg-texture">
-  <div class="w-screen">
-    <div class=" w-9/12  h-screen mx-auto flex flex-row .carousel-container">
+  <div class="w-300 bg-texture">
+  <div class="w-screen max-h-screen">
+    <div class=" w-9/12 h-screen ml-20 flex flex-row .carousel-container">
       <div class="carousel">
           <div v-for="(img, index) in images" :key="index" class="carousel-item ">
-            <img :src="img" alt="" class=" object-cover h-9/12 mt-24">
+            <img :src="img" alt="" class="mt-20">
           </div>
+          
       </div>
     </div>
   </div>
 </div>
-
  <div class="fixed bottom-0 left-0 w-screen">
     <Footer /></div>
-
 </template>
 
 <script>
@@ -48,39 +47,29 @@ export default {
 
 <style scoped>
 .w-300{
-  width: 520vh;
+  width: 500vh;
+  height: 100vh;
   background-size: contain;
   background-position: center;
   background-repeat: repeat;
-  position: aboslute;
   z-index: -999;
 }
 
-.bg-texture {
-  position: absolute; 
-  top: 0;
-  left: 0;
-  z-index: -1; 
-}
+
 .carousel-container {
-  height: 60vh; 
-  width: 100%;
-  max-height: 80vh; /* add this */
   overflow-x: auto;
   overflow-y: hidden;
   position: absolute;
 }
-
 .carousel {
   display: flex;
   width: 300%; 
 }
-
 .carousel-item {
   flex: 0 0 100%; 
-  height: 80vh;
-  max-height: 80vh; 
 }
-
-
+.carousel-item img {
+  max-height: 100vh;
+  object-fit: contain;
+}
 </style>
