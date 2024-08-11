@@ -9,7 +9,17 @@ import group from '@/assets/images/group.png';
 
 import { useEffectStore } from '../stores/effectStore';
 import { ref } from 'vue';
-import  { addEffects } from "../mixers/ginger";
+import  { addEffectsGinger } from "../mixers/ginger";
+import { addEffectsBluesky } from '../mixers/bluesky';
+import { addEffectsHoehenangst } from '../mixers/hoehenangst';
+import { addEffectsSanctuary } from '../mixers/sanctuary';
+import { addEffectsWaldboden } from '../mixers/waldboden';
+import { addEffectsHarshwinds } from '../mixers/harshwinds';
+import { addEffectsThesoul } from '../mixers/thesoul';
+import { addEffectsFeatherweight } from '../mixers/featherweight';
+import { addEffectsAtpeace } from '../mixers/atpeace';
+
+const effectStore = useEffectStore();
 
 export default {
   components: {
@@ -49,34 +59,76 @@ export default {
     }
   },
   methods: {
-    updateEffect() {
-      addEffects();
+    handleClick(effectString,newSliderValue) {
+      this.syncEffectStoreWithSlider(effectString,newSliderValue);
+      this.applyEffect();
     },
-    checkPage() {
-
+    syncEffectStoreWithSlider(effectString,newSliderValue) {
+      switch (effectString) {
+        case 'VOLUME':
+          effectStore.pipeLine[0].value = newSliderValue;
+          console.log("DEBUG: syncEffectStoreWithSlider " + effectStore.pipeLine[0].value);
+          //this.applyEffect?? On every case?
+          //this.applyEffect(this.numberSampler, 'VOLUME');
+          break;
+        case 'REVERB':
+          effectStore.pipeLine[1].value = newSliderValue;
+          console.log("DEBUG: syncEffectStoreWithSlider " + effectStore.pipeLine[1].value);
+          break;
+        case 'DELAY':
+          effectStore.pipeLine[2].value = newSliderValue;
+          console.log("DEBUG: syncEffectStoreWithSlider " + effectStore.pipeLine[2].value);
+          break;
+        case 'BITCRUSHER':
+          effectStore.pipeLine[3].value = newSliderValue;
+          console.log("DEBUG: syncEffectStoreWithSlider " + effectStore.pipeLine[3].value);
+          break;
+        default:
+          break;
+      }
+    },
+    applyEffect() {
+      //TODO: work out effects in every sampler js
+      switch (this.numberSampler) {
+        case 1:
+          //Ginger
+          addEffectsGinger()
+          break;
+        case 2:
+          addEffectsBluesky()
+        case 3:
+          addEffectsHoehenangst()
+          break;
+        case 4:
+          addEffectsSanctuary()
+          break;
+        case 5:
+          addEffectsWaldboden()
+          break;
+        case 6:
+          addEffectsHarshwinds()
+          break;
+        case 7:
+          addEffectsThesoul()
+          break;
+        case 8:
+          addEffectsFeatherweight()
+          break;
+        case 9:
+          addEffectsAtpeace()
+        default:
+          console.log("DEBUG: EFFECT DEFAULT")
+          break;
+      }
     }
   },
   setup() {
-    const effectStore = useEffectStore();
     const valueVolume = ref(10);
+    const valueReverb = ref(0);
+    const valueDelay = ref(0);
+    const valueBitcrusher = ref(0);
 
-    //Updates value of slider in Pinia Store
-    //applyEffects with Values from Pinia Store
-    const updateStore = (effectString,newSliderValue) => {
-      valueVolume.value = newSliderValue;
-      effectStore.setValue(valueVolume.value,effectString);
-      applyEffects();
-    };
-
-    const applyEffects = () => {
-        addEffects();
-    };
-
-    const checkSampler = (key) => {
-      
-    }
-
-    return { valueVolume, updateStore, applyEffects };
+    return { valueVolume,valueReverb,valueDelay,valueBitcrusher };
   },
 }
   
@@ -119,23 +171,23 @@ export default {
             >EFFECT BOARD</h1>
             <div class="h-1/2 bg-gray-800 m-8 mb-4 flex flex-row justify-between ">
               <div class="flex flex-col">
-                <Effect text="VOLUME" img="https://i.imgur.com/AxET1xh.png"/>
-                <Slider id="volume" class="" v-model:value="valueVolume" @change="updateStore('VOLUME',$event)" :min="0" :max="10" />
+                <Effect text="VOLUME" img="https://i.imgur.com/AxET1xh.png" :numberSampler="numberSampler"/>
+                <Slider id="volume" class="" v-model:value="valueVolume" :min="0" :max="10" @change="handleClick('VOLUME',$event)" />
                 </div>
 
                 <div class="flex flex-col">
-                <Effect text="REVERB" img="https://i.imgur.com/vpjAkpT.png" />
-                <Slider id="volume" v-model:value="valueReverb" @change="updateStore('REVERB',$event)" />
+                <Effect text="REVERB" img="https://i.imgur.com/vpjAkpT.png" :numberSampler="numberSampler"/>
+                <Slider id="reverb" v-model:value="valueReverb" :min="0" :max="10" @change="handleClick('REVERB',$event)" />
                 </div> 
 
                 <div class="flex flex-col">
-                <Effect text="DELAY" img="https://i.imgur.com/8N9tFCn.png" />
-                <Slider id="volume" v-model:value="valueDelay" />
+                <Effect text="DELAY" img="https://i.imgur.com/8N9tFCn.png" :numberSampler="numberSampler"/>
+                <Slider id="delay" v-model:value="valueDelay" :min="0" :max="10" @change="handleClick('DELAY',$event)"/>
                 </div>
                 
                 <div class="flex flex-col">
-                <Effect text="FILTER" img="https://i.imgur.com/YyuaWX9.png"/>
-                <Slider id="volume" v-model:value="valueFliter" />
+                <Effect text="BITCRUSHER" img="https://i.imgur.com/YyuaWX9.png" :numberSampler="numberSampler"/>
+                <Slider id="bitcrusher" v-model:value="valueFliter" :min="0" :max="10" @change="handleClick('BITCRUSHER', $event)"/>
                 </div>
             </div>
             <h1 class="text-xl text-left mx-8 font-display bg-viSelect px-4 linear giner">INSTRUMENT BOARD</h1>

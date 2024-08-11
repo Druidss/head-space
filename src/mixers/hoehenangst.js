@@ -8,6 +8,8 @@ import sampleUrl from "../assets/Albumstems/03Hoehenangst/HOEHENANGSTSAMPLE.mp3"
 import synthsUrl from "../assets/Albumstems/03Hoehenangst/HOEHENANGSTSYNTHS.mp3"
 
 
+const effectStore = useEffectStore();
+
 const hoehenangstStore = useHoehenangstStore();
 //TODO:EFFEKT STORE
 //Load playSampleHoehenangst and stopSampleHoehenangst in store
@@ -180,3 +182,70 @@ export function stopSampleHoehenangst() {
     })
   }
 
+
+  export function addEffectsHoehenangst() {
+    let player = returnLastClickedSample();
+    //let currentlyConnectedEffectsObjects = [];
+    effectStore.pipeLine.forEach(element => {
+      if (element.selected) {
+        switch (element.id) {
+          case 'VOLUME':
+            let value = effectStore.pipeLine[0].value;
+            let volumeValues = [-50,-45,-40,-35,-30,-25,-20,-15,-10,-5,0];
+            player.volume.value = volumeValues[value];
+            effectStore.pipeLine[0].connected = true;
+            break;
+          case 'REVERB':
+            break;
+          case 'DELAY':
+            break;
+          case 'BITCRUSHER':
+            //const bitcrusher = new Tone.BitCrusher(effectStore.pipeLine[3]).toDestination();
+            //if (effectStore.pipeLine[3].effectObject == null) {
+            //  player.connect(bitcrusher)
+            //  effectStore.pipeLine[3].connected = true;
+            //  effectStore.pipeLine[3].effectObject = bitcrusher;
+            //  console.log("DEBUG: INITAL BITCRUSHER ADD");
+            //} else {
+            //player.disconnect(effectStore.pipeLine[3].effectObject);
+            //player.connect(Tone.getDestination());
+            //player.connect(bitcrusher);
+            //}
+            break;
+          default:
+            break;
+        }
+      } else {
+        switch (element.id) {
+          case 'VOLUME':
+            player.volume.value = 0;
+            effectStore.pipeLine[0].connected = false;
+            break;
+          case 'REVERB':
+            break;
+          case 'DELAY':
+          default:
+            break;
+        }
+      }
+    })
+  }
+  
+  //Helper
+  function returnLastClickedSample() {
+      switch (effectStore.sample) {
+        case 'GUITARS':
+          return guitarsPlayer;
+        case 'DRUMS':
+          return drumsPlayer;
+        case 'BASS':
+          return bassPlayer;
+        case 'SAMPLE':
+          return samplePlayer;
+        case 'SYNTHS':
+          return synthsPlayer;
+        default:
+          return null;
+          break;
+      }
+  }

@@ -9,11 +9,12 @@ import { defineStore } from "pinia"
 export const useEffectStore = defineStore('effectStore', {
     state: () => ({
         pipeLine: [
-            {id: 'VOLUME', value: 10, sample:'DRUMS', connected: false, effectObject: null},
-            {id: 'REVERB', value: 0,sample: 'DRUMS', connected: false, effectObject: null},
-            {id: 'DELAY', value: 0,sample: '', connected: false, effectObject: null},
-            {id: 'FILTER', value: 0,sample: '', connected: false, effectObject: null}
-        ]
+            {id: 'VOLUME', value: 10,selected: false, connected: false, effectObject: null},
+            {id: 'REVERB', value: 0, selected: false,connected: false, effectObject: null},
+            {id: 'DELAY', value: 0,selected: false, connected: false, effectObject: null},
+            {id: 'BITCRUSHER', value: 0, selected: false,connected: false, effectObject: null}
+        ],
+        sample: "",
     }),
     actions: {
         setValue(newValue,Id) {
@@ -22,6 +23,13 @@ export const useEffectStore = defineStore('effectStore', {
                     element.value = newValue;
                 }
             });
+        },
+        reset() {
+            this.pipeLine.forEach(element => {
+                element.connected = false;
+                element.effectObject = null;
+                element.selected = false;
+            })
         }
     }
 })

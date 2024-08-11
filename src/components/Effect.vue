@@ -13,18 +13,12 @@
 </template>
 
 <script>
-import * as Tone from 'tone'; 
-
-//import { playSample, stopSample, startTransport } from '../mixers/ginger'; 
-import { useSamplerStore } from '../stores/gingerStore';
+import * as Tone from 'tone';
 import { useEffectStore } from '../stores/effectStore';
 
+import { addEffectsGinger } from '../mixers/ginger';
 
-//const samplerStore = useSamplerStore();
 const effectStore = useEffectStore();
-
-//const start = Tone.start();
-//console.log(start);
 
 export default {
   name: 'Rectangle',
@@ -36,80 +30,51 @@ export default {
     img: {
       type: String,
       required: true,
-    },   
+    },
+    numberSampler: {
+      type: Number,
+      required: true,
+    }  
   },
 methods: {
-    handleClick() {
-    //this.playInstrument();
+    handleClick(text) {
     this.toggleSelect();
+    this.updateEffectStore(this.text);
+    this.applyEffect();
     },
 
-    //playInstrument() {
-    //  switch (this.text) {
-    //    case 'PIANO':
-    //      if (samplerStore.pipeLine[0].isPlaying) {
-    //          samplerStore.pipeLine[0].isPlaying = false;
-    //          stopSample();
-    //        } else {
-    //          samplerStore.pipeLine[0].isPlaying = true;
-    //          playSample()
-    //        }
-    //      break;
-    //    case 'DRUMS':
-    //      if (samplerStore.pipeLine[1].isPlaying) {
-    //          samplerStore.pipeLine[1].isPlaying = false;
-    //          stopSample();
-    //        } else {
-    //          samplerStore.pipeLine[1].isPlaying = true;
-    //          //Logs pipeline
-    //          //console.log(samplerStore.pipeLine);
-    //          playSample()
-    //        }
-    //        break;
-    //    case 'HORNS':
-    //      if (samplerStore.pipeLine[2].isPlaying) {
-    //          samplerStore.pipeLine[2].isPlaying = false;
-    //          stopSample()
-    //        } else {
-    //          samplerStore.pipeLine[2].isPlaying = true;
-    //          playSample()
-    //        }
-    //        break;
-    //    case 'BASS':
-    //      if (samplerStore.pipeLine[3].isPlaying) {
-    //          samplerStore.pipeLine[3].isPlaying = false;
-    //          stopSample()
-    //        } else {
-    //          samplerStore.pipeLine[3].isPlaying = true;
-    //          playSample()
-    //        }
-    //      break;
-    //    case 'SYTH':
-    //    if (samplerStore.pipeLine[4].isPlaying) {
-    //          samplerStore.pipeLine[4].isPlaying = false;
-    //          stopSample()
-    //        } else {
-    //          samplerStore.pipeLine[4].isPlaying = true;
-    //          playSample()
-    //          break;
-    //        }
-    //    default:
-    //      console.log(this.text);
-    //  }
-    //},
-
-    updateSampleInPiniaStore() {
-      //console.log("Effect should be played")
+    updateEffectStore(text) {
       effectStore.pipeLine.forEach(element => {
-        element.sample = this.text;
+        if (element.id == text) {
+          if (element.selected) {
+            element.selected = false;
+          } else {
+            element.selected = true;
+          }
+        }
       })
-      console.log("DEBUG-updateSampleInPiniaStore: " + effectStore.pipeLine.forEach(element => {console.log(element.sample)}));
+      //console.log("DEBUG udpateEffectStore: " + effectStore.pipeLine[0].selected);
+    },
+    applySelectedEffects() {
+      //switch case for samples in pinia store, add selected effects to choosen sample
     },
     
     toggleSelect() {
     this.isSelected = !this.isSelected;
     this.$forceUpdate();
   },
+  applyEffect() {
+    switch (this.numberSampler) {
+        case 1:
+          //Ginger
+          addEffectsGinger()
+          break;
+        case 2:
+          //addEffectsBlueSky()
+        default:
+          break;
+      }
+  }
   },
 
 

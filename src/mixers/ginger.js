@@ -36,8 +36,10 @@ let loopSynth;
 export function initPlayerLoopsGinger() {  
 pianoPlayer = new Tone.Player({
   url: pianoUrl,
+  debug: true,
 }).toDestination();
-gingerStore.pipeLine[0].player = pianoPlayer;
+
+
 
 drumsPlayer = new Tone.Player({
   url: drumsUrl,
@@ -79,6 +81,8 @@ loopRhodes = new Tone.Loop((time) => {
 loopSynth = new Tone.Loop((time) => {
   synthPlayer.start(time);
 },21).start(0);
+
+gingerStore.pipeLine[0].player = pianoPlayer;
 
 //Sets mute according to PiniaStore isPlaying
 gingerStore.pipeLine.forEach(element => {
@@ -188,100 +192,78 @@ export function stopSampleGinger() {
     }
   })
 }
-//HELPER FUNCTIONS
-function updateAfterInitGinger() {
-  
-}
-
 
 //#########################################################################################
 //Adds effects, with current values from Pinia Store
-export function addEffects() {
+//Global Array of current
+//let currentSelectedEffects = [];
+let delay;
+
+export function addEffectsGinger() {
+  let player = returnLastClickedSample();
+  //let currentlyConnectedEffectsObjects = [];
   effectStore.pipeLine.forEach(element => {
-    switch (element.sample) {
-      case 'PIANO':
-          //Value of Reverb
-          console.log("DEBUG: Reverb added!")
-          
-        break;
-      case 'DRUMS':
-        console.log("DEBUG-BACKEND: DRUMS VOLUME")
-        applyVolume(effectStore.pipeLine[0].value, drumsPlayer);
-        applyReverb(effectStore.pipeLine[1].value,drumsPlayer);
-        
-        //setTimeout(applyReverb(effectStore.pipeLine[1].value,drumsPlayer),2000);
-        
-        
-        //const volume = new Tone.Gain(1).toDestination();
-        //drumsPlayer.connect(volume);
-        
-        break;
-      case 'RHODES':
-
-        break;
-      case 'BASS':
-        
-        break;
-      case 'SYNTH':
-
-        break;
-      
-      default:
-        break;
+    if (element.selected) {
+      switch (element.id) {
+        case 'VOLUME':
+          let value = effectStore.pipeLine[0].value;
+          let volumeValues = [-50,-45,-40,-35,-30,-25,-20,-15,-10,-5,0];
+          player.volume.value = volumeValues[value];
+          effectStore.pipeLine[0].connected = true;
+          break;
+        case 'REVERB':
+          break;
+        case 'DELAY':
+          break;
+        case 'BITCRUSHER':
+          //const bitcrusher = new Tone.BitCrusher(effectStore.pipeLine[3]).toDestination();
+          //if (effectStore.pipeLine[3].effectObject == null) {
+          //  player.connect(bitcrusher)
+          //  effectStore.pipeLine[3].connected = true;
+          //  effectStore.pipeLine[3].effectObject = bitcrusher;
+          //  console.log("DEBUG: INITAL BITCRUSHER ADD");
+          //} else {
+          //player.disconnect(effectStore.pipeLine[3].effectObject);
+          //player.connect(Tone.getDestination());
+          //player.connect(bitcrusher);
+          //}
+          break;
+        default:
+          break;
+      }
+    } else {
+      switch (element.id) {
+        case 'VOLUME':
+          player.volume.value = 0;
+          effectStore.pipeLine[0].connected = false;
+          break;
+        case 'REVERB':
+          break;
+        case 'DELAY':
+        default:
+          break;
+      }
     }
   })
 }
 
 //Helper
-function applyVolume(value, player) {
-  //Initial Connect of Gain()-Effect
-  let calculatedValue = (value/10)-1;
-  const volume = new Tone.Gain(calculatedValue).toDestination();
-  
-  if (!effectStore.pipeLine[0].connected) {
-  effectStore.pipeLine[0].effectObject = volume;
-  player.connect(volume);
-  effectStore.pipeLine[0].connected = true;
-  } else {
-  player.disconnect(effectStore.pipeLine[0].effectObject);
-  effectStore.pipeLine[0].effectObject = volume;
-  player.connect(Tone.getDestination());
-  player.chain(volume, Tone.getDestination());
-  //effectStore.pipeLine[0].connected = false;
-
-  }
+function returnLastClickedSample() {
+    switch (effectStore.sample) {
+      case 'PIANO':
+        return pianoPlayer;
+      case 'DRUMS':
+        return drumsPlayer;
+      case 'BASS':
+        return bassPlayer;
+      case 'RHODES':
+        return rhodesPlayer;
+      case 'SYNTHS':
+        return synthPlayer;
+      default:
+        return null;
+        break;
+    }
 }
 
-function applyReverb(value,player) {
-   //Initial Connect of Gain()-Effect
-   //let calculatedValue = (value/10)-1;
-   if (value == 0) {
-      return;
-   }
-   const reverb = new Tone.Reverb(value).toDestination();
-   
-   if (!effectStore.pipeLine[1].connected) {
-   effectStore.pipeLine[1].effectObject = reverb;
-   player.connect(reverb);
-   effectStore.pipeLine[1].connected = true;
-   } else {
-   player.disconnect(effectStore.pipeLine[1].effectObject);
-   effectStore.pipeLine[1].effectObject = reverb;
-   player.connect(Tone.getDestination());
-   player.chain(reverb, Tone.getDestination());
-   //effectStore.pipeLine[0].connected = false;
- 
-   }
-}
-
-function applyDelay() {
-  
-}
-
-function applyFilter() {
-  
-}
-
-function chainEffects() {
-  
-}
+//Not in use yet

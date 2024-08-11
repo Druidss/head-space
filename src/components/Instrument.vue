@@ -35,8 +35,8 @@ const harshwindsStore = useHarshwindsStore();
 const theSoulStore = useThesoulStore();
 const featherweightStore = useFeatherweightStore();
 const atpeaceStore = useAtpeaceStore();
+
 const effectStore = useEffectStore();
-//const start = Tone.start();
 
 
 export default {
@@ -66,6 +66,8 @@ methods: {
   //console.log("Current Index: " + " "+  this.numberSampler + " AND " + this.text)
   this.findBeatAndStartSampler(this.numberSampler);
   this.toggleSelect();
+  //Adds last clicked Sample to EffectStore
+  this.updateSampleInPiniaStore();
   },
   findBeatAndStartSampler(numberSampler) {
     switch (numberSampler) {
@@ -177,11 +179,8 @@ methods: {
     this.$forceUpdate();
   },
   updateSampleInPiniaStore() {
-  //console.log("Effect should be played")
-  effectStore.pipeLine.forEach(element => {
-    element.sample = this.text;
-  })
-  console.log("DEBUG-updateSampleInPiniaStore: " + effectStore.pipeLine.forEach(element => {console.log(element.sample)}));
+  effectStore.sample = this.text;
+  //console.log("DEBUG-updateSampleInPiniaStore: current sample = " + effectStore.pipeLine[0].sample);
 } 
   }
 };

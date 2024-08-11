@@ -2,7 +2,7 @@
   <div class="bg-texture bg-cover bg-center h-screen w-screen">
     <NavigationColumn />
     <div class="w-screen">
-       <Carousel  ref="carousel" :beforeChange="cleanPlayersAndLoops">
+       <Carousel  ref="carousel" :beforeChange="handleClick">
         <MixerPlayer v-for="(track, index) in tracks" 
         :key="index" :name="track.name" :instruments="track.instruments"  
         :musicKey="track.key" :tempo="track.tempo" :numberSampler="track.number"
@@ -56,6 +56,8 @@ import { initPlayerLoopsThesoul,stopMixerThesoul } from '../mixers/thesoul';
 import { initPlayerLoopsFeatherweight, stopMixerFeatherweight } from '../mixers/featherweight';
 
 import { initPlayerLoopsAtpeace, stopMixerAtpeace } from '../mixers/atpeace';
+import { useEffectStore } from '../stores/effectStore';
+
 
 export default defineComponent( {
   name: 'Player',
@@ -76,6 +78,18 @@ export default defineComponent( {
     }
   },
   methods: {
+    handleClick(currentSlide){
+      this.cleanPlayersAndLoops(currentSlide);
+      this.resetEffectStore(currentSlide);
+    },
+    resetEffectStore() {
+      const effectStore = useEffectStore();
+      effectStore.reset();
+      console.log("DEBUG: EffectStore RESET");
+      console.log(effectStore.pipeLine);
+      
+      
+    },
     //Slides are indezes starting with 0
     //Currently deprecated: caused double init
     initPlayersAndLoops(currentSlide) {

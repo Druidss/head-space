@@ -9,6 +9,7 @@ import synthUrl from "../assets/Albumstems/02Bluesky/BLUESKYSYNTH.mp3"
 
 
 const blueSkyStore = useBlueskyStore();
+const effectStore = useEffectStore();
 //TODO:EFFEKT STORE
 //Load playSampleBluesky and stopSampleBluesky in store
 blueSkyStore.play = playSampleBlueSky;
@@ -181,3 +182,68 @@ export function stopSampleBlueSky() {
     })
   }
 
+export function addEffectsBluesky() {
+  let player = returnLastClickedSample();
+  //let currentlyConnectedEffectsObjects = [];
+  effectStore.pipeLine.forEach(element => {
+    if (element.selected) {
+      switch (element.id) {
+        case 'VOLUME':
+          let value = effectStore.pipeLine[0].value;
+          let volumeValues = [-50,-45,-40,-35,-30,-25,-20,-15,-10,-5,0];
+          player.volume.value = volumeValues[value];
+          effectStore.pipeLine[0].connected = true;
+          break;
+        case 'REVERB':
+          break;
+        case 'DELAY':
+          break;
+        case 'BITCRUSHER':
+          //const bitcrusher = new Tone.BitCrusher(effectStore.pipeLine[3]).toDestination();
+          //if (effectStore.pipeLine[3].effectObject == null) {
+          //  player.connect(bitcrusher)
+          //  effectStore.pipeLine[3].connected = true;
+          //  effectStore.pipeLine[3].effectObject = bitcrusher;
+          //  console.log("DEBUG: INITAL BITCRUSHER ADD");
+          //} else {
+          //player.disconnect(effectStore.pipeLine[3].effectObject);
+          //player.connect(Tone.getDestination());
+          //player.connect(bitcrusher);
+          //}
+          break;
+        default:
+          break;
+      }
+    } else {
+      switch (element.id) {
+        case 'VOLUME':
+          player.volume.value = 0;
+          effectStore.pipeLine[0].connected = false;
+          break;
+        case 'REVERB':
+          break;
+        case 'DELAY':
+        default:
+          break;
+      }
+    }
+  })
+}
+
+function returnLastClickedSample() {
+  switch (effectStore.sample) {
+    case 'CHORDS':
+      return chordPlayer;
+    case 'DRUMS':
+      return drumsPlayer;
+    case 'BASS':
+      return bassPlayer;
+    case 'ONESHOTS':
+      return oneshotPlayer;
+    case 'SYNTH':
+      return synthPlayer;
+    default:
+      return null;
+      break;
+  }
+}
