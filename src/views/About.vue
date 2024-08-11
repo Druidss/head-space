@@ -3,11 +3,11 @@
     <NavigationColumn /></div>
 
   <div class="w-300 bg-texture">
-  <div class="w-screen max-h-screen">
-    <div class=" w-9/12 h-screen ml-20 flex flex-row .carousel-container">
+  <div class="w-screen">
+    <div class=" w-9/12 h-screen mx-auto ml-20 flex flex-row">
       <div class="carousel">
           <div v-for="(img, index) in images" :key="index" class="carousel-item ">
-            <img :src="img" alt="" class="mt-20">
+            <img :src="img" alt="" class="mt-28">
           </div>
           
       </div>
@@ -47,7 +47,7 @@ export default {
 
 <style scoped>
 .w-300{
-  width: 500vh;
+  width: 490vh;
   height: 100vh;
   background-size: contain;
   background-position: center;
@@ -55,12 +55,6 @@ export default {
   z-index: -999;
 }
 
-
-.carousel-container {
-  overflow-x: auto;
-  overflow-y: hidden;
-  position: absolute;
-}
 .carousel {
   display: flex;
   width: 300%; 
