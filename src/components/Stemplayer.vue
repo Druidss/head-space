@@ -73,6 +73,55 @@ import { startMixerHarshwinds,stopMixerHarshwinds } from '../mixers/harshwinds';
 import { startMixerThesoul,stopMixerThesoul } from '../mixers/thesoul';
 import { startMixerFeatherweight,stopMixerFeatherweight } from '../mixers/featherweight';
 import { startMixerAtpeace,stopMixerAtpeace } from '../mixers/atpeace';
+import gingerUrl from "../assets/Fullalbum/FULLALBUM/1GingerAL01.wav"
+import blueskyUrl from "../assets/Fullalbum/FULLALBUM/2BlueskyAL01.wav"
+import hoehenAngstUrl from "../assets/Fullalbum/FULLALBUM/3HoehenangstAL01.wav"
+import sanctuaryUrl from "../assets/Fullalbum/FULLALBUM/4SanctuaryAL01.wav"
+import waldbodenUrl from "../assets/Fullalbum/FULLALBUM/5WaldbodenAL01.wav"
+import harshwindsUrl from "../assets/Fullalbum/FULLALBUM/6HarshWindsAL02.wav"
+import thesoulUrl from "../assets/Fullalbum/FULLALBUM/7TheSoulAL01.wav"
+import featherweightUrl from "../assets/Fullalbum/FULLALBUM/8FeatherWeightAL01.wav"
+import atpeaceUrl from "../assets/Fullalbum/FULLALBUM/9AtPeaceAL02.wav"
+
+
+
+const gingerPlayer = new Tone.Player({
+        url: gingerUrl,
+        autostart: false
+      }).toDestination();
+const blueskyPlayer = new Tone.Player({
+  url: blueskyUrl,
+  autostart: false
+}).toDestination();
+const hoehenangstPlayer = new Tone.Player({
+  url: hoehenAngstUrl,
+  autostart: false
+}).toDestination();
+const sanctuaryPlayer = new Tone.Player({
+  url: sanctuaryUrl,
+  autostart: false
+}).toDestination();
+const waldbodenPlayer = new Tone.Player({
+  url: waldbodenUrl,
+  autostart: false
+}).toDestination();
+const harshwindsPlayer = new Tone.Player({
+  url: harshwindsUrl,
+  autostart: false
+}).toDestination();
+const thesoulPlayer = new Tone.Player({
+  url: thesoulUrl,
+  autostart: false
+}).toDestination();
+const featherweightPlayer = new Tone.Player({
+  url: featherweightUrl,
+  autostart: false
+}).toDestination();
+const atpeacePlayer = new Tone.Player({
+  url: atpeaceUrl,
+  autostart: false
+}).toDestination();
+
 
 export default {
   components: {
@@ -114,70 +163,69 @@ export default {
   methods: {
     handleClick() {
       this.togglePlayPause();
-      //startTransportGinger();
       switch (this.number) {
         case 1:
-        if(Tone.getTransport().state == 'started') {
-          stopMixerGinger();
+        if(gingerPlayer.state == 'started') {
+          
+          gingerPlayer.stop();
         } else {
-          startMixerGinger();
+          gingerPlayer.start();
         };
           break;
         case 2:
-        if(Tone.getTransport().state == 'started') {
-          stopMixerBluesky();
-          console.log("Mixer Bluesky stopped")
+        if(blueskyPlayer.state == 'started') {
+          blueskyPlayer.stop();
         } else {
-          startMixerBluesky();
+          blueskyPlayer.start();
         };
           break;
         case 3:
-        if(Tone.getTransport().state == 'started') {
-          stopMixerHoehenangst();
+        if(hoehenangstPlayer.state == 'started') {
+          hoehenangstPlayer.stop();
         } else {
-          startMixerHoehenangst();
+          hoehenangstPlayer.start();
         };
           break;
         case 4:
-        if(Tone.getTransport().state == 'started') {
-          stopMixerSanctuary();
+        if(sanctuaryPlayer.state == 'started') {
+          sanctuaryPlayer.stop();
         } else {
-          startMixerSanctuary();
+          sanctuaryPlayer.start();
         };
           break;
         case 5:
-        if(Tone.getTransport().state == 'started') {
-          stopMixerWaldboden();
+        if(waldbodenPlayer.state == 'started') {
+          waldbodenPlayer.stop();
         } else {
-          startMixerWaldboden();
+          waldbodenPlayer.start();
         };
           break;
         case 6:
-        if(Tone.getTransport().state == 'started') {
-          stopMixerHarshwinds();
+        if(harshwindsPlayer.state == 'started') {
+          harshwindsPlayer.stop();
         } else {
-          startMixerHarshwinds();
+          harshwindsPlayer.start();
         };
           break;
         case 7:
-        if(Tone.getTransport().state == 'started') {
-          stopMixerThesoul();
+        if(thesoulPlayer.state == 'started') {
+          thesoulPlayer.stop();
         } else {
-          startMixerThesoul();
+          thesoulPlayer.start();
         };
           break;
         case 8:
-        if(Tone.getTransport().state == 'started') {
-          stopMixerFeatherweight();
+        if(featherweightPlayer.state == 'started') {
+          featherweightPlayer.stop();
         } else {
-          startMixerFeatherweight();
+          featherweightPlayer.start();
         };
           break;
         case 9:
-        if(Tone.getTransport().state == 'started') {
-          stopMixerAtpeace();
+        if(atpeacePlayer.state == 'started') {
+          atpeacePlayer.stop();
         } else {
-          startMixerAtpeace();
+          atpeacePlayer.start();
         };
           break;
         default:

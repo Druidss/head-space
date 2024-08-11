@@ -17,7 +17,15 @@
 import * as Tone from 'tone';
 import { useEffectStore } from '../stores/effectStore';
 
+import { addEffectsBluesky } from '../mixers/bluesky';
 import { addEffectsGinger } from '../mixers/ginger';
+import { addEffectsHoehenangst } from '../mixers/hoehenangst';
+import { addEffectsSanctuary } from '../mixers/sanctuary';
+import { addEffectsWaldboden } from '../mixers/waldboden';
+import { addEffectsHarshwinds } from '../mixers/harshwinds';
+import { addEffectsThesoul } from '../mixers/thesoul';
+import { addEffectsFeatherweight } from '../mixers/featherweight';
+import { addEffectsAtpeace } from '../mixers/atpeace';
 
 const effectStore = useEffectStore();
 
@@ -80,10 +88,32 @@ methods: {
     switch (this.numberSampler) {
         case 1:
           //Ginger
-          addEffectsGinger()
+          addEffectsGinger();
           break;
         case 2:
-          //addEffectsBlueSky()
+          addEffectsBluesky();
+          break;
+        case 3:
+          addEffectsHoehenangst();
+          break;
+        case 4:
+          addEffectsSanctuary();
+          break;
+        case 5:
+          addEffectsWaldboden();
+          break;
+        case 6:
+          addEffectsHarshwinds();
+          break;
+        case 7:
+          addEffectsThesoul();
+          break;
+        case 8:
+          addEffectsFeatherweight();
+          break;
+        case 9:
+          addEffectsAtpeace();
+          break;
         default:
           break;
       }
