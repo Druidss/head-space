@@ -91,6 +91,7 @@ export default {
         case 1:
           //Ginger
           addEffectsGinger()
+
           break;
         case 2:
           addEffectsBluesky()
@@ -126,7 +127,7 @@ export default {
     const valueDelay = ref(0);
     const valueBitcrusher = ref(0);
 
-    return { valueVolume, updateStore, applyEffects };
+    return { valueVolume, applyEffects };
   },
 }
 </script>
