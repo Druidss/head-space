@@ -5,8 +5,6 @@ import Pause from '@/components/Pause.vue'
 import Instrument from '@/components/Instrument.vue'
 import { Slider,ConfigProvider } from 'ant-design-vue';
 import group from '@/assets/images/group.png';
-
-
 import { useEffectStore } from '../stores/effectStore';
 import { ref } from 'vue';
 import  { addEffectsGinger } from "../mixers/ginger";
@@ -128,21 +126,16 @@ export default {
     const valueDelay = ref(0);
     const valueBitcrusher = ref(0);
 
-    return { valueVolume,valueReverb,valueDelay,valueBitcrusher };
+    return { valueVolume, updateStore, applyEffects };
   },
 }
-  
-  // const valueVolume = ref(0);
-  // const valueReverb = ref(0);
-  // const valueDelay = ref(0);
-  // const valueFliter = ref(0);
 </script>
 
 <template>
   <ConfigProvider           
     :theme="{
       token: {
-      colorPrimary: '#FFB700',
+      colorPrimary: '#7F4634',
       },
     }" 
   >
@@ -155,39 +148,46 @@ export default {
           </div>
          
         <!-- player -->
-        <div class="flex items-center justify-center border-2 border-vi mb-8 py-16 px-8 md:p-6">
-
+        <div class="flex items-center justify-center border-2 border-vi mb-8 pb-8">
           <div class="w-30">
             <h1 class=" giner text-3xl text-vi bg-viWhite font-display  text-center p-2 font-bold border-2 border-vi">"{{ name }}"</h1>
-            <div class="grid justify-center">
+            <div class="grid justify-center gap-10">
               <Pause  class="p-4 bg-vi" text="Pause" :numberSampler="numberSampler"/>
-              <Rectangle class=''text="Key" :number="musicKey" />
-              <Rectangle class='' text="Tempo"  :number="tempo" />
+              <Rectangle class=''text="Key" :number="musicKey"  />
+              <Rectangle class='flex justify-bettween' text="Tempo"  :number="tempo" />
             </div>
           </div>
 
           <div class="w-70">
-            <h1 class="text-xl text-left mx-8  px-4 font-display bg-viSelect linear giner"
+            <h1 class="text-xl text-left mx-8 mt-20 mb-2 px-4 font-display bg-viSelect linear giner"
             >EFFECT BOARD</h1>
-            <div class="h-1/2 bg-gray-800 m-8 mb-4 flex flex-row justify-between ">
+            <div class="h-1/2 bg-gray-800 mx-8 mt-6 mb-4 flex flex-row justify-between ">
               <div class="flex flex-col">
-                <Effect text="VOLUME" img="https://i.imgur.com/AxET1xh.png" :numberSampler="numberSampler"/>
+                <Effect text="VOLUME" img="https://i.imgur.com/6v1j1UP.png"
+                selectedImg="https://i.imgur.com/vhkyGLz.png" :numberSampler="numberSampler"
+                />
                 <Slider id="volume" class="" v-model:value="valueVolume" :min="0" :max="10" @change="handleClick('VOLUME',$event)" />
                 </div>
 
                 <div class="flex flex-col">
-                <Effect text="REVERB" img="https://i.imgur.com/vpjAkpT.png" :numberSampler="numberSampler"/>
-                <Slider id="reverb" v-model:value="valueReverb" :min="0" :max="10" @change="handleClick('REVERB',$event)" />
+                <Effect text="REVERB" img="https://i.imgur.com/nR4zWpL.png" 
+                 selectedImg="https://i.imgur.com/3k3ziaB.png" :numberSampler="numberSampler"
+                />
+                <Slider id="volume" class="" v-model:value="valueVolume" :min="0" :max="10" @change="handleClick('REVERB',$event)" />
                 </div> 
 
                 <div class="flex flex-col">
-                <Effect text="DELAY" img="https://i.imgur.com/8N9tFCn.png" :numberSampler="numberSampler"/>
-                <Slider id="delay" v-model:value="valueDelay" :min="0" :max="10" @change="handleClick('DELAY',$event)"/>
+                <Effect text="DELAY" img="https://i.imgur.com/jO6OF29.png" 
+                  selectedImg="https://i.imgur.com/int6frq.png" :numberSampler="numberSampler"
+                />
+                <Slider id="volume" class="" v-model:value="valueVolume" :min="0" :max="10" @change="handleClick('DELAY',$event)" />
                 </div>
                 
                 <div class="flex flex-col">
-                <Effect text="BITCRUSHER" img="https://i.imgur.com/YyuaWX9.png" :numberSampler="numberSampler"/>
-                <Slider id="bitcrusher" v-model:value="valueFliter" :min="0" :max="10" @change="handleClick('BITCRUSHER', $event)"/>
+                <Effect text="FILTER" img="https://i.imgur.com/Rsu6sex.png"
+                  selectedImg="https://i.imgur.com/mV2Ejwy.png" :numberSampler="numberSampler"
+                />
+                <Slider id="volume" class="" v-model:value="valueVolume" :min="0" :max="10" @change="handleClick('FILTER',$event)" />
                 </div>
             </div>
             <h1 class="text-xl text-left mx-8 font-display bg-viSelect px-4 linear giner">INSTRUMENT BOARD</h1>
@@ -198,8 +198,14 @@ export default {
           </div>
         </div>
         <!-- button -->
-      <div class="flex justify-end items-center ">
-        <button class="rounded-full mb-2  px-4 py-1 text-white  border-vi border-2 linear hover:bg-viSelect font-goudy text-xs mb-">DOWNLOAD SONG STEMS </button>
+      <div class="flex justify-center items-center">
+        <button class="rounded-full mb-4  px-4 py-1 text-white  border-vi border-2 linear hover:bg-viSelect text-sm text-vi font-display">
+          <a href="https://ditto.fm/coast-to-coast-john-da-lemon" target="_blank"
+          class="hover:no-underline hover:text-viBlack focus:no-underline text-display text-sm "
+          >
+          Listen on Streaming Platform 
+          </a>
+        </button>
       </div>
 
     
