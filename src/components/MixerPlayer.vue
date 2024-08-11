@@ -125,9 +125,9 @@ export default {
     const valueVolume = ref(10);
     const valueReverb = ref(0);
     const valueDelay = ref(0);
-    const valueBitcrusher = ref(0);
+    const valueFilter = ref(0);
 
-    return { valueVolume, applyEffects };
+    return { valueVolume };
   },
 }
 </script>
@@ -174,21 +174,21 @@ export default {
                 <Effect text="REVERB" img="https://i.imgur.com/nR4zWpL.png" 
                  selectedImg="https://i.imgur.com/3k3ziaB.png" :numberSampler="numberSampler"
                 />
-                <Slider id="volume" class="" v-model:value="valueVolume" :min="0" :max="10" @change="handleClick('REVERB',$event)" />
+                <Slider id="reverb" class="" v-model:value="valueReverb" :min="0" :max="10" @change="handleClick('REVERB',$event)" />
                 </div> 
 
                 <div class="flex flex-col">
                 <Effect text="DELAY" img="https://i.imgur.com/jO6OF29.png" 
                   selectedImg="https://i.imgur.com/int6frq.png" :numberSampler="numberSampler"
                 />
-                <Slider id="volume" class="" v-model:value="valueVolume" :min="0" :max="10" @change="handleClick('DELAY',$event)" />
+                <Slider id="delay" class="" v-model:value="valueDelay" :min="0" :max="10" @change="handleClick('DELAY',$event)" />
                 </div>
                 
                 <div class="flex flex-col">
                 <Effect text="FILTER" img="https://i.imgur.com/Rsu6sex.png"
                   selectedImg="https://i.imgur.com/mV2Ejwy.png" :numberSampler="numberSampler"
                 />
-                <Slider id="volume" class="" v-model:value="valueVolume" :min="0" :max="10" @change="handleClick('FILTER',$event)" />
+                <Slider id="filter" class="" v-model:value="valueFilter" :min="0" :max="10" @change="handleClick('FILTER',$event)" />
                 </div>
             </div>
             <h1 class="text-xl text-left mx-8 font-display bg-viSelect px-4 linear giner">INSTRUMENT BOARD</h1>
